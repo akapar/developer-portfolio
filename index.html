@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of a software developer crafting creative and high-performance mobile apps, desktop systems, and Google Workspace add-ons.">
+    <title>AKA Labs | Creative Engineering & Smart Solutions</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- Paper Grain Texture Overlay -->
+    <div class="grain-overlay"></div>
+
+    <!-- Navigation -->
+    <header>
+        <div class="container navbar">
+            <a href="#" class="logo" id="logoLink">AKA <span>Labs</span></a>
+            <ul class="nav-links">
+                <li><a href="#" class="active" id="navHome">01 // Home</a></li>
+                <li><a href="#apps" id="navApps">02 // My Apps</a></li>
+                <li><a href="#skills" id="navSkills">03 // Tech Stack</a></li>
+                <li><a href="#contact" id="navContact">04 // Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section (Asymmetric Editorial Layout) -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <span class="hero-badge">Smart Solutions & Apps</span>
+                <h1>Crafting tools of <br><span>absolute precision.</span></h1>
+                <p>Supercharge your digital productivity with local-first, privacy-respecting cross-platform mobile apps, automated Google Workspace extensions, and high-performance desktop utilities built to optimize complex daily workflows.</p>
+                <div class="hero-buttons">
+                    <a href="#apps" class="btn btn-primary"><i class="fa-solid fa-compass"></i> Explore Solutions</a>
+                    <a href="#contact" class="btn btn-secondary"><i class="fa-solid fa-envelope"></i> Get In Touch</a>
+                </div>
+            </div>
+            
+            <!-- Terminal Live Simulation Widget -->
+            <div class="hero-terminal">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <div class="terminal-dot"></div>
+                        <div class="terminal-dot"></div>
+                        <div class="terminal-dot"></div>
+                    </div>
+                    <div class="terminal-title">aka-lab-terminal.sh</div>
+                </div>
+                <div class="terminal-body" id="terminalBody">
+                    <div class="terminal-line"><span class="muted">1  </span>$ <span class="accent">init-system-logs</span> --verbose</div>
+                    <div class="terminal-line"><span class="muted">2  </span><span class="success">[ok]</span> Lab environment initialized.</div>
+                    <div class="terminal-line"><span class="muted">3  </span><span class="success">[ok]</span> Local-first secure sandbox ready.</div>
+                    <div class="terminal-line"><span class="muted">4  </span>$ <span class="accent">load-projects</span> --target=dava-belgelerim</div>
+                    <div class="terminal-line"><span class="muted">5  </span><span class="muted">[status]</span> Parsing UDF document structure...</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apps Showcase Section (Asymmetric Bento Grid) -->
+    <section class="portfolio" id="apps">
+        <div class="container">
+            <span class="section-meta">[ 02 / PORTFOLIO ]</span>
+            <div class="section-header">
+                <h2>Featured <span>Applications</span></h2>
+                <p>Niche desktop, mobile, and workspace tools built with privacy-first architectures to streamline legal and productivity tasks.</p>
+            </div>
+
+            <!-- Sliding Capsule Category Filters -->
+            <div class="filter-wrapper">
+                <div class="filter-controls" id="filterControls">
+                    <div class="filter-indicator" id="filterIndicator"></div>
+                    <button class="filter-btn active" data-filter="all" id="filterAll">All Tools</button>
+                    <button class="filter-btn" data-filter="legal" id="filterLegal">Legal Tech</button>
+                    <button class="filter-btn" data-filter="productivity" id="filterProductivity">Productivity</button>
+                </div>
+            </div>
+
+            <!-- Dynamic Asymmetric Cards Grid -->
+            <div class="app-grid" id="appGrid">
+                <!-- App cards will be dynamically injected by Javascript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section (Spec-Sheet Style) -->
+    <section class="tech-stack" id="skills">
+        <div class="container">
+            <span class="section-meta">[ 03 / CORE CAPABILITIES ]</span>
+            <div class="section-header">
+                <h2>Technical <span>Specifications</span></h2>
+                <p>Engineering platforms, languages, and local-first data services utilized to build secure and scalable client/server tools.</p>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <span class="skill-type">[ UI / Cross-Platform ]</span>
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                    <h4>Flutter & Dart</h4>
+                    <p>Highly responsive native compilation for Android, iOS, Windows, macOS, and Linux from a single codebase.</p>
+                </div>
+                <div class="skill-card">
+                    <span class="skill-type">[ Scripting & Automation ]</span>
+                    <i class="fa-brands fa-google"></i>
+                    <h4>Google Apps Script</h4>
+                    <p>Building Workspace add-ons, automating Google Sheets/Docs, and integrating custom APIs seamlessly.</p>
+                </div>
+                <div class="skill-card">
+                    <span class="skill-type">[ Web & Extensions ]</span>
+                    <i class="fa-brands fa-js"></i>
+                    <h4>JavaScript / TS</h4>
+                    <p>Developing lightweight browser extensions, secure client-side parsers, and interactive UI states.</p>
+                </div>
+                <div class="skill-card">
+                    <span class="skill-type">[ Local Database ]</span>
+                    <i class="fa-solid fa-database"></i>
+                    <h4>SQLite & Hive</h4>
+                    <p>Offline-first storage architectures ensuring user data never leaves their local device sandboxes.</p>
+                </div>
+                <div class="skill-card">
+                    <span class="skill-type">[ Systems Scripting ]</span>
+                    <i class="fa-brands fa-python"></i>
+                    <h4>Python</h4>
+                    <p>Automated desktop data converters, document parsers, and custom terminal command utilities.</p>
+                </div>
+                <div class="skill-card">
+                    <span class="skill-type">[ Server-Side ]</span>
+                    <i class="fa-solid fa-terminal"></i>
+                    <h4>Node.js / Express</h4>
+                    <p>Minimal server utilities for sandboxed file routing, secure web hooks, and REST APIs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section (Invitation Style) -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-box">
+                <h3>Let's build a <span>custom solution</span></h3>
+                <p>Interested in bespoke legal automation, customized Google Sheets workflow extensions, or offline-first desktop systems? Reach out to coordinate an engineering consultation.</p>
+                <a href="mailto:support@kapar.org" class="btn btn-primary" id="emailBtn">
+                    <i class="fa-solid fa-paper-plane"></i> Initiate Consultation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 AKA Labs. All Rights Reserved. Engineered with a minimal offline-first aesthetic.</p>
+        </div>
+    </footer>
+
+    <!-- JS Logic -->
+    <script src="js/app.js"></script>
+</body>
+</html>

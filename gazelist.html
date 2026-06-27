@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gazelist - A private, nested task manager and Pomodoro focus timer. Break down complex goals, track focus sessions, and sync securely with Google Drive.">
+    <title>Gazelist | Private Hierarchical Task Manager & Focus Timer</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <style>
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--color-accent);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 2.5rem;
+            transition: var(--transition);
+        }
+        .back-link:hover {
+            color: var(--text-primary);
+            transform: translateX(-5px);
+        }
+        .app-detail-hero {
+            padding: 140px 0 50px;
+            position: relative;
+        }
+        .app-detail-grid {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .app-detail-logo {
+            width: 140px;
+            height: 140px;
+            border-radius: 12px;
+            background: #11100e;
+            border: 1px solid var(--card-border);
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+        .app-detail-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .app-detail-title h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+        .app-detail-title h1 span {
+            font-style: italic;
+            color: var(--color-accent);
+        }
+        .app-detail-title p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+        }
+        
+        .feature-showcase {
+            padding: 20px 0 120px;
+        }
+        .directory-badge {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--color-accent);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .feature-block {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 6px;
+            padding: 3.5rem;
+            margin-bottom: 3.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .feature-block h3 {
+            font-family: var(--font-serif);
+            font-size: 2.1rem;
+            font-weight: 400;
+            margin-bottom: 1.75rem;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            color: var(--text-primary);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 1rem;
+        }
+        .feature-block h3 i {
+            color: var(--color-accent);
+            font-size: 1.8rem;
+        }
+        .feature-block > p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        .feature-item {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            border-radius: 4px;
+            padding: 2rem;
+            transition: var(--transition);
+        }
+        .feature-item:hover {
+            border-color: var(--card-border-hover);
+            background: var(--card-bg-hover);
+            transform: translateY(-3px);
+        }
+        .feature-item h4 {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .feature-item h4 i {
+            font-size: 1.1rem;
+            color: var(--color-accent);
+        }
+        .feature-item p {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .feature-item code {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: var(--color-accent);
+        }
+        
+        .security-badge-box {
+            background: linear-gradient(135deg, rgba(229, 169, 117, 0.04), rgba(140, 166, 140, 0.04));
+            border: 1px solid var(--card-border);
+            border-radius: 6px;
+            padding: 2.5rem;
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+        .security-badge-box i {
+            font-size: 2.8rem;
+            color: var(--color-accent);
+            margin-top: 0.25rem;
+        }
+        .security-badge-box div h5 {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+        .security-badge-box div p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+        
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+        }
+        .download-card {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid var(--card-border);
+            border-radius: 6px;
+            padding: 2.25rem 1.75rem;
+            text-align: center;
+            transition: var(--transition);
+        }
+        .download-card:hover {
+            border-color: var(--color-accent);
+            background: var(--card-bg-hover);
+            transform: translateY(-3px);
+        }
+        .download-card i {
+            font-size: 2.8rem;
+            margin-bottom: 1.25rem;
+            color: var(--color-accent);
+        }
+        .download-card h4 {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        .download-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+        
+        @media (max-width: 768px) {
+            .app-detail-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 1.5rem;
+            }
+            .app-detail-logo {
+                margin: 0 auto;
+            }
+            .feature-block {
+                padding: 2rem 1.5rem;
+            }
+            .security-badge-box {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+        
+        /* Screenshot layout classes */
+        .feature-block-split {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        .screenshot-container {
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--card-border);
+            background: #000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: center;
+            max-width: 260px;
+            margin: 0 auto;
+            transition: var(--transition);
+        }
+        .screenshot-container:hover {
+            transform: scale(1.03);
+            border-color: var(--color-accent);
+        }
+        .screenshot-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        @media (max-width: 1024px) {
+            .feature-block-split {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .screenshot-container {
+                max-width: 240px;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Paper Grain Texture Overlay -->
+    <div class="grain-overlay"></div>
+
+    <!-- Navigation -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">AKA <span>Labs</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">01 // Return</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- App Detail Hero Section -->
+    <section class="app-detail-hero">
+        <div class="container">
+            <a href="index.html#apps" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i> Return to Portfolio
+            </a>
+            
+            <div class="app-detail-grid">
+                <div class="app-detail-logo">
+                    <img src="assets/gazelist_logo.png" alt="Gazelist Logo">
+                </div>
+                <div class="app-detail-title">
+                    <h1>Gaze<span>list</span></h1>
+                    <p>Hierarchical task management combined with task-bound focus timers and zero-compromise cloud sync.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Showcase Directory -->
+    <section class="feature-showcase">
+        <div class="container">
+            
+            <!-- 1. Task Hierarchy & Folder Organization -->
+            <div class="feature-block">
+                <div class="feature-block-split">
+                    <div>
+                        <span class="directory-badge">Section 01 // Project Architecture</span>
+                        <h3><i class="fa-solid fa-folder-tree"></i> Task Hierarchy & Folder Organization</h3>
+                        <p>Break away from flat, unstructured checklists. Gazelist enables you to model your life, work, and creative ideas exactly as they exist: in rich, nested hierarchies.</p>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h4><i class="fa-solid fa-sitemap"></i> Nested Subtasks</h4>
+                                <p>Subdivide complex goals into micro-milestones. Create sub-tasks inside high-level folders, or nest tasks under other tasks to any depth without limits.</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4><i class="fa-solid fa-hand-pointer"></i> Drag-and-Drop Nesting</h4>
+                                <p>Re-organize list architecture with kinetic drag gestures. Drop a task onto another to nest it, or slide it out to elevate its hierarchical rank.</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4><i class="fa-solid fa-keyboard"></i> Smart Folders (ALL CAPS)</h4>
+                                <p>Create folders instantly. Typing a task name in <code>ALL CAPS</code> (e.g., <code>"WORK"</code> or <code>"HEALTH"</code>) immediately converts the element into a folder.</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4><i class="fa-solid fa-sliders"></i> Folder Controls</h4>
+                                <p>Collapse or expand nodes with a single tap. Folders display a subtask counter (e.g., <code>5 tasks</code>) and offer quick sorting by due dates.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screenshot-container">
+                        <img src="assets/gazelist_tasks.jpg" alt="Gazelist Task List & Hierarchy Screenshot">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Focus Timer & Session Control -->
+            <div class="feature-block">
+                <div class="feature-block-split">
+                    <div>
+                        <span class="directory-badge">Section 02 // Deep Work Module</span>
+                        <h3><i class="fa-solid fa-hourglass-start"></i> Integrated Focus Timer & Session Control</h3>
+                        <p>Bridge the gap between task management and active execution. Link your Pomodoro focus intervals directly to individual tasks in your list.</p>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h4><i class="fa-solid fa-play"></i> Task-Bound Timers</h4>
+                                <p>Start Pomodoro timers directly from any task tile. The session remains tied to the task, logging real-time focus analytics automatically.</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4><i class="fa-solid fa-mug-hot"></i> Interval Management</h4>
+                                <p>Maintain peak performance. Enjoy smooth, customizable transitions between focus intervals, short breaks, and long breaks.</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4><i class="fa-solid fa-bell"></i> Custom Notification Audio</h4>
+                                <p>High-quality chimes to end sessions: <em>Tingsha Cymbal</em> (default), <em>Glass Cup Spoon Chime</em>, or <em>Bass & Drums Loop</em> (130 BPM ambient track).</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4><i class="fa-solid fa-volume-high"></i> Audio Settings Playground</h4>
+                                <p>Preview and test notification audio, adjust volume settings, or reset back to default parameters with a single tap in the settings panel.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screenshot-container">
+                        <img src="assets/gazelist_timer.jpg" alt="Gazelist Pomodoro Timer Countdown Screenshot">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Inline Tags & Smart Metadata -->
+            <div class="feature-block">
+                <span class="directory-badge">Section 03 // Workspace Metadata</span>
+                <h3><i class="fa-solid fa-hashtag"></i> Inline Tags & Smart Metadata</h3>
+                <p>Categorize and filter your task database on the fly using standard markdown formatting right in the text title input.</p>
+                
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-pen-nib"></i> Instant Tagging</h4>
+                        <p>Type <code>#</code> or <code>@</code> (e.g., <code>#writing</code>, <code>@urgent</code>) inside your title. The parser styles tags in bold automatically for quick visual scanning.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-filter"></i> One-Tap Tag Filtering</h4>
+                        <p>Tap any tag directly inside a task's title to immediately filter the workspace. Only items carrying that specific tag will remain on screen.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-list-ul"></i> Auto-Complete Panel</h4>
+                        <p>Typing <code>#</code> or <code>@</code> pops up a clean autocomplete overlay above the keyboard, listing active tags sorted by popularity.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-book-open"></i> Global Tag Directory</h4>
+                        <p>The system actively tracks, registers, and indexes your entire database of tags based on usage frequency.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Time Planning & Due Dates -->
+            <div class="feature-block">
+                <span class="directory-badge">Section 04 // Time Management</span>
+                <h3><i class="fa-solid fa-calendar-check"></i> Time Planning & Due Dates</h3>
+                <p>Plan out your days, keep an eye on upcoming project milestones, and ensure deadlines are met with natural language scheduling.</p>
+                
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-calendar-day"></i> Calendar Pickers</h4>
+                        <p>Set absolute deadlines using a clean, custom calendar overlay date-picker designed for fast interaction.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-comment-dots"></i> Relative Date Indicators</h4>
+                        <p>Due dates display in natural language, automatically calculating labels like <code>"Today"</code>, <code>"Yesterday"</code>, or <code>"3 days later"</code>.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-triangle-exclamation"></i> Overdue Warnings</h4>
+                        <p>Late items are automatically highlighted in red warning tones and sorted under a distinct, high-priority <code>"LATE"</code> header.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-toggle-on"></i> Default Due Dates</h4>
+                        <p>Toggle an option in settings to automatically schedule all newly created tasks for <code>"Today"</code>, eliminating scheduling friction.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Habit Building & Recurrence -->
+            <div class="feature-block">
+                <span class="directory-badge">Section 05 // Routine Automation</span>
+                <h3><i class="fa-solid fa-arrows-spin"></i> Habit Building & Recurrence</h3>
+                <p>Establish persistent daily routines and track repetitive work obligations with minimal configuration overhead.</p>
+                
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-arrow-rotate-left"></i> Flexible Repeat Rules</h4>
+                        <p>Write rules directly to schedule recurring tasks: daily <code>"1d"</code>, weekly <code>"1w"</code>, or customized interval spans like <code>"~4d"</code>.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-clock"></i> Automatic Rescheduling</h4>
+                        <p>Upon completing a repeating task, the database automatically creates the next occurrence, keeping habit progress uninterrupted.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. Frictionless Action Controls & Editing -->
+            <div class="feature-block">
+                <span class="directory-badge">Section 06 // Interaction Mechanics</span>
+                <h3><i class="fa-solid fa-bolt"></i> Frictionless Action Controls & Editing</h3>
+                <p>Manage lists at lightning speed with advanced touch gestures, batch editors, and inline state changes.</p>
+                
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-object-group"></i> Multi-Select & Batch Actions</h4>
+                        <p>Tap task circles to select multiple items. Batch-edit notes, due dates, planned durations, recurrence rules, or perform bulk deletion.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-left-right"></i> Swipe Gestures</h4>
+                        <p>Customize swipe actions. Swipe right to toggle completion, and swipe left to trigger delete, edit, timer, or postponement.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-ellipsis-vertical"></i> Contextual Popup Menus</h4>
+                        <p>Quick access to secondary operations on task tiles: create child items, adjust detail dialogs, add notes, or view category metrics.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-pen-to-square"></i> Inline Title Editing</h4>
+                        <p>Tap any task name text to edit it inline. Pressing <code>Enter</code> or clicking outside instantly saves the changes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. Historical Analytics & Reports -->
+            <div class="feature-block">
+                <div class="feature-block-split">
+                    <div>
+                        <span class="directory-badge">Section 07 // Data & Analytics</span>
+                        <h3><i class="fa-solid fa-chart-column"></i> Historical Analytics & Reports</h3>
+                        <p>Reflect on your accomplishments and discover temporal patterns in your productivity logs with advanced analytics.</p>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h4><i class="fa-solid fa-chart-bar"></i> Progress Charts</h4>
+                                <p>Visualize completed tasks, target milestones, and focused durations over the last 30 days via clean, custom responsive bar charts.</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4><i class="fa-solid fa-calendar-days"></i> Custom Date Spans</h4>
+                                <p>Filter focus logs, completed items, and performance trends using a custom date range picker in the analytics dashboard.</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4><i class="fa-solid fa-receipt"></i> Daily Activity Logs</h4>
+                                <p>Inspect detailed historical records of completed tasks grouped by day, displaying exactly how much focus time was spent on each item.</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4><i class="fa-solid fa-trash-can-arrow-up"></i> No Lost Work Logs</h4>
+                                <p>Even if a task is deleted, its logged focus hours are preserved in reports, styled with a line-through and a <code>(Deleted)</code> label.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screenshot-container">
+                        <img src="assets/gazelist_stats.jpg" alt="Gazelist Productivity Analytics & Charts Screenshot">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. Google Drive Cloud Sync & Security -->
+            <div class="feature-block">
+                <div class="feature-block-split">
+                    <div>
+                        <span class="directory-badge">Section 08 // Sync & Security</span>
+                        <h3><i class="fa-solid fa-cloud-arrow-up"></i> Google Drive Cloud Sync & Security</h3>
+                        <p>Sync tasks across all devices automatically without putting your private data on proprietary third-party servers.</p>
+                        
+                        <div class="security-badge-box">
+                            <i class="fa-brands fa-google-drive"></i>
+                            <div>
+                                <h5>100% User-Owned Security Model</h5>
+                                <p>Your task databases and focus logs sync directly to your personal <strong>Google Drive App Data folder</strong>. No mid-tier proxy servers, no database mining, and no tracking. All conflict resolution merges (using local-vs-cloud <code>updatedAt</code> timestamps) happen securely client-side.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screenshot-container">
+                        <img src="assets/gazelist_settings.jpg" alt="Gazelist Google Drive Cloud Sync Settings Screenshot">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 9. Accessibility & Personalization -->
+            <div class="feature-block">
+                <span class="directory-badge">Section 09 // UI Customization</span>
+                <h3><i class="fa-solid fa-palette"></i> Accessibility & Personalization</h3>
+                <p>Tailor the task environment to fit your physical needs, visual aesthetics, and cultural background.</p>
+                
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-language"></i> Localized in 10 Languages</h4>
+                        <p>Full localization: English, Turkish, German, Spanish, French, Italian, Japanese, Korean, Portuguese, and Chinese.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-text-height"></i> Dynamic Text Scaling</h4>
+                        <p>Adjust font size sliders in settings. The interface dynamically scales elements and buttons to remain accessible.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-brush"></i> UI Accent Themes</h4>
+                        <p>Customize primary visual accents and window background styles to match your focus mindset directly in Settings.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10. Search & Onboarding -->
+            <div class="feature-block">
+                <span class="directory-badge">Section 10 // Onboarding Playground</span>
+                <h3><i class="fa-solid fa-lightbulb"></i> Onboarding & Search</h3>
+                <p>Get up to speed immediately with interactive in-app tutorials that guide you through practical examples.</p>
+                
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-magnifying-glass"></i> Global Search Bar</h4>
+                        <p>Instantly filter the workspace listing by typing keywords, tag values, or folder categories.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-gamepad"></i> Interactive Learning Quests</h4>
+                        <p>Load mock tasks under the folder <code>"Welcome to Gazelist! 🎯"</code> to practice task nesting, timer initialization, and swiping.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-circle-check"></i> Tutorial Cleanup</h4>
+                        <p>A completion modal celebrates your tutorial completion, providing options to instantly delete or reset practice tasks.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Platform Downloads -->
+            <div class="feature-block">
+                <h3><i class="fa-solid fa-download"></i> Get Gazelist Today</h3>
+                <p>Download Gazelist across all major desktop and mobile systems to synchronize your deep focus task workflows.</p>
+                
+                <div class="download-grid">
+                    <div class="download-card">
+                        <i class="fa-brands fa-windows"></i>
+                        <h4>Windows</h4>
+                        <p>High-performance native executable for Windows 10 & 11.</p>
+                        <a href="#" class="btn btn-secondary">Download Installer</a>
+                    </div>
+                    <div class="download-card">
+                        <i class="fa-brands fa-apple"></i>
+                        <h4>macOS</h4>
+                        <p>Universal build for Intel & Apple Silicon Macs.</p>
+                        <a href="#" class="btn btn-secondary">Download Disk Image</a>
+                    </div>
+                    <div class="download-card">
+                        <i class="fa-brands fa-android"></i>
+                        <h4>Android</h4>
+                        <p>Install via Google Play Store or sideload APK.</p>
+                        <a href="#" class="btn btn-secondary">Google Play Store</a>
+                    </div>
+                    <div class="download-card">
+                        <i class="fa-solid fa-mobile-screen"></i>
+                        <h4>iOS</h4>
+                        <p>Download directly on iPad and iPhone devices.</p>
+                        <a href="#" class="btn btn-secondary">Apple App Store</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 AKA Labs. Gazelist is a registered trademark of AKA Labs.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

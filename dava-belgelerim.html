@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dava Belgelerim - Hukukçular ve UYAP kullanıcıları için geliştirilmiş, akıllı arama, not alma, kolay paylaşım ve evrak düzenleme özelliklerine sahip dijital arşiv asistanınız.">
+    <title>Dava Belgelerim | Hukukçular İçin Akıllı Dijital Arşiv Asistanı</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <style>
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--color-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            transition: var(--transition);
+        }
+        .back-link:hover {
+            color: var(--text-primary);
+            transform: translateX(-5px);
+        }
+        .app-detail-hero {
+            padding: 140px 0 40px;
+            text-align: left;
+        }
+        .app-detail-grid {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 2rem;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .app-detail-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+            background: rgba(11, 15, 25, 0.5);
+            border: 1px solid var(--card-border);
+            padding: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .app-detail-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .app-detail-title h1 {
+            font-family: var(--font-headings);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .app-detail-title p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+        }
+        .feature-showcase {
+            padding: 40px 0 100px;
+        }
+        .feature-block {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            backdrop-filter: blur(12px);
+        }
+        .feature-block h3 {
+            font-family: var(--font-headings);
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-primary);
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+            padding-bottom: 1rem;
+        }
+        .feature-block h3 i {
+            color: var(--color-secondary);
+        }
+        .feature-block > p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .feature-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: var(--transition);
+        }
+        .feature-item:hover {
+            border-color: rgba(6, 182, 212, 0.2);
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.03);
+        }
+        .feature-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .feature-item h4 i {
+            font-size: 1.1rem;
+            color: var(--color-secondary);
+        }
+        .feature-item p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .security-badge-box {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(6, 182, 212, 0.08));
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+        .security-badge-box i {
+            font-size: 2.5rem;
+            color: var(--color-secondary);
+            margin-top: 0.25rem;
+        }
+        .security-badge-box div h5 {
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        .security-badge-box div p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+        .download-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1.75rem 1.5rem;
+            text-align: center;
+            transition: var(--transition);
+        }
+        .download-card:hover {
+            border-color: var(--color-primary);
+            background: rgba(255, 255, 255, 0.04);
+            transform: translateY(-3px);
+        }
+        .download-card i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .download-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        .download-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.25rem;
+            line-height: 1.5;
+        }
+        @media (max-width: 768px) {
+            .app-detail-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 1rem;
+            }
+            .app-detail-logo {
+                margin: 0 auto;
+            }
+            .feature-block {
+                padding: 2rem 1.5rem;
+            }
+            .security-badge-box {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glow-bg glow-1"></div>
+    <div class="glow-bg glow-2"></div>
+
+    <!-- Navigation -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">AKA Labs</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Geri Dön</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- App Detail Hero Section -->
+    <section class="app-detail-hero">
+        <div class="container">
+            <a href="index.html#apps" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i> Portföye Geri Dön
+            </a>
+            
+            <div class="app-detail-grid">
+                <div class="app-detail-logo">
+                    <img src="assets/dava_belgelerim_logo.png" alt="Dava Belgelerim Logo">
+                </div>
+                <div class="app-detail-title">
+                    <h1>Dava Belgelerim</h1>
+                    <p>Hukukçular İçin Akıllı Dijital Arşiv ve UYAP Dosya Görüntüleyici</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Details Section -->
+    <section class="feature-showcase">
+        <div class="container">
+            
+            <!-- Intro description -->
+            <div class="feature-block">
+                <h3><i class="fa-solid fa-lightbulb"></i> Kolaylaştırılmış İş Akışı</h3>
+                <p>Mahkeme evrakları, UYAP dosyaları ve taranmış belgeler arasında kaybolmaktan yoruldunuz mu? <strong>Dava Belgelerim</strong>, avukatların ve hukuk profesyonellerinin günlük dosya okuma ve inceleme süreçlerini tamamen dijitalleştiren kişisel arşiv asistanınızdır.</p>
+                <p>Binlerce sayfalık dava dosyalarını çantanızda veya bilgisayarınızın dağınık klasörlerinde taşımak yerine; tüm belgelerinizi cebinizde toplayabilir, üzerlerinde notlar alarak dosya inceleme süreçlerinizi hızlandırabilirsiniz.</p>
+            </div>
+
+            <!-- Core File Reading Benefits -->
+            <div class="feature-block">
+                <h3><i class="fa-solid fa-eye"></i> 📄 Dava Dosyalarınıza Tek Noktadan Erişin</h3>
+                <p>Farklı formatlardaki dava dosyalarını açabilmek için bilgisayarınıza veya telefonunuza onlarca program kurmanıza gerek kalmaz:</p>
+                
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-file-invoice"></i> Tüm Evraklar Tek Yerde</h4>
+                        <p>UYAP sistemine özel <strong>.udf</strong> uzantılı dava dosyalarını, resmi <strong>.pdf</strong> evraklarını ve taranmış adli evrakları (<strong>.tiff</strong>) tek bir uygulama içerisinden kolayca açıp okuyabilirsiniz.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-wand-magic-sparkles"></i> Okunamayan Belgeleri Temizleyin</h4>
+                        <p>Tarayıcılardan kalitesiz veya karanlık şekilde taranmış adli belgelerin arka planını bembeyaz, yazılarını ise koyu siyah yaparak metinlerin okunmasını kolaylaştırır ve bunları doğrudan PDF formatına çevirir.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-computer"></i> Çift Tıklamayla Hızlı Açış</h4>
+                        <p>Bilgisayarınızdaki herhangi bir UDF dosyasına çift tıkladığınızda sistem otomatik olarak bu uygulamayı açarak size hız kazandırır.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sharing and Conversion Benefits -->
+            <div class="feature-block">
+                <h3><i class="fa-solid fa-share-nodes"></i> 📤 Kolay Paylaşım ve Hızlı PDF Dönüşümü</h3>
+                <p>UDF ve TIFF gibi açılması zor olan özel hukuki belge formatlarını, herkesin okuyabileceği evrensel PDF standartlarına dönüştürerek paylaşın ve zaman kazanın:</p>
+                
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-file-pdf"></i> Tek Tıkla PDF Olarak Gönderin</h4>
+                        <p>UYAP'tan indirilen .udf dosyalarını doğrudan gönderdiğinizde karşı taraf bu formatı açamaz. Uygulama sayesinde incelediğiniz dava dilekçesini veya mahkeme kararını tek tıkla otomatik olarak PDF'e dönüştürerek doğrudan WhatsApp veya e-posta üzerinden müvekkillerinizle paylaşabilirsiniz.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-sparkles"></i> Temizlenmiş Belgeleri Paylaşın</h4>
+                        <p>Eski nesil tarayıcılardan çıkmış kararmış, okunaksız TIFF evraklarını uygulama üzerinde netleştirip bembeyaz bir PDF haline getirdikten sonra meslektaşlarınıza, stajyerlerinize veya mahkemeye sunulacak temiz bir biçimde gönderebilirsiniz. <em>(Gelişmiş TIFF paylaşımı Premium ayrıcalığıdır).</em></p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-floppy-disk"></i> PDF Olarak Cihaza İndirin</h4>
+                        <p>UDF veya taranmış evrakları sadece görüntülemekle kalmayın; cihazınıza doğrudan standart PDF formatında kaydederek arşivleyebilir veya yazdırmak üzere hazır hale getirebilirsiniz.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-arrows-spin"></i> Akıllı Toplu Dönüştürme</h4>
+                        <p>Tek tek dosya açıp kaydetme zahmetine son verin! Yüzlerce UDF veya taranmış TIFF belgesi içeren bir klasörü (müvekkil adı > dava yılı > duruşma evrakları gibi alt klasörler de dahil) sisteme gösterip, arka planda otomatik olarak PDF'e dönüştürerek temiz bir arşiv klasörüne aktarabilirsiniz. Dönüşüm öncesi bulunan dosya sayısını görebilir, gerçek zamanlı ilerleme takibi yapabilir ve dilediğiniz an işlemi durdurabilirsiniz.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search and Archiving Benefits -->
+            <div class="feature-block">
+                <h3><i class="fa-solid fa-magnifying-glass"></i> 🔍 Binlerce Belge İçinden Aradığınızı Saniyeler İçinde Bulun</h3>
+                <p>Arşivinizdeki belgeleri tek tek açıp okumak zorunda kalmadan aradığınız bilgiye anında ulaşın:</p>
+                
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-folder-tree"></i> Toplu Evrak Aktarımı</h4>
+                        <p>Bilgisayarınızdaki veya telefonunuzdaki bir klasörü seçerek, alt klasörler de dahil olmak üzere içerisindeki tüm dava evraklarını tek seferde arşivinize yükleyebilirsiniz.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-bolt"></i> Tüm Arşivde Tek Seferde Arama</h4>
+                        <p>Dosyalarınızı tek tek açmakla vakit kaybetmeyin. Aradığınız bir müvekkil ismini, kanun maddesini veya kelimeyi arama çubuğuna yazın; asistanınız hangi dosyalarda bu kelimenin geçtiğini saniyeler içinde bulup çıkarsın.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-tags"></i> Otomatik Klasörleme ve Etiket</h4>
+                        <p>Belge metnini tarayan akıllı asistanınız, evrakın hangi mahkemeye, dairesine veya başsavcılığa ait olduğunu otomatik tespit eder ve arşivinizi sizin yerinize düzenler.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-arrow-down-long"></i> Belge İçi Otomatik Yönlendirme</h4>
+                        <p>Açık olan belgenin içinde aradığınız kelimelerin geçtiği paragrafı anında bulur ve sayfayı otomatik olarak o satıra kaydırır.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Annotation and Work Benefits -->
+            <div class="feature-block">
+                <h3><i class="fa-solid fa-feather-pointed"></i> ✍️ Dilekçeleriniz Üzerinde Kağıt Konforunda Çalışın</h3>
+                <p>Dijital dünyada da tıpkı basılı kağıtlar üzerinde çalışıyormuş gibi rahat edin:</p>
+                
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-highlighter"></i> Fosforlu Kalemle Çizin</h4>
+                        <p>Belgeyi incelerken önemli gördüğünüz satırların veya delil kısımlarının üzerini fosforlu kalemle çizerek belirginleştirebilirsiniz.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-comment-dots"></i> Paragraflara Not Ekleyin</h4>
+                        <p>Mahkeme evrakının yanına kendi savunma stratejilerinizi, hatırlatmalarınızı veya hukuki notlarınızı ekleyebilirsiniz.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-clock-rotate-left"></i> Notlarınız Asla Kaybolmaz</h4>
+                        <p>Evraka eklediğiniz tüm notlar ve çizimler cihazınızda saklanır. Aynı dava dosyasını günler sonra tekrar açtığınızda tüm notlarınızı tam bıraktığınız yerde bulursunuz.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UX and Customization Benefits -->
+            <div class="feature-block">
+                <h3><i class="fa-solid fa-circle-half-stroke"></i> 📱 Konforlu Okuma ve Kolay Geçmiş Yönetimi</h3>
+                <p>Yoğun çalışma saatlerinde gözlerinizi yormayan ve geçmişe kolayca erişmenizi sağlayan pratik özellikler:</p>
+                
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-moon"></i> Gece ve Gündüz Modu</h4>
+                        <p>Koyu renkli ekran tasarımı seçeneğiyle, özellikle gece saatlerinde veya düşük ışıkta gözleriniz yorulmadan çalışabilirsiniz.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-text-height"></i> Yazı Boyutunu Kendinize Göre Ayarlayın</h4>
+                        <p>Yazı boyutunu tek hareketle büyütebilir veya küçültebilirsiniz; telefon ve bilgisayar ekranlarına göre en rahat okuma ölçeği otomatik ayarlanır.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-history"></i> Kaldığınız Yerden Devam Edin</h4>
+                        <p>En son açtığınız belgelere göreli tarihlerle ("Bugün 14:30", "Dün sabah") kolayca erişin ve okumaya tam kaldığınız yerden başlayın.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security and Privacy Benefits -->
+            <div class="feature-block">
+                <h3><i class="fa-solid fa-lock"></i> 🔒 Avukat - Müvekkil Gizliliği (KVKK & Meslek Sırrı Güvenliği)</h3>
+                <p>Savunma dosyalarınızın ve hassas verilerinizin gizliliğini mesleki sorumluluğumuz olarak görüyoruz.</p>
+                
+                <div class="security-badge-box">
+                    <i class="fa-solid fa-user-shield"></i>
+                    <div>
+                        <h5>Sunucusuz Çalışma ile %100 Yerel Güvenlik</h5>
+                        <p>Uygulamada açtığınız dava belgeleri, dilekçeler, notlar ve imzalar <strong>asla harici bir internet sunucusuna yüklenmez, depolanmaz ve işlenmez.</strong> Tüm dosya açma, temizleme, arama ve not ekleme işlemleri doğrudan kendi bilgisayarınızda veya telefonunuzda gerçekleştirilir. Belgeleriniz sadece sizin kontrolünüzdedir.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Download Block -->
+            <div class="feature-block">
+                <h3><i class="fa-solid fa-circle-down"></i> İndir ve Kur</h3>
+                <p>Dava Belgelerim uygulamasını cihazınıza indirerek dava dosyalarınızı düzenlemeye ve akıllı arşivinizi oluşturmaya hemen başlayabilirsiniz.</p>
+                
+                <div class="download-grid">
+                    <div class="download-card">
+                        <i class="fa-brands fa-windows"></i>
+                        <h4>Windows Masaüstü</h4>
+                        <p>Akıllı Dijital Arşiv ve UYAP Dosya Görüntüleyicinizi ücretsiz edinin.</p>
+                        <a href="#" class="btn btn-secondary">Yükleyiciyi İndir</a>
+                    </div>
+                    <div class="download-card">
+                        <i class="fa-brands fa-android"></i>
+                        <h4>Android Mobil</h4>
+                        <p>Google Play Store üzerinden veya APK olarak yükleyin. UYAP belgelerini hızlıca açın, inceleyin ve dönüştürün.</p>
+                        <a href="#" class="btn btn-secondary">Play Store</a>
+                    </div>
+                    <div class="download-card">
+                        <i class="fa-brands fa-apple"></i>
+                        <h4>iOS Mobil</h4>
+                        <p>App Store üzerinden indirin. iPad veya iPhone cihazınızda davalarınızı taşınabilir ve pratik olarak inceleyin.</p>
+                        <a href="#" class="btn btn-secondary">App Store</a>
+                    </div>
+                    <div class="download-card">
+                        <i class="fa-brands fa-linux"></i>
+                        <h4>Linux Masaüstü</h4>
+                        <p>Pardus ve Debian tabanlı Linux dağıtımları için kurulum paketi. Akıllı Dijital Arşiv ve UYAP Dosya Görüntüleyicinizi ücretsiz edinin.</p>
+                        <a href="#" class="btn btn-secondary">Yükleyiciyi İndir</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 AKA Labs. Tüm Hakları Saklıdır. Dava Belgelerim, AKA Yazılım ürünüdür.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
