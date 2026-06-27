@@ -60,6 +60,21 @@ const appsData = [
         termsLink: "https://docs.google.com/document/d/1E7JcIYNrASBJGuPS7mJ1Uvtl5zlyAAe8pR7OYr_5A6M/edit?usp=drive_link"
     },
     {
+        id: "uyap-indirici",
+        title: "UYAP İndirici",
+        category: "legal",
+        featured: false,
+        badge: "Tarayıcı Eklentisi",
+        icon: "fa-solid fa-cloud-arrow-down",
+        image: "assets/uyap_indirici_logo.jpg",
+        description: "UYAP Vatandaş ve Avukat portallarındaki dava dosyası evraklarını otomatik olarak tarayan, filtreleyen, indiren ve mahkeme/esas numarasına göre klasörleyen akıllı tarayıcı eklentisi.",
+        tags: ["Chrome Extension", "JavaScript", "UYAP Automation", "File Downloader", "Local Archive"],
+        primaryLink: "uyap-indirici.html",
+        primaryLabel: "Detaylar",
+        secondaryLink: null,
+        secondaryLabel: null
+    },
+    {
         id: "aka-manage-calendar",
         title: "AKA Manage Calendar",
         category: "productivity",

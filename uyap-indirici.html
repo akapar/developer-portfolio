@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="UYAP İndirici - UYAP Vatandaş ve Avukat portallarındaki dava dosyası evraklarını otomatik olarak tarayın, filtreleyin, indiren ve esas numarasına göre düzenli klasörleyen tarayıcı eklentisi.">
+    <title>UYAP İndirici | Otomatik Evrak İndirme ve Düzenleme Asistanı</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <style>
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--color-accent);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 2.5rem;
+            transition: var(--transition);
+        }
+        .back-link:hover {
+            color: var(--text-primary);
+            transform: translateX(-5px);
+        }
+        .app-detail-hero {
+            padding: 140px 0 50px;
+            position: relative;
+        }
+        .app-detail-grid {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .app-detail-logo {
+            width: 140px;
+            height: 140px;
+            border-radius: 12px;
+            background: #11100e;
+            border: 1px solid var(--card-border);
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+        .app-detail-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .app-detail-title h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+        .app-detail-title h1 span {
+            font-style: italic;
+            color: var(--color-accent);
+        }
+        .app-detail-title p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+        }
+        
+        .feature-showcase {
+            padding: 20px 0 120px;
+        }
+        .directory-badge {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--color-accent);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .feature-block {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 6px;
+            padding: 3.5rem;
+            margin-bottom: 3.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .feature-block h3 {
+            font-family: var(--font-serif);
+            font-size: 2.1rem;
+            font-weight: 400;
+            margin-bottom: 1.75rem;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            color: var(--text-primary);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 1rem;
+        }
+        .feature-block h3 i {
+            color: var(--color-accent);
+            font-size: 1.8rem;
+        }
+        .feature-block > p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        .feature-item {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            border-radius: 4px;
+            padding: 2rem;
+            transition: var(--transition);
+        }
+        .feature-item:hover {
+            border-color: var(--card-border-hover);
+            background: var(--card-bg-hover);
+            transform: translateY(-3px);
+        }
+        .feature-item h4 {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .feature-item h4 i {
+            font-size: 1.1rem;
+            color: var(--color-accent);
+        }
+        .feature-item p {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .feature-item code {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: var(--color-accent);
+        }
+        
+        .security-badge-box {
+            background: linear-gradient(135deg, rgba(229, 169, 117, 0.04), rgba(140, 166, 140, 0.04));
+            border: 1px solid var(--card-border);
+            border-radius: 6px;
+            padding: 2.5rem;
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+        .security-badge-box i {
+            font-size: 2.8rem;
+            color: var(--color-accent);
+            margin-top: 0.25rem;
+        }
+        .security-badge-box div h5 {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+        .security-badge-box div p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+        
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+        }
+        .download-card {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid var(--card-border);
+            border-radius: 6px;
+            padding: 2.25rem 1.75rem;
+            text-align: center;
+            transition: var(--transition);
+        }
+        .download-card:hover {
+            border-color: var(--color-accent);
+            background: var(--card-bg-hover);
+            transform: translateY(-3px);
+        }
+        .download-card i {
+            font-size: 2.8rem;
+            margin-bottom: 1.25rem;
+            color: var(--color-accent);
+        }
+        .download-card h4 {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        .download-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+        
+        @media (max-width: 768px) {
+            .app-detail-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 1.5rem;
+            }
+            .app-detail-logo {
+                margin: 0 auto;
+            }
+            .feature-block {
+                padding: 2rem 1.5rem;
+            }
+            .security-badge-box {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Paper Grain Texture Overlay -->
+    <div class="grain-overlay"></div>
+
+    <!-- Navigation -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">AKA <span>Labs</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">01 // Geri Dön</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- App Detail Hero Section -->
+    <section class="app-detail-hero">
+        <div class="container">
+            <a href="index.html#apps" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i> Portföye Geri Dön
+            </a>
+            
+            <div class="app-detail-grid">
+                <div class="app-detail-logo">
+                    <img src="assets/uyap_indirici_logo.jpg" alt="UYAP İndirici Logo">
+                </div>
+                <div class="app-detail-title">
+                    <h1>UYAP <span>İndirici</span></h1>
+                    <p>UYAP Vatandaş ve Avukat portalları için otomatik evrak indirme, filtreleme ve akıllı klasörleme asistanı.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Showcase Directory -->
+    <section class="feature-showcase">
+        <div class="container">
+            
+            <!-- Intro Description -->
+            <div class="feature-block">
+                <span class="directory-badge">Giriş // İş Akışı Otomasyonu</span>
+                <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Zamandan Tasarruf Edin</h3>
+                <p>Dava dosyalarındaki yüzlerce evrakı tek tek tıklayıp indirmekten ve bilgisayarınızda karmaşık, düzensiz klasör yapıları oluşturmaktan yoruldunuz mu? <strong>UYAP İndirici</strong>, avukatlar, stajyerler ve vatandaşlar için bu evrak indirme sürecini tamamen otomatikleştiren, tarayıcı kilitlenmelerini önleyen güvenli ve zaman kazandıran bir Chrome uyumlu eklentidir.</p>
+            </div>
+
+            <!-- Core Features -->
+            <div class="feature-block">
+                <span class="directory-badge">Özellikler // Temel Fonksiyonlar</span>
+                <h3><i class="fa-solid fa-star"></i> Öne Çıkan Özellikler</h3>
+                
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-folder-open"></i> Akıllı Dosya Gruplama</h4>
+                        <p>İndirilen tüm evraklar davanın mahkeme adına ve esas numarasına göre (Örn: <code>UYAP_indirici/İstanbul 6. Aile Mahkemesi - 2022_58/Delil Dilekçesi/belge.pdf</code>) düzenli alt klasörler halinde kaydedilir. İndirilenler klasörünüz asla dağılmaz.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-filter"></i> Anahtar Kelime Filtreleme</h4>
+                        <p>Sadece ilgilendiğiniz evrak türlerini indirin. Eklenti; "Tensip Zaptı", "Dava Dilekçesi", "Bilirkişi Raporu", "Duruşma Zaptı" gibi önceden tanımlanmış filtrelerle hazır gelir. Kendi özel filtrelerinizi de ekleyebilirsiniz.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-list-ol"></i> Güvenli İndirme Sırası</h4>
+                        <p>UYAP sunucu limitlerine takılmamak ve tarayıcınızın kilitlenmesini önlemek için belgeler sırayla ve güvenli zaman aralıklarıyla (rate-limited) indirilir.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-clock-rotate-left"></i> Mükerrer İndirme Engeli</h4>
+                        <p>Eklenti, daha önce indirdiğiniz evrakları yerel belleğinde tutar. Dosyaya yeni evrak eklendiğinde sadece güncel belgeleri indirerek kota ve zaman tasarrufu sağlar.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security and Privacy -->
+            <div class="feature-block">
+                <span class="directory-badge">Gizlilik // %100 Güvenlik</span>
+                <h3><i class="fa-solid fa-shield-halved"></i> Avukat-Müvekkil Gizliliği ve KVKK Uyumu</h3>
+                <p>Savunma evraklarınızın ve kişisel verilerinizin gizliliğini mesleki sorumluluğumuz olarak görüyoruz.</p>
+                
+                <div class="security-badge-box">
+                    <i class="fa-solid fa-lock"></i>
+                    <div>
+                        <h5>Verileriniz Yerel Cihazınızda Kalır</h5>
+                        <p>UYAP İndirici eklentisi tamamen kendi tarayıcınızda ve yerel olarak çalışır. UYAP şifrelerinizi, dava bilgilerinizi veya evrak verilerinizi <strong>asla hiçbir uzak sunucuya göndermez, üçüncü şahıslarla paylaşmaz.</strong> Sistem veri gizliliği kurallarına ve KVKK standartlarına %100 uyumludur.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why install -->
+            <div class="feature-block">
+                <span class="directory-badge">Avantajlar // Neden Yüklemelisiniz?</span>
+                <h3><i class="fa-solid fa-circle-question"></i> Neden Kullanmalısınız?</h3>
+                
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-bolt"></i> Saatler Değil, Saniyeler</h4>
+                        <p>Saatler süren manuel evrak indirme ve düzenleme işlemlerini tek bir tıklamayla saniyeler içinde tamamlayarak dosya inceleme sürecinizi hızlandırın.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-circle-check"></i> Hataları Sıfırlayın</h4>
+                        <p>Önemli bir evrakı indirmeyi atlama veya yanlış dava klasörüne kaydetme gibi insan kaynaklı hataları sıfıra indirin.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-magnifying-glass"></i> Hızlı Arşiv Erişimi</h4>
+                        <p>Mahkeme adları, esas numaraları ve belge türlerine göre otomatik oluşturulan arşiviniz sayesinde aradığınız evraka anında ulaşın.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How it works -->
+            <div class="feature-block">
+                <span class="directory-badge">Kılavuz // Nasıl Kullanılır?</span>
+                <h3><i class="fa-solid fa-terminal"></i> Kolay Kurulum ve Kullanım Adımları</h3>
+                
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h4>1. Eklentiyi Yükleyin</h4>
+                        <p>Eklentiyi Chrome Web Mağazası'ndan tarayıcınıza ekleyin (Chrome, Edge, Brave, Opera ve Vivaldi ile uyumludur).</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>2. Portala Giriş Yapın</h4>
+                        <p>UYAP Vatandaş veya Avukat portalına giriş yapın, bir dava dosyasını açıp "Evrak" sekmesini görüntüleyin.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>3. Analiz Edin</h4>
+                        <p>Sağ üstteki eklenti simgesine tıklayıp açılan menüden "Analiz Et ve Raporla" butonuna basın.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>4. İndirmeyi Başlatın</h4>
+                        <p>Belgeler listelendikten sonra "Yeni Dosyaları İndir" butonuna basarak arkanıza yaslanın; eklenti her şeyi halledecektir.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Platform Downloads -->
+            <div class="feature-block">
+                <h3><i class="fa-solid fa-download"></i> Eklentiyi edinin</h3>
+                <p>UYAP İndirici eklentisini Chrome Web Mağazası üzerinden tarayıcınıza hemen yükleyebilirsiniz.</p>
+                
+                <div class="download-grid">
+                    <div class="download-card">
+                        <i class="fa-brands fa-chrome"></i>
+                        <h4>Chrome Web Store</h4>
+                        <p>Tarayıcınıza tek tıkla kurarak hemen kullanmaya başlayın.</p>
+                        <a href="https://chromewebstore.google.com" target="_blank" class="btn btn-secondary">Web Mağazasına Git</a>
+                    </div>
+                    <div class="download-card">
+                        <i class="fa-brands fa-edge"></i>
+                        <h4>Edge & Brave & Opera</h4>
+                        <p>Chrome Web Mağazası desteği olan tüm Chromium tabanlı tarayıcılarla tam uyumludur.</p>
+                        <a href="https://chromewebstore.google.com" target="_blank" class="btn btn-secondary">Uyumlu Kurulum</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 AKA Labs. Tüm Hakları Saklıdır. UYAP İndirici, bir AKA Yazılım ürünüdür.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
