@@ -249,6 +249,46 @@
                 text-align: center;
             }
         }
+        
+        /* Screenshot layout classes */
+        .feature-block-split {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        .screenshot-container {
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--card-border);
+            background: #000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: center;
+            max-width: 320px;
+            margin: 0 auto;
+            transition: var(--transition);
+        }
+        .screenshot-container:hover {
+            transform: scale(1.03);
+            border-color: var(--color-accent);
+        }
+        .screenshot-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        @media (max-width: 1024px) {
+            .feature-block-split {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .screenshot-container {
+                max-width: 280px;
+                margin-top: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -298,25 +338,32 @@
 
             <!-- Core Features -->
             <div class="feature-block">
-                <span class="directory-badge">Özellikler // Temel Fonksiyonlar</span>
-                <h3><i class="fa-solid fa-star"></i> Öne Çıkan Özellikler</h3>
-                
-                <div class="feature-list">
-                    <div class="feature-item">
-                        <h4><i class="fa-solid fa-folder-open"></i> Akıllı Dosya Gruplama</h4>
-                        <p>İndirilen tüm evraklar davanın mahkeme adına ve esas numarasına göre (Örn: <code>UYAP_indirici/İstanbul 6. Aile Mahkemesi - 2022_58/Delil Dilekçesi/belge.pdf</code>) düzenli alt klasörler halinde kaydedilir. İndirilenler klasörünüz asla dağılmaz.</p>
+                <div class="feature-block-split">
+                    <div>
+                        <span class="directory-badge">Özellikler // Temel Fonksiyonlar</span>
+                        <h3><i class="fa-solid fa-star"></i> Öne Çıkan Özellikler</h3>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h4><i class="fa-solid fa-folder-open"></i> Akıllı Dosya Gruplama</h4>
+                                <p>İndirilen tüm evraklar davanın mahkeme adına ve esas numarasına göre (Örn: <code>UYAP_indirici/İstanbul 6. Aile Mahkemesi - 2022_58/Delil Dilekçesi/belge.pdf</code>) düzenli alt klasörler halinde kaydedilir. İndirilenler klasörünüz asla dağılmaz.</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4><i class="fa-solid fa-filter"></i> Anahtar Kelime Filtreleme</h4>
+                                <p>Sadece ilgilendiğiniz evrak türlerini indirin. Eklenti; "Tensip Zaptı", "Dava Dilekçesi", "Bilirkişi Raporu", "Duruşma Zaptı" gibi önceden tanımlanmış filtrelerle hazır gelir. Kendi özel filtrelerinizi de ekleyebilirsiniz.</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4><i class="fa-solid fa-list-ol"></i> Güvenli İndirme Sırası</h4>
+                                <p>UYAP sunucu limitlerine takılmamak ve tarayıcınızın kilitlenmesini önlemek için belgeler sırayla ve güvenli zaman aralıklarıyla (rate-limited) indirilir.</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4><i class="fa-solid fa-clock-rotate-left"></i> Mükerrer İndirme Engeli</h4>
+                                <p>Eklenti, daha önce indirdiğiniz evrakları yerel belleğinde tutar. Dosyaya yeni evrak eklendiğinde sadece güncel belgeleri indirerek kota ve zaman tasarrufu sağlar.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="feature-item">
-                        <h4><i class="fa-solid fa-filter"></i> Anahtar Kelime Filtreleme</h4>
-                        <p>Sadece ilgilendiğiniz evrak türlerini indirin. Eklenti; "Tensip Zaptı", "Dava Dilekçesi", "Bilirkişi Raporu", "Duruşma Zaptı" gibi önceden tanımlanmış filtrelerle hazır gelir. Kendi özel filtrelerinizi de ekleyebilirsiniz.</p>
-                    </div>
-                    <div class="feature-item">
-                        <h4><i class="fa-solid fa-list-ol"></i> Güvenli İndirme Sırası</h4>
-                        <p>UYAP sunucu limitlerine takılmamak ve tarayıcınızın kilitlenmesini önlemek için belgeler sırayla ve güvenli zaman aralıklarıyla (rate-limited) indirilir.</p>
-                    </div>
-                    <div class="feature-item">
-                        <h4><i class="fa-solid fa-clock-rotate-left"></i> Mükerrer İndirme Engeli</h4>
-                        <p>Eklenti, daha önce indirdiğiniz evrakları yerel belleğinde tutar. Dosyaya yeni evrak eklendiğinde sadece güncel belgeleri indirerek kota ve zaman tasarrufu sağlar.</p>
+                    <div class="screenshot-container">
+                        <img src="assets/uyap_indirici_screenshot.png" alt="UYAP İndirici Eklenti Arayüzü Ekran Görüntüsü">
                     </div>
                 </div>
             </div>
