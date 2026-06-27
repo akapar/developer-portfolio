@@ -66,7 +66,7 @@ const appsData = [
         featured: false,
         badge: "Tarayıcı Eklentisi",
         icon: "fa-solid fa-cloud-arrow-down",
-        image: "assets/uyap_indirici_logo.png",
+        image: "assets/uyap_indirici_logo.jpg",
         description: "UYAP Vatandaş ve Avukat portallarındaki dava dosyası evraklarını otomatik olarak tarayan, filtreleyen, indiren ve mahkeme/esas numarasına göre klasörleyen akıllı tarayıcı eklentisi.",
         tags: ["Chrome Extension", "JavaScript", "UYAP Automation", "File Downloader", "Local Archive"],
         primaryLink: "uyap-indirici.html",
