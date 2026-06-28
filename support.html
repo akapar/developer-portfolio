@@ -449,6 +449,9 @@
         const fileNameSpan = document.getElementById('fileNameSpan');
 
         function setLanguage(lang) {
+            // Update root html lang attribute to fix uppercase 'i' conversion rules
+            document.documentElement.lang = lang;
+
             // Save preferred language to localStorage
             localStorage.setItem('preferred_lang', lang);
 
