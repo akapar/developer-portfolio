@@ -72,7 +72,8 @@ const appsData = [
         primaryLink: "uyap-indirici.html",
         primaryLabel: "Detaylar",
         secondaryLink: null,
-        secondaryLabel: null
+        secondaryLabel: null,
+        privacyLink: "uyap-indirici-gizlilik-politikasi.html"
     },
     {
         id: "aka-manage-calendar",
