@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AKA Labs Destek Merkezi - GAZELIST, Dava Belgelerim ve diğer uygulamalarımızla ilgili sorunlarınızı bildirin ve destek alın.">
+    <title>Destek & Yardım | AKA Labs</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500;600&family=Outfit:wght@800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <style>
+        .support-hero {
+            padding: 140px 0 50px;
+            position: relative;
+        }
+        .support-container {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--color-accent);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 2rem;
+            transition: var(--transition);
+        }
+        .back-link:hover {
+            color: var(--text-primary);
+            transform: translateX(-5px);
+        }
+        .support-header h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        .support-header h1 span {
+            font-style: italic;
+            color: var(--color-accent);
+        }
+        .support-header p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+        
+        .support-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 6px;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+        
+        .form-group {
+            margin-bottom: 2rem;
+        }
+        .form-group label {
+            display: block;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.75rem;
+        }
+        .form-control {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--card-border);
+            border-radius: 4px;
+            padding: 1rem;
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--color-accent);
+            background: rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 10px rgba(229, 169, 117, 0.1);
+        }
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23e5a975' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1.2em;
+            padding-right: 2.5rem;
+        }
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Drag & Drop Upload Zone */
+        .upload-zone {
+            border: 2px dashed var(--card-border);
+            border-radius: 4px;
+            padding: 2rem;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+        }
+        .upload-zone:hover {
+            border-color: var(--color-accent);
+            background: rgba(229, 169, 117, 0.02);
+        }
+        .upload-zone i {
+            font-size: 2.2rem;
+            color: var(--color-accent);
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+        .upload-zone p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.25rem;
+        }
+        .upload-zone span {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            opacity: 0.6;
+        }
+        .upload-zone input[type="file"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+        .file-selected-name {
+            display: none;
+            margin-top: 1rem;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: #8ca68c; /* Mat green */
+            background: rgba(140, 166, 140, 0.1);
+            padding: 6px 12px;
+            border-radius: 3px;
+            border: 1px solid rgba(140, 166, 140, 0.2);
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .btn-submit {
+            width: 100%;
+            padding: 1.1rem;
+            font-size: 1rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            border: none;
+            background: var(--color-accent);
+            color: #000;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: var(--transition);
+        }
+        .btn-submit:hover {
+            background: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Success State View */
+        .success-view {
+            display: none;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        .success-view i.success-icon {
+            font-size: 4.5rem;
+            color: #8ca68c;
+            margin-bottom: 1.5rem;
+            display: block;
+            animation: scaleIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .success-view h2 {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        .success-view p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        @keyframes scaleIn {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        @media (max-width: 768px) {
+            .support-card {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Paper Grain Texture Overlay -->
+    <div class="grain-overlay"></div>
+
+    <!-- Navigation -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">AKA <span>Labs</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">01 // Geri Dön</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Support Center -->
+    <section class="support-hero">
+        <div class="container support-container">
+            <a href="index.html" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i> Portföye Geri Dön
+            </a>
+            
+            <div class="support-header" id="supportHeader">
+                <h1>Destek <span>Merkezi</span></h1>
+                <p>Uygulamalarımızda yaşadığınız teknik sorunları bildirmek, hata (bug) raporlamak veya önerilerinizi paylaşmak için formu doldurabilirsiniz. Destek ekibimiz en kısa sürede sizinle iletişime geçecektir.</p>
+            </div>
+            
+            <div class="support-card">
+                
+                <!-- Success Message -->
+                <div class="success-view" id="successView">
+                    <i class="fa-solid fa-circle-check success-icon"></i>
+                    <h2>Mesajınız Alındı!</h2>
+                    <p>Destek talebiniz başarıyla kaydedilmiştir. Talebinizle ilgili detaylar <strong>support@kapar.org</strong> e-posta adresimize iletilmiştir. En kısa sürede belirttiğiniz e-posta adresi üzerinden size geri dönüş sağlayacağız.</p>
+                    <a href="index.html" class="btn btn-secondary"><i class="fa-solid fa-house"></i> Ana Sayfaya Dön</a>
+                </div>
+
+                <!-- Support Form -->
+                <form id="supportForm" action="https://formsubmit.co/support@kapar.org" method="POST" enctype="multipart/form-data">
+                    
+                    <!-- Formsubmit Settings -->
+                    <input type="hidden" name="_subject" value="Yeni Destek Talebi (kapar.org)">
+                    <input type="hidden" name="_next" value="https://kapar.org/support.html?success=true">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_honey" style="display:none">
+                    
+                    <!-- App Selection -->
+                    <div class="form-group">
+                        <label for="app">İlgili Uygulama / Ürün</label>
+                        <select name="app" id="app" class="form-control" required>
+                            <option value="" disabled selected>Lütfen bir uygulama seçin...</option>
+                            <option value="GAZELIST">GAZELIST</option>
+                            <option value="Dava Belgelerim">Dava Belgelerim</option>
+                            <option value="UYAP Çevirici">UYAP Çevirici</option>
+                            <option value="UYAP İndirici">UYAP İndirici</option>
+                            <option value="AKA Manage Calendar">AKA Manage Calendar</option>
+                            <option value="AKA Ticked Tasks">AKA Ticked Tasks</option>
+                            <option value="Genel / Diğer">Genel / Diğer Sorular</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Email Address -->
+                    <div class="form-group">
+                        <label for="email">E-posta Adresiniz</label>
+                        <input type="email" name="email" id="email" class="form-control" placeholder="adiniz@example.com" required>
+                    </div>
+                    
+                    <!-- Message / Description -->
+                    <div class="form-group">
+                        <label for="message">Sorununuz veya Mesajınız</label>
+                        <textarea name="message" id="message" class="form-control" placeholder="Lütfen karşılaştığınız sorunu veya talebinizi kısaca açıklayın..." required></textarea>
+                    </div>
+                    
+                    <!-- File Upload (Screenshot) -->
+                    <div class="form-group">
+                        <label>Ekran Görüntüsü Yükle (İsteğe Bağlı)</label>
+                        <div class="upload-zone" id="uploadZone">
+                            <i class="fa-solid fa-image"></i>
+                            <p>Tıklayarak veya görseli buraya sürükleyerek yükleyin</p>
+                            <span>PNG, JPG veya JPEG (Maks. 5MB)</span>
+                            <input type="file" name="attachment" id="attachment" accept="image/*">
+                        </div>
+                        <div class="file-selected-name" id="fileSelectedName">
+                            <i class="fa-solid fa-paperclip"></i>
+                            <span id="fileNameSpan">Dosya seçilmedi</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn-submit">
+                        <i class="fa-solid fa-paper-plane"></i> Destek Talebi Gönder
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 AKA Labs. Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript to handle Success View and File Name display -->
+    <script>
+        // Check if URL has ?success=true
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('success') === 'true') {
+            document.getElementById('supportForm').style.display = 'none';
+            document.getElementById('supportHeader').style.display = 'none';
+            document.getElementById('successView').style.display = 'block';
+        }
+
+        // Show selected file name
+        const fileInput = document.getElementById('attachment');
+        const fileSelectedNameDiv = document.getElementById('fileSelectedName');
+        const fileNameSpan = document.getElementById('fileNameSpan');
+
+        fileInput.addEventListener('change', function(e) {
+            if (this.files && this.files.length > 0) {
+                const name = this.files[0].name;
+                fileNameSpan.textContent = name;
+                fileSelectedNameDiv.style.display = 'inline-flex';
+            } else {
+                fileSelectedNameDiv.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
