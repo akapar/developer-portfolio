@@ -494,16 +494,16 @@
         }
 
         // Initialize language
-        // Default to 'tr' if not set, or check browser language
-        let defaultLang = 'tr';
+        // Default to 'en' if not set, or check browser language
+        let defaultLang = 'en';
         const savedLang = localStorage.getItem('preferred_lang');
         if (savedLang === 'tr' || savedLang === 'en') {
             defaultLang = savedLang;
         } else {
             // Check browser language prefix
             const browserLang = navigator.language || navigator.userLanguage;
-            if (browserLang && browserLang.startsWith('en')) {
-                defaultLang = 'en';
+            if (browserLang && browserLang.startsWith('tr')) {
+                defaultLang = 'tr';
             }
         }
         setLanguage(defaultLang);
