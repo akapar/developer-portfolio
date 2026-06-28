@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="AKA Labs Destek Merkezi - GAZELIST, Dava Belgelerim ve diğer uygulamalarımızla ilgili sorunlarınızı bildirin ve destek alın.">
-    <title>Destek & Yardım | AKA Labs</title>
+    <title>Destek & Yardım | AKA Labs Support</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,6 +41,17 @@
             color: var(--text-primary);
             transform: translateX(-5px);
         }
+        
+        .lang-header-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 2.5rem;
+            gap: 2rem;
+        }
+        .support-header {
+            flex-grow: 1;
+        }
         .support-header h1 {
             font-family: var(--font-serif);
             font-size: clamp(2.5rem, 5vw, 3.8rem);
@@ -56,8 +67,39 @@
         .support-header p {
             font-size: 1.1rem;
             color: var(--text-secondary);
-            margin-bottom: 3rem;
             line-height: 1.6;
+        }
+        
+        /* Language Toggle Button styling */
+        .lang-toggle {
+            display: flex;
+            gap: 0.35rem;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--card-border);
+            padding: 4px;
+            border-radius: 6px;
+            flex-shrink: 0;
+            margin-top: 10px;
+        }
+        .lang-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .lang-btn:hover {
+            color: var(--text-primary);
+        }
+        .lang-btn.active {
+            background: var(--color-accent);
+            color: #000;
+            font-weight: 600;
         }
         
         .support-card {
@@ -228,6 +270,14 @@
         }
         
         @media (max-width: 768px) {
+            .lang-header-wrapper {
+                flex-direction: column-reverse;
+                align-items: flex-end;
+                gap: 1rem;
+            }
+            .support-header {
+                width: 100%;
+            }
             .support-card {
                 padding: 2rem 1.5rem;
             }
@@ -244,7 +294,7 @@
         <div class="container navbar">
             <a href="index.html" class="logo">AKA <span>Labs</span></a>
             <ul class="nav-links">
-                <li><a href="index.html">01 // Geri Dön</a></li>
+                <li><a href="index.html" id="navReturnLink">01 // Geri Dön</a></li>
             </ul>
         </div>
     </header>
@@ -252,13 +302,21 @@
     <!-- Support Center -->
     <section class="support-hero">
         <div class="container support-container">
-            <a href="index.html" class="back-link">
-                <i class="fa-solid fa-arrow-left"></i> Portföye Geri Dön
+            <a href="index.html" class="back-link" id="backLink">
+                <i class="fa-solid fa-arrow-left"></i> <span id="backLinkText">Portföye Geri Dön</span>
             </a>
             
-            <div class="support-header" id="supportHeader">
-                <h1>Destek <span>Merkezi</span></h1>
-                <p>Uygulamalarımızda yaşadığınız teknik sorunları bildirmek, hata (bug) raporlamak veya önerilerinizi paylaşmak için formu doldurabilirsiniz. Destek ekibimiz en kısa sürede sizinle iletişime geçecektir.</p>
+            <div class="lang-header-wrapper">
+                <div class="support-header" id="supportHeader">
+                    <h1 id="heroTitle">Destek <span>Merkezi</span></h1>
+                    <p id="heroDesc">Uygulamalarımızda yaşadığınız teknik sorunları bildirmek, hata (bug) raporlamak veya önerilerinizi paylaşmak için formu doldurabilirsiniz. Destek ekibimiz en kısa sürede sizinle iletişime geçecektir.</p>
+                </div>
+                
+                <!-- Language Toggle Button -->
+                <div class="lang-toggle">
+                    <button type="button" class="lang-btn active" data-lang="tr" onclick="setLanguage('tr')">TR</button>
+                    <button type="button" class="lang-btn" data-lang="en" onclick="setLanguage('en')">EN</button>
+                </div>
             </div>
             
             <div class="support-card">
@@ -266,54 +324,54 @@
                 <!-- Success Message -->
                 <div class="success-view" id="successView">
                     <i class="fa-solid fa-circle-check success-icon"></i>
-                    <h2>Mesajınız Alındı!</h2>
-                    <p>Destek talebiniz başarıyla kaydedilmiştir. Talebinizle ilgili detaylar <strong>support@kapar.org</strong> e-posta adresimize iletilmiştir. En kısa sürede belirttiğiniz e-posta adresi üzerinden size geri dönüş sağlayacağız.</p>
-                    <a href="index.html" class="btn btn-secondary"><i class="fa-solid fa-house"></i> Ana Sayfaya Dön</a>
+                    <h2 id="successTitle">Mesajınız Alındı!</h2>
+                    <p id="successDesc">Destek talebiniz başarıyla kaydedilmiştir. Talebinizle ilgili detaylar <strong>support@kapar.org</strong> e-posta adresimize iletilmiştir. En kısa sürede belirttiğiniz e-posta adresi üzerinden size geri dönüş sağlayacağız.</p>
+                    <a href="index.html" class="btn btn-secondary" id="successBtn"><i class="fa-solid fa-house"></i> <span id="successBtnText">Ana Sayfaya Dön</span></a>
                 </div>
 
                 <!-- Support Form -->
                 <form id="supportForm" action="https://formsubmit.co/support@kapar.org" method="POST" enctype="multipart/form-data">
                     
                     <!-- Formsubmit Settings -->
-                    <input type="hidden" name="_subject" value="Yeni Destek Talebi (kapar.org)">
+                    <input type="hidden" name="_subject" id="subjectInput" value="Yeni Destek Talebi (kapar.org)">
                     <input type="hidden" name="_next" value="https://kapar.org/support.html?success=true">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_honey" style="display:none">
                     
                     <!-- App Selection -->
                     <div class="form-group">
-                        <label for="app">İlgili Uygulama / Ürün</label>
+                        <label for="app" id="labelApp">İlgili Uygulama / Ürün</label>
                         <select name="app" id="app" class="form-control" required>
-                            <option value="" disabled selected>Lütfen bir uygulama seçin...</option>
+                            <option value="" disabled selected id="optSelect">Lütfen bir uygulama seçin...</option>
                             <option value="GAZELIST">GAZELIST</option>
                             <option value="Dava Belgelerim">Dava Belgelerim</option>
                             <option value="UYAP Çevirici">UYAP Çevirici</option>
                             <option value="UYAP İndirici">UYAP İndirici</option>
                             <option value="AKA Manage Calendar">AKA Manage Calendar</option>
                             <option value="AKA Ticked Tasks">AKA Ticked Tasks</option>
-                            <option value="Genel / Diğer">Genel / Diğer Sorular</option>
+                            <option value="Genel / Diğer" id="optOther">Genel / Diğer Sorular</option>
                         </select>
                     </div>
                     
                     <!-- Email Address -->
                     <div class="form-group">
-                        <label for="email">E-posta Adresiniz</label>
+                        <label for="email" id="labelEmail">E-posta Adresiniz</label>
                         <input type="email" name="email" id="email" class="form-control" placeholder="adiniz@example.com" required>
                     </div>
                     
                     <!-- Message / Description -->
                     <div class="form-group">
-                        <label for="message">Sorununuz veya Mesajınız</label>
+                        <label for="message" id="labelMsg">Sorununuz veya Mesajınız</label>
                         <textarea name="message" id="message" class="form-control" placeholder="Lütfen karşılaştığınız sorunu veya talebinizi kısaca açıklayın..." required></textarea>
                     </div>
                     
                     <!-- File Upload (Screenshot) -->
                     <div class="form-group">
-                        <label>Ekran Görüntüsü Yükle (İsteğe Bağlı)</label>
+                        <label id="labelFile">Ekran Görüntüsü Yükle (İsteğe Bağlı)</label>
                         <div class="upload-zone" id="uploadZone">
                             <i class="fa-solid fa-image"></i>
-                            <p>Tıklayarak veya görseli buraya sürükleyerek yükleyin</p>
-                            <span>PNG, JPG veya JPEG (Maks. 5MB)</span>
+                            <p id="fileDrop">Tıklayarak veya görseli buraya sürükleyerek yükleyin</p>
+                            <span id="fileLimit">PNG, JPG veya JPEG (Maks. 5MB)</span>
                             <input type="file" name="attachment" id="attachment" accept="image/*">
                         </div>
                         <div class="file-selected-name" id="fileSelectedName">
@@ -323,8 +381,8 @@
                     </div>
                     
                     <!-- Submit Button -->
-                    <button type="submit" class="btn-submit">
-                        <i class="fa-solid fa-paper-plane"></i> Destek Talebi Gönder
+                    <button type="submit" class="btn-submit" id="btnSubmit">
+                        <i class="fa-solid fa-paper-plane"></i> <span id="btnSubmitText">Destek Talebi Gönder</span>
                     </button>
                 </form>
 
@@ -339,9 +397,118 @@
         </div>
     </footer>
 
-    <!-- JavaScript to handle Success View and File Name display -->
+    <!-- Translation Data and Controller -->
     <script>
-        // Check if URL has ?success=true
+        const translations = {
+            tr: {
+                navReturn: "01 // Geri Dön",
+                backLink: "Portföye Geri Dön",
+                heroTitle: "Destek <span>Merkezi</span>",
+                heroDesc: "Uygulamalarımızda yaşadığınız teknik sorunları bildirmek, hata (bug) raporlamak veya önerilerinizi paylaşmak için formu doldurabilirsiniz. Destek ekibimiz en kısa sürede sizinle iletişime geçecektir.",
+                successTitle: "Mesajınız Alındı!",
+                successDesc: "Destek talebiniz başarıyla kaydedilmiştir. Talebinizle ilgili detaylar <strong>support@kapar.org</strong> e-posta adresimize iletilmiştir. En kısa sürede belirttiğiniz e-posta adresi üzerinden size geri dönüş sağlayacağız.",
+                successBtn: "Ana Sayfaya Dön",
+                labelApp: "İlgili Uygulama / Ürün",
+                optSelect: "Lütfen bir uygulama seçin...",
+                labelEmail: "E-posta Adresiniz",
+                labelMsg: "Sorununuz veya Mesajınız",
+                placeholderMsg: "Lütfen karşılaştığınız sorunu veya talebinizi kısaca açıklayın...",
+                labelFile: "Ekran Görüntüsü Yükle (İsteğe Bağlı)",
+                fileDrop: "Tıklayarak veya görseli buraya sürükleyerek yükleyin",
+                fileLimit: "PNG, JPG veya JPEG (Maks. 5MB)",
+                fileNoSelected: "Dosya seçilmedi",
+                btnSubmit: "Destek Talebi Gönder",
+                subject: "Yeni Destek Talebi (kapar.org)",
+                emailPlaceholder: "adiniz@example.com"
+            },
+            en: {
+                navReturn: "01 // Return",
+                backLink: "Return to Portfolio",
+                heroTitle: "Support <span>Center</span>",
+                heroDesc: "Fill out the form below to report technical issues, submit bug reports, or share your feature feedback. Our support team will get in touch with you as soon as possible.",
+                successTitle: "Message Received!",
+                successDesc: "Your support request has been successfully recorded. Details have been forwarded to <strong>support@kapar.org</strong>. We will get back to you via your email address as soon as possible.",
+                successBtn: "Back to Home",
+                labelApp: "Related App / Product",
+                optSelect: "Please select an app...",
+                labelEmail: "Your Email Address",
+                labelMsg: "Your Issue or Message",
+                placeholderMsg: "Please briefly describe the issue or your request...",
+                labelFile: "Upload Screenshot (Optional)",
+                fileDrop: "Click or drag image here to upload",
+                fileLimit: "PNG, JPG or JPEG (Max 5MB)",
+                fileNoSelected: "No file selected",
+                btnSubmit: "Submit Support Request",
+                subject: "New Support Request (kapar.org)",
+                emailPlaceholder: "yourname@example.com"
+            }
+        };
+
+        const fileInput = document.getElementById('attachment');
+        const fileSelectedNameDiv = document.getElementById('fileSelectedName');
+        const fileNameSpan = document.getElementById('fileNameSpan');
+
+        function setLanguage(lang) {
+            // Save preferred language to localStorage
+            localStorage.setItem('preferred_lang', lang);
+
+            // Update active class on buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+            });
+
+            // Update navbar return link
+            document.getElementById('navReturnLink').textContent = translations[lang].navReturn;
+
+            // Update DOM text
+            document.getElementById('backLinkText').textContent = translations[lang].backLink;
+            document.getElementById('heroTitle').innerHTML = translations[lang].heroTitle;
+            document.getElementById('heroDesc').textContent = translations[lang].heroDesc;
+            
+            document.getElementById('successTitle').textContent = translations[lang].successTitle;
+            document.getElementById('successDesc').innerHTML = translations[lang].successDesc;
+            document.getElementById('successBtnText').textContent = translations[lang].successBtn;
+
+            document.getElementById('labelApp').textContent = translations[lang].labelApp;
+            document.getElementById('optSelect').textContent = translations[lang].optSelect;
+            document.getElementById('optOther').textContent = lang === 'tr' ? 'Genel / Diğer Sorular' : 'General / Other Questions';
+            
+            document.getElementById('labelEmail').textContent = translations[lang].labelEmail;
+            document.getElementById('email').placeholder = translations[lang].emailPlaceholder;
+            document.getElementById('labelMsg').textContent = translations[lang].labelMsg;
+            document.getElementById('message').placeholder = translations[lang].placeholderMsg;
+            
+            document.getElementById('labelFile').textContent = translations[lang].labelFile;
+            document.getElementById('fileDrop').textContent = translations[lang].fileDrop;
+            document.getElementById('fileLimit').textContent = translations[lang].fileLimit;
+            
+            // Check file upload text
+            if (!fileInput.files || fileInput.files.length === 0) {
+                fileNameSpan.textContent = translations[lang].fileNoSelected;
+            }
+            
+            document.getElementById('btnSubmitText').textContent = translations[lang].btnSubmit;
+            
+            // Update FormSubmit Subject
+            document.getElementById('subjectInput').value = translations[lang].subject;
+        }
+
+        // Initialize language
+        // Default to 'tr' if not set, or check browser language
+        let defaultLang = 'tr';
+        const savedLang = localStorage.getItem('preferred_lang');
+        if (savedLang === 'tr' || savedLang === 'en') {
+            defaultLang = savedLang;
+        } else {
+            // Check browser language prefix
+            const browserLang = navigator.language || navigator.userLanguage;
+            if (browserLang && browserLang.startsWith('en')) {
+                defaultLang = 'en';
+            }
+        }
+        setLanguage(defaultLang);
+
+        // Check if URL has ?success=true (form submitted)
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get('success') === 'true') {
             document.getElementById('supportForm').style.display = 'none';
@@ -349,17 +516,15 @@
             document.getElementById('successView').style.display = 'block';
         }
 
-        // Show selected file name
-        const fileInput = document.getElementById('attachment');
-        const fileSelectedNameDiv = document.getElementById('fileSelectedName');
-        const fileNameSpan = document.getElementById('fileNameSpan');
-
+        // Show selected file name listener
         fileInput.addEventListener('change', function(e) {
             if (this.files && this.files.length > 0) {
                 const name = this.files[0].name;
                 fileNameSpan.textContent = name;
                 fileSelectedNameDiv.style.display = 'inline-flex';
             } else {
+                const currentLang = localStorage.getItem('preferred_lang') || 'tr';
+                fileNameSpan.textContent = translations[currentLang].fileNoSelected;
                 fileSelectedNameDiv.style.display = 'none';
             }
         });
