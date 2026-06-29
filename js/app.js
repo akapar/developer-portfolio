@@ -71,8 +71,8 @@ const appsData = [
         tags: ["Chrome Extension", "JavaScript", "UYAP Automation", "File Downloader", "Local Archive"],
         primaryLink: "uyap-indirici.html",
         primaryLabel: "Detaylar",
-        secondaryLink: null,
-        secondaryLabel: null,
+        secondaryLink: "https://chromewebstore.google.com/detail/uyap-i%CC%87ndirici/lnddimcnbhiobmjicaajinebalhkkfjd?hl=tr&utm_source=ext_sidebar",
+        secondaryLabel: "Chrome Mağazası",
         privacyLink: "uyap-indirici-gizlilik-politikasi.html"
     },
     {
