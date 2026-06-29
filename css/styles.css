@@ -835,6 +835,10 @@ footer p {
 }
 
 @media (max-width: 768px) {
+    header {
+        position: absolute;
+    }
+    
     .navbar {
         flex-direction: column;
         height: auto;
@@ -847,7 +851,7 @@ footer p {
     }
 
     .hero {
-        padding: 120px 0 60px;
+        padding: 150px 0 60px;
     }
     
     .hero h1 {
@@ -894,6 +898,9 @@ footer p {
     }
     .nav-links a {
         font-size: 0.72rem;
+    }
+    .hero {
+        padding-top: 170px;
     }
     .hero-buttons {
         gap: 1rem;
