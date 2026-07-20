@@ -42,7 +42,8 @@ const appsData = [
         primaryLink: "sozgec.html",
         primaryLabel: "Detaylar & Kullanım",
         secondaryLink: null,
-        secondaryLabel: null
+        secondaryLabel: null,
+        privacyLink: "sozgec-gizlilik-politikasi.html"
     },
     {
         id: "gazelist",
