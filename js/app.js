@@ -22,6 +22,29 @@ const appsData = [
         secondaryLabel: null
     },
     {
+        id: "sozgec",
+        title: "Sözgeç",
+        category: "productivity",
+        featured: true, // Double column display
+        badge: "Chrome Eklentisi (Ekşi Sözlük Akıllı Moderasyon Eklentisi)",
+        icon: "fa-solid fa-filter-circle-xmark",
+        image: "assets/sozgec_logo.png",
+        description: "Ekşi Sözlük için topluluk tabanlı ve yapay zeka destekli akıllı moderasyon eklentisi. Kutsal bilgi kaynağındaki troll kirliliğini, provokasyonları, fanatizmi ve nefret söylemini topluluğun ve yapay zekanın gücüyle süzün.",
+        specs: [
+            "Troll Skoru Rozetleri & Detaylı Kategori Analizi",
+            "Otomatik İçerik Gizleme & Tek Tıkla Orijinal Entry Gösterimi",
+            "Kişiselleştirilebilir Duyarlılık ve Hassasiyet Ayarı",
+            "Tek Tıkla Kolay Raporlama ve Bireysel Engelleme (🚫)",
+            "Sonsuz Kaydırma ve Yeni Gelen İçerikleri Anında Yakalama",
+            "Işık Hızında Engelleme & Taptaze Güncel Liste Senkronizasyonu"
+        ],
+        tags: ["Chrome Eklentisi", "Ekşi Sözlük", "Yapay Zeka", "Topluluk Filtresi", "Akıllı Moderasyon"],
+        primaryLink: "sozgec.html",
+        primaryLabel: "Detaylar & Kullanım",
+        secondaryLink: null,
+        secondaryLabel: null
+    },
+    {
         id: "gazelist",
         title: "GAZELIST",
         category: "productivity",
@@ -280,7 +303,13 @@ const terminalLogs = [
     { type: 'success', text: '[OK] Retrieved 8 events. Synchronized with spreadsheet.' },
     { type: 'command', text: 'gazelist-sync --account="aka@kapar.org"' },
     { type: 'status', text: 'Verifying database checksums & syncing with Drive...' },
-    { type: 'success', text: '[OK] Merged 42 local and 12 remote tasks. 0 conflicts.' }
+    { type: 'success', text: '[OK] Merged 42 local and 12 remote tasks. 0 conflicts.' },
+    { type: 'command', text: 'sozgec-scan --target="eksi_yazarlar"' },
+    { type: 'status', text: 'Yazar troll skorları yerel veritabanından taranıyor...' },
+    { type: 'success', text: '[TAMAM] Yazar troll skoru: %82. Rahatsız edici içerik gizlendi.' },
+    { type: 'command', text: 'sozgec-report --author="troll_yazar_99"' },
+    { type: 'status', text: 'Yazar girdileri analiz ediliyor & Yapay Zekaya iletiliyor...' },
+    { type: 'success', text: '[TAMAM] Yapay Zeka analiz puanı hesaplandı. Liste güncellendi.' }
 ];
 
 let logIndex = 0;

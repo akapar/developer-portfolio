@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sözgeç - Ekşi Sözlük için Yapay Zeka Destekli Akıllı Moderasyon ve Troll Filtreleme Chrome Eklentisi. Ekşi Sözlük'te trolleri süzün, kafa rahatlığının tadını çıkarın.">
+    <title>Sözgeç | Ekşi Sözlük Akıllı Troll Süzgeci & AI Moderasyon Asistanı</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500;600&family=Outfit:wght@800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <style>
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--color-accent);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 2.5rem;
+            transition: var(--transition);
+        }
+        .back-link:hover {
+            color: var(--text-primary);
+            transform: translateX(-5px);
+        }
+        .app-detail-hero {
+            padding: 140px 0 50px;
+            position: relative;
+        }
+        .app-detail-grid {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .app-detail-logo {
+            width: 150px;
+            height: 150px;
+            border-radius: 24px;
+            background: radial-gradient(circle at center, rgba(140, 166, 140, 0.15), rgba(20, 19, 17, 0.9));
+            border: 1px solid var(--card-border-hover);
+            padding: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 30px rgba(140, 166, 140, 0.2);
+            transition: var(--transition);
+        }
+        .app-detail-logo:hover {
+            transform: translateY(-5px) scale(1.03);
+            border-color: #8ca68c;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.7), 0 0 40px rgba(140, 166, 140, 0.35);
+        }
+        .app-detail-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .app-detail-title h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+        .app-detail-title h1 span {
+            font-style: italic;
+            color: #8ca68c;
+        }
+        .app-detail-title p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 760px;
+            line-height: 1.6;
+        }
+        
+        .humor-tag {
+            display: inline-block;
+            background: rgba(140, 166, 140, 0.12);
+            color: #8ca68c;
+            border: 1px solid rgba(140, 166, 140, 0.3);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .feature-showcase {
+            padding: 20px 0 120px;
+        }
+        .directory-badge {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--color-accent);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .feature-block {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 3.5rem;
+            margin-bottom: 3.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .feature-block h3 {
+            font-family: var(--font-serif);
+            font-size: 2.1rem;
+            font-weight: 400;
+            margin-bottom: 1.75rem;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            color: var(--text-primary);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 1rem;
+        }
+        .feature-block h3 i {
+            color: #8ca68c;
+            font-size: 1.8rem;
+        }
+        .feature-block > p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        .feature-item {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            border-radius: 6px;
+            padding: 2rem;
+            transition: var(--transition);
+        }
+        .feature-item:hover {
+            border-color: var(--card-border-hover);
+            background: var(--card-bg-hover);
+            transform: translateY(-3px);
+        }
+        .feature-item h4 {
+            font-family: var(--font-serif);
+            font-size: 1.35rem;
+            font-weight: 400;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .feature-item h4 i {
+            font-size: 1.1rem;
+            color: #8ca68c;
+        }
+        .feature-item p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .feature-item code {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--color-accent);
+        }
+
+        /* Demo & Interactive Widgets */
+        .demo-box {
+            background: #0f0e0c;
+            border: 1px solid rgba(229, 169, 117, 0.2);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-top: 1.5rem;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+        }
+        .demo-title {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Fake Eksi Entry Styles */
+        .eksi-entry-sim {
+            background: #181715;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 6px;
+            padding: 1.25rem;
+            font-family: var(--font-sans);
+            font-size: 0.92rem;
+            line-height: 1.6;
+            color: #d1cfc7;
+            position: relative;
+        }
+        .eksi-entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .eksi-author-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+        }
+        .eksi-author {
+            color: #e5a975;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        
+        /* Sozgec Badge & Tooltip */
+        .sozgec-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(220, 53, 69, 0.18);
+            color: #ff6b6b;
+            border: 1px solid rgba(220, 53, 69, 0.4);
+            padding: 1px 7px;
+            border-radius: 12px;
+            font-size: 0.72rem;
+            font-family: var(--font-mono);
+            font-weight: 500;
+            cursor: pointer;
+            position: relative;
+            transition: var(--transition);
+        }
+        .sozgec-badge:hover {
+            background: rgba(220, 53, 69, 0.3);
+            transform: scale(1.05);
+        }
+
+        /* Tooltip */
+        .sozgec-tooltip {
+            visibility: hidden;
+            opacity: 0;
+            width: 220px;
+            background: #11100e;
+            color: #fff;
+            text-align: left;
+            border-radius: 6px;
+            padding: 10px;
+            position: absolute;
+            z-index: 10;
+            bottom: 130%;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+            border: 1px solid rgba(229, 169, 117, 0.3);
+            transition: opacity 0.3s, visibility 0.3s;
+            font-size: 0.75rem;
+            font-family: var(--font-mono);
+        }
+        .eksi-author-group:hover .sozgec-tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+        .tooltip-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 4px;
+        }
+        .tooltip-bar-bg {
+            background: rgba(255,255,255,0.1);
+            height: 4px;
+            border-radius: 2px;
+            overflow: hidden;
+            margin-bottom: 6px;
+        }
+        .tooltip-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #f1c40f, #e74c3c);
+        }
+
+        .eksi-report-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: var(--transition);
+        }
+        .eksi-report-btn:hover {
+            color: #ff6b6b;
+            transform: scale(1.15);
+        }
+
+        /* Hidden Placeholder Card */
+        .sozgec-placeholder {
+            background: linear-gradient(135deg, rgba(220, 53, 69, 0.08), rgba(20, 19, 17, 0.95));
+            border: 1px dashed rgba(220, 53, 69, 0.4);
+            border-radius: 6px;
+            padding: 1rem 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .sozgec-placeholder-text {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.88rem;
+            color: #ff8b8b;
+        }
+        .sozgec-reveal-btn {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--text-primary);
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 0.78rem;
+            font-family: var(--font-mono);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .sozgec-reveal-btn:hover {
+            background: var(--color-accent);
+            color: #0c0c0b;
+        }
+
+        /* Interactive Slider Simulator */
+        .slider-sim-box {
+            background: #141311;
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-top: 1.5rem;
+        }
+        .slider-control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+        .slider-label-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+        }
+        .slider-input {
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: #2a2824;
+            outline: none;
+            accent-color: #8ca68c;
+            cursor: pointer;
+        }
+        .math-result-card {
+            background: #090807;
+            border: 1px solid rgba(140, 166, 140, 0.3);
+            border-radius: 6px;
+            padding: 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .math-formula {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .math-val {
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #8ca68c;
+        }
+
+        /* Workflow Step Cards */
+        .workflow-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .workflow-card {
+            background: rgba(255, 255, 255, 0.015);
+            border: 1px solid var(--card-border);
+            border-radius: 6px;
+            padding: 1.75rem 1.25rem;
+            position: relative;
+        }
+        .step-num {
+            font-family: var(--font-mono);
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: rgba(229, 169, 117, 0.15);
+            position: absolute;
+            top: 12px;
+            right: 16px;
+        }
+        .workflow-card h4 {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        .workflow-card p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+        }
+
+        /* Platform Downloads */
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+        }
+        .download-card {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid var(--card-border);
+            border-radius: 6px;
+            padding: 2.25rem 1.75rem;
+            text-align: center;
+            transition: var(--transition);
+        }
+        .download-card:hover {
+            border-color: #8ca68c;
+            background: var(--card-bg-hover);
+            transform: translateY(-3px);
+        }
+        .download-card i {
+            font-size: 2.8rem;
+            margin-bottom: 1.25rem;
+            color: #8ca68c;
+        }
+        .download-card h4 {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        .download-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .app-detail-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 1.5rem;
+            }
+            .app-detail-logo {
+                margin: 0 auto;
+            }
+            .feature-block {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Paper Grain Texture Overlay -->
+    <div class="grain-overlay"></div>
+
+    <!-- Navigation -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">AKA <span>Labs</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">01 // Geri Dön</a></li>
+                <li><a href="support.html">02 // Destek</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- App Detail Hero Section -->
+    <section class="app-detail-hero">
+        <div class="container">
+            <a href="index.html#apps" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i> Portföye Geri Dön
+            </a>
+            
+            <div class="app-detail-grid">
+                <div class="app-detail-logo">
+                    <img src="assets/sozgec_logo.png" alt="Sözgeç Eklenti Logosu">
+                </div>
+                <div class="app-detail-title">
+                    <span class="humor-tag">🛡️ Troll Savar ve Akıl Sağlığı Koruyucu</span>
+                    <h1>Söz<span>geç</span></h1>
+                    <p>Ekşi Sözlük için topluluk tabanlı ve yapay zeka destekli akıllı moderasyon eklentisi. Kutsal bilgi kaynağındaki troll kirliliğini, provokasyonları, fanatizmi ve nefret söylemini topluluğun ve yapay zekanın gücüyle süzün.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Showcase Directory -->
+    <section class="feature-showcase">
+        <div class="container">
+            
+            <!-- Intro Description -->
+            <div class="feature-block">
+                <span class="directory-badge">Manifesto // Neden Sözgeç?</span>
+                <h3><i class="fa-solid fa-face-grin-tears"></i> "Biri de çıkıp dememiş ki: Yeter Artık Troller!"</h3>
+                <p>Ekşi Sözlük'e girip iki dakika gündemi okuyayım derken kendinizi dini/milli değerlere hakaret eden, parti fanatizmiyle gözü dönmüş veya sırf etkileşim kasmak için nefret kusan başlıklarda mı buluyorsunuz? Deveye hendek atlatmak troll'e laf anlatmaktan kolaydır! <strong>Sözgeç</strong>, trolleri sizin için görünmez yapıyor. Siz arkanıza yaslanın, Sözgeç trolleri süzsün!</p>
+            </div>
+
+            <!-- Live Interactive Demo Section -->
+            <div class="feature-block">
+                <span class="directory-badge">Canlı Simülasyon // İnteraktif Deneyim</span>
+                <h3><i class="fa-solid fa-laptop-code"></i> Sözgeç Sayfada Nasıl Görünür?</h3>
+                <p>Aşağıdaki interaktif simülatörde Sözgeç'in Ekşi Sözlük arayüzüne nasıl müdahale ettiğini canlı olarak deneyimleyebilirsiniz. Rozetin üzerine gelerek detay puanlarını görün veya gizlenmiş entry'yi açıp kapatın!</p>
+
+                <div class="demo-box">
+                    <div class="demo-title">
+                        <span><i class="fa-solid fa-shield-cat"></i> Ekşi Sözlük Canlı Önizleme</span>
+                        <span style="color: var(--text-muted); text-transform: none;">[İnteraktif Demo]</span>
+                    </div>
+
+                    <!-- Placeholder Container -->
+                    <div id="demoPlaceholder" class="sozgec-placeholder">
+                        <div class="sozgec-placeholder-text">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span><strong>🛡️ [troll_yazar_31]</strong> isimli yazar Sözgeç tarafından gizlendi. (Troll Skoru: %84)</span>
+                        </div>
+                        <button class="sozgec-reveal-btn" onclick="toggleEntryDemo()">
+                            <i class="fa-solid fa-eye"></i> İçeriği Göster
+                        </button>
+                    </div>
+
+                    <!-- Simulated Entry (Hidden by default or revealed) -->
+                    <div id="demoEntry" class="eksi-entry-sim" style="display: none;">
+                        <div class="eksi-entry-header">
+                            <div class="eksi-author-group">
+                                <a href="#" class="eksi-author" onclick="return false;">troll_yazar_31</a>
+                                
+                                <!-- Sözgeç Badge -->
+                                <div class="sozgec-badge">
+                                    <i class="fa-solid fa-triangle-exclamation"></i> %84 Troll
+                                    <!-- Tooltip -->
+                                    <div class="sozgec-tooltip">
+                                        <div style="font-weight: bold; color: var(--color-accent); margin-bottom: 6px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 4px;">
+                                            📊 Troll Puan Analizi
+                                        </div>
+                                        <div class="tooltip-row"><span>Siyasi Fanatizm:</span> <span>92%</span></div>
+                                        <div class="tooltip-bar-bg"><div class="tooltip-bar-fill" style="width: 92%;"></div></div>
+                                        <div class="tooltip-row"><span>Nefret Söylemi:</span> <span>85%</span></div>
+                                        <div class="tooltip-bar-bg"><div class="tooltip-bar-fill" style="width: 85%;"></div></div>
+                                        <div class="tooltip-row"><span>Dini Provokasyon:</span> <span>78%</span></div>
+                                        <div class="tooltip-bar-bg"><div class="tooltip-bar-fill" style="width: 78%;"></div></div>
+                                        <div class="tooltip-row"><span>Milli Provokasyon:</span> <span>81%</span></div>
+                                        <div class="tooltip-bar-bg"><div class="tooltip-bar-fill" style="width: 81%;"></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button class="eksi-report-btn" title="Yazarı Engelle & Yapay Zekaya Raporla" onclick="alert('🚫 Yazar yerel kara listenize eklendi ve arka planda Yapay Zeka sunucusuna verileri raporlandı!')">
+                                <i class="fa-solid fa-ban"></i>
+                            </button>
+                        </div>
+                        <p style="font-style: italic; color: #a3a19a;">"herkes haksız bir tek benim tuttuğum parti haklı! aksini iddia eden vatan hainidir net..."</p>
+                        <div style="margin-top: 10px; display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono);">
+                            <span>20.07.2026 22:45</span>
+                            <a href="#" style="color: #8ca68c; text-decoration: none;" onclick="toggleEntryDemo(); return false;">[Sözgeç ile Tekrar Gizle]</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Features Detailed -->
+            <div class="feature-block">
+                <span class="directory-badge">Yetenekler // Üç Aşamalı Akıllı Filtreleme</span>
+                <h3><i class="fa-solid fa-cubes"></i> Sözgeç Nasıl Çalışır?</h3>
+                <p>Sözgeç, siz Ekşi Sözlük'te gezinirken arka planda sessizce çalışır ve size 3 temel kolaylık sunar:</p>
+                
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-id-badge"></i> 1. Troll Skoru Rozetleri (Badge)</h4>
+                        <p>Sayfada yüklenen her entry'nin yazarı veritabanı ile eşleştirilir. Yazar önceden raporlanıp geçmiş entry analizi yapılmışsa isminin yanında şık bir rozet belirir. Yüksek skorlular <strong>kırmızı/uyarıcı</strong>, orta skorlular pastel tonlarda işaretlenir. Fareyle üzerine geldiğinizde (Tooltip) 4 farklı kategorideki (Dini, Milli, Siyasi, Nefret) yüzde oranlarını görürsünüz.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-eye-slash"></i> 2. Otomatik İçerik Gizleme</h4>
+                        <p>Belirlediğiniz hassasiyet barajını aşan yazarların entry'leri ekranda gösterilmez. Yerine Sözgeç'in modern Bilgi Kutucuğu (Placeholder) yerleştirilir. "Yav acaba ne yazmış bu troll?" diye merak ederseniz <strong>"İçeriği Göster"</strong> butonuna basarak tek tıkla okuyabilirsiniz.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-ban"></i> 3. Tek Tıkla Raporlama (🚫 İkonu)</h4>
+                        <p>Gözünüze batan bir troll gördüğünüzde isminin yanındaki 🚫 tuşuna basmanız yeterlidir. Yazar anında sizin kara listenize eklenip ekrandan buharlaşır; aynı zamanda yapay zeka sistemimize raporlanır.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Sensitivity Slider Section -->
+            <div class="feature-block">
+                <span class="directory-badge">Kişiselleştirme // Hassasiyet Ayarı</span>
+                <h3><i class="fa-solid fa-sliders"></i> Hassasiyet Ayarı: Kontrol Tamamen Sizde!</h3>
+                <p>Sözgeç yazarları sadece "Troll / Değil" diye siyah-beyaz ayırmaz; onları <strong>4 farklı boyutta</strong> detaylıca puanlar:</p>
+
+                <div class="feature-list" style="margin-bottom: 2rem;">
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-hands-praying"></i> Dini Değerler</h4>
+                        <p>Farklı inanç sistemlerine, kutsallara ve dini hassasiyetlere yönelik provokatif ve hakaret içerikli paylaşımları kapsar.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-flag"></i> Milli Değerler</h4>
+                        <p>Atatürk, cumhuriyet değerleri, tarihi, toplumsal ve milli kimliğe yönelik bilinçli yıpratıcı saldırıları ve kışkırtıcı başlıkları analiz eder.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-landmark"></i> Siyasi Fanatizm</h4>
+                        <p>Zehirli, tek taraflı, kutuplaştırıcı ve manipülatif parti/ideoloji fanatizmi içeren entry'leri tespit eder.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-triangle-exclamation"></i> Nefret Söylemi</h4>
+                        <p>Cinsiyet, ırk, topluluklar veya kişilere yönelik doğrudan hakaret, hedef gösterme ve ayrımcılığı ölçer.</p>
+                    </div>
+                </div>
+
+                <p>Siz uzantı menüsünden Slider'ı çekerek filtreleme sertliğini anında değiştirebilirsiniz!</p>
+
+                <div class="slider-sim-box">
+                    <div class="slider-control-group">
+                        <div class="slider-label-row">
+                            <span><i class="fa-solid fa-gauge-high"></i> Filtre Hassasiyeti (Slider):</span>
+                            <span id="sliderValDisplay" style="color: #8ca68c; font-weight: bold;">%50 (Varsayılan)</span>
+                        </div>
+                        <input type="range" min="0" max="100" value="50" class="slider-input" id="demoSlider" oninput="updateSliderDemo(this.value)">
+                    </div>
+
+                    <div class="math-result-card">
+                        <div>
+                            <div class="math-formula">Hesaplanan Engel Barajı:</div>
+                            <div style="font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono); margin-top: 2px;">
+                                Duyarlılık arttıkça engel barajı otomatik düşer.
+                            </div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div class="math-val" id="thresholdDisplay">Baraj: %55.0</div>
+                            <div id="sliderComment" style="font-size: 0.8rem; color: var(--color-accent); font-family: var(--font-mono);">
+                                Standart mod: Ağır ve orta seviye troller engellenir.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Non-Technical System Architecture -->
+            <div class="feature-block">
+                <span class="directory-badge">Akıllı Altyapı // Topluluk Gücü & Yapay Zeka</span>
+                <h3><i class="fa-solid fa-microchip"></i> Arka Planda Neler Dönüyor?</h3>
+                <p>Sözgeç sadece basit bir kelime engelleyici değildir; topluluk bildirimlerini akıllı algoritmalarla harmanlayan gelişmiş bir moderasyon sistemidir.</p>
+
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-bolt"></i> Dinamik Sayfa İzleme</h4>
+                        <p>Ekşi Sözlük'te aşağı kaydırdıkça yeni yüklenen entry'ler anında taranır. Rahatsız edici içerikler daha gözünüzün önüne düşmeden milisaniyeler içinde filtrelenir.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-robot"></i> Yapay Zeka Destekli Analiz</h4>
+                        <p>Bir yazarı 🚫 ile raporladığınızda eklenti yazarın kamuya açık girdilerini inceleyerek Yapay Zekaya iletir. Yapay Zeka metinleri anlamsal olarak okur, niyet analizi yapar ve topluluk puanını belirler.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-database"></i> Anında Engelleme & Güncel Liste</h4>
+                        <p>Troll skorları cihazınızda hazır tutulur, böylece engelleme işlemi hiçbir gecikme olmadan anında gerçekleşir. "Listeyi Güncelle" butonuna bastığınızda güncel topluluk verileri saniyeler içinde yenilenir.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How to use -->
+            <div class="feature-block">
+                <span class="directory-badge">Kullanım Rehberi // 4 Adımda Kafa Rahatlığı</span>
+                <h3><i class="fa-solid fa-route"></i> Sözgeç Nasıl Kullanılır?</h3>
+                
+                <div class="workflow-grid">
+                    <div class="workflow-card">
+                        <span class="step-num">01</span>
+                        <h4>Eklentiyi Yükleyin</h4>
+                        <p>Chrome Web Mağazası'ndan Sözgeç'i tarayıcınıza tek tıkla ekleyin. (Brave, Opera, Edge ile de uyumludur).</p>
+                    </div>
+                    <div class="workflow-card">
+                        <span class="step-num">02</span>
+                        <h4>Hassasiyeti Ayarlayın</h4>
+                        <p>Uzantı ikonuna tıklayarak kendi keyfinize göre hassasiyet slider'ını çekin. İster hafif filtreleyin, ister sıfır tolerans uygulayın.</p>
+                    </div>
+                    <div class="workflow-card">
+                        <span class="step-num">03</span>
+                        <h4>Sözlükte Gezinin</h4>
+                        <p>Ekşi Sözlük'e girip başlıkları okumaya başlayın. Eklenti arka planda trolleri otomatik süzmeye başlar.</p>
+                    </div>
+                    <div class="workflow-card">
+                        <span class="step-num">04</span>
+                        <h4>🚫 Raporlayın</h4>
+                        <p>Gözden kaçan trolleri 🚫 ikonuna basarak yerel listenize atın ve AI ordumuza raporlayarak topluluğa katkı sağlayın!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security & Privacy -->
+            <div class="feature-block">
+                <span class="directory-badge">Gizlilik & Şeffaflık // Tam Güvenlik</span>
+                <h3><i class="fa-solid fa-user-shield"></i> Gizliliğiniz Bizim İçin Kutsaldır</h3>
+                <p>Sözgeç, sizin kişisel Ekşi Sözlük hesap şifrelerinizi, mesajlarınızı veya özel verilerinizi <strong>asla okumaz, kaydetmez ve üçüncü şahıslara iletmez.</strong> Tüm kişiselleştirilmiş engelleme ayarlarınız kendi bilgisayarınızdaki Chrome yerel hafızasında saklanır. Yapay zeka raporlamaları yalnızca kamuya açık olan entry metinleri üzerinden anonim olarak gerçekleştirilir.</p>
+            </div>
+
+            <!-- Download CTA -->
+            <div class="feature-block">
+                <h3><i class="fa-solid fa-download"></i> Sözgeç'i Hemen İndirin</h3>
+                <p>Ekşi Sözlük okuma keyfinizi trollerin elinden geri alın. Sözgeç eklentisini hemen kurup temiz bir akışın tadını çıkarın!</p>
+                
+                <div class="download-grid">
+                    <div class="download-card">
+                        <i class="fa-brands fa-chrome"></i>
+                        <h4>Chrome Web Store</h4>
+                        <p>Chrome, Edge, Brave, Opera ve Vivaldi tarayıcılarına hemen ekleyin.</p>
+                        <a href="https://chromewebstore.google.com" target="_blank" class="btn btn-secondary">Chrome Mağazasına Git</a>
+                    </div>
+                    <div class="download-card">
+                        <i class="fa-solid fa-code-branch"></i>
+                        <h4>GitHub Açık Kaynak Sync</h4>
+                        <p>Veritabanı listelerini ve güncellemeleri anında senkronize edin.</p>
+                        <a href="index.html#apps" class="btn btn-secondary">Portföyü İncele</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <p style="margin: 0;">&copy; 2026 AKA Labs. Tüm Hakları Saklıdır. Sözgeç, bir AKA Yazılım topluluk projesidir.</p>
+            <p style="margin: 0; font-family: var(--font-mono); font-size: 0.75rem;"><a href="index.html" style="color: var(--color-accent); text-decoration: none; border-bottom: 1px dashed var(--color-accent); padding-bottom: 2px;">AKA Labs Ana Sayfa</a></p>
+        </div>
+    </footer>
+
+    <!-- Interactive Page Scripts -->
+    <script>
+        // Interactive Entry Demo Toggle
+        function toggleEntryDemo() {
+            const placeholder = document.getElementById('demoPlaceholder');
+            const entry = document.getElementById('demoEntry');
+            
+            if (entry.style.display === 'none') {
+                entry.style.display = 'block';
+                placeholder.style.display = 'none';
+            } else {
+                entry.style.display = 'none';
+                placeholder.style.display = 'flex';
+            }
+        }
+
+        // Interactive Sensitivity Slider Threshold Calculator Demo
+        function updateSliderDemo(sliderVal) {
+            const valDisplay = document.getElementById('sliderValDisplay');
+            const thresholdDisplay = document.getElementById('thresholdDisplay');
+            const sliderComment = document.getElementById('sliderComment');
+
+            // Formula: Threshold = 1.0 - (Slider / 100.0) * 0.9
+            const threshold = 1.0 - (sliderVal / 100.0) * 0.9;
+            const thresholdPercent = (threshold * 100).toFixed(1);
+
+            valDisplay.textContent = `%${sliderVal}`;
+            thresholdDisplay.textContent = `Baraj: %${thresholdPercent}`;
+
+            if (sliderVal == 0) {
+                sliderComment.textContent = 'Filtreleme kapalı: Troller cirit atabilir!';
+                sliderComment.style.color = '#ff6b6b';
+            } else if (sliderVal < 40) {
+                sliderComment.textContent = 'Hafif mod: Sadece en ağır trollere geçit yok.';
+                sliderComment.style.color = '#f1c40f';
+            } else if (sliderVal <= 70) {
+                sliderComment.textContent = 'Standart mod: Ağır ve orta seviye troller engellenir.';
+                sliderComment.style.color = '#8ca68c';
+            } else {
+                sliderComment.textContent = 'Ultra hassas mod: En ufak trole dahi geçit yok, kafa pamuk gibi!';
+                sliderComment.style.color = '#51cf66';
+            }
+        }
+    </script>
+</body>
+</html>
