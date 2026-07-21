@@ -41,8 +41,8 @@ const appsData = [
         tags: ["Chrome Eklentisi", "Ekşi Sözlük", "Yapay Zeka", "Topluluk Filtresi", "Akıllı Moderasyon"],
         primaryLink: "sozgec.html",
         primaryLabel: "Detaylar & Kullanım",
-        secondaryLink: null,
-        secondaryLabel: null,
+        secondaryLink: "https://chromewebstore.google.com/detail/s%C3%B6zge%C3%A7-ek%C5%9Fi-s%C3%B6zl%C3%BCk-modera/imdmglklbkggpncfibeibbeopecomdkk?authuser=0&hl=en",
+        secondaryLabel: "Chrome Mağazası",
         privacyLink: "sozgec-gizlilik-politikasi.html"
     },
     {
