@@ -26,10 +26,10 @@ const appsData = [
         title: "Sözgeç",
         category: "productivity",
         featured: true, // Double column display
-        badge: "Chrome Eklentisi & Android Uygulaması",
+        badge: "Mobil Uygulama ve Chrome Eklentisi",
         icon: "fa-solid fa-filter-circle-xmark",
         image: "assets/sozgec_logo.png",
-        description: "Ekşi Sözlük için topluluk tabanlı ve yapay zeka destekli akıllı moderasyon eklentisi ve mobil okuyucu uygulaması. Kutsal bilgi kaynağındaki troll kirliliğini, provokasyonları, fanatizmi ve nefret söylemini topluluğun ve yapay zekanın gücüyle hem tarayıcınızda hem de telefonunuzda süzün.",
+        description: "Ekşi Sözlük için topluluk tabanlı ve yapay zeka destekli akıllı moderasyon mobil uygulaması ve Chrome eklentisi. Kutsal bilgi kaynağındaki troll kirliliğini, provokasyonları, fanatizmi ve nefret söylemini topluluğun ve yapay zekanın gücüyle hem telefonunuzda hem de tarayıcınızda süzün.",
         specs: [
             "Troll Skoru Rozetleri & Detaylı Kategori Analizi",
             "Otomatik İçerik Gizleme & Tek Tıkla Orijinal Entry Gösterimi",
