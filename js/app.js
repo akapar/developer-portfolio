@@ -26,19 +26,19 @@ const appsData = [
         title: "Sözgeç",
         category: "productivity",
         featured: true, // Double column display
-        badge: "Chrome Eklentisi (Ekşi Sözlük Akıllı Moderasyon Eklentisi)",
+        badge: "Chrome Eklentisi & Android Uygulaması",
         icon: "fa-solid fa-filter-circle-xmark",
         image: "assets/sozgec_logo.png",
-        description: "Ekşi Sözlük için topluluk tabanlı ve yapay zeka destekli akıllı moderasyon eklentisi. Kutsal bilgi kaynağındaki troll kirliliğini, provokasyonları, fanatizmi ve nefret söylemini topluluğun ve yapay zekanın gücüyle süzün.",
+        description: "Ekşi Sözlük için topluluk tabanlı ve yapay zeka destekli akıllı moderasyon eklentisi ve mobil okuyucu uygulaması. Kutsal bilgi kaynağındaki troll kirliliğini, provokasyonları, fanatizmi ve nefret söylemini topluluğun ve yapay zekanın gücüyle hem tarayıcınızda hem de telefonunuzda süzün.",
         specs: [
             "Troll Skoru Rozetleri & Detaylı Kategori Analizi",
             "Otomatik İçerik Gizleme & Tek Tıkla Orijinal Entry Gösterimi",
             "Kişiselleştirilebilir Duyarlılık ve Hassasiyet Ayarı",
             "Tek Tıkla Kolay Raporlama ve Bireysel Engelleme (🚫)",
-            "Sonsuz Kaydırma ve Yeni Gelen İçerikleri Anında Yakalama",
+            "Mobil Uygulamada Kanser Başlık Engelleme & Temiz Gündem Listeleri",
             "Işık Hızında Engelleme & Taptaze Güncel Liste Senkronizasyonu"
         ],
-        tags: ["Chrome Eklentisi", "Ekşi Sözlük", "Yapay Zeka", "Topluluk Filtresi", "Akıllı Moderasyon"],
+        tags: ["Chrome Eklentisi", "Android Uygulaması", "Ekşi Sözlük", "Yapay Zeka", "Topluluk Filtresi"],
         primaryLink: "sozgec.html",
         primaryLabel: "Detaylar & Kullanım",
         secondaryLink: "https://chromewebstore.google.com/detail/s%C3%B6zge%C3%A7-ek%C5%9Fi-s%C3%B6zl%C3%BCk-modera/imdmglklbkggpncfibeibbeopecomdkk?authuser=0&hl=en",
