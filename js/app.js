@@ -64,7 +64,8 @@ const appsData = [
         primaryLink: "gazelist.html",
         primaryLabel: "Details",
         secondaryLink: null,
-        secondaryLabel: null
+        secondaryLabel: null,
+        privacyLink: "gazelist-privacy-policy.html"
     },
     {
         id: "uyap-cevirici",
