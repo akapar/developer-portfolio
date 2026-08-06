@@ -18,8 +18,8 @@ const appsData = [
         tags: ["Flutter", "Dart", "UDF Parser", "TIFF to PDF", "Toplu Dönüştürücü", "Windows & Linux & Android & iOS"],
         primaryLink: "dava-belgelerim.html",
         primaryLabel: "Detaylar",
-        secondaryLink: null,
-        secondaryLabel: null
+        secondaryLink: "https://play.google.com/store/apps/details?id=com.aka.uyap_okuyucu",
+        secondaryLabel: "Google Play"
     },
     {
         id: "sozgec",
@@ -160,7 +160,13 @@ function renderApps(filterCategory = 'all') {
             footerButtonsHTML += `<a href="${app.primaryLink}" class="app-link app-link-primary"><i class="fa-solid fa-download"></i> ${app.primaryLabel}</a>`;
         }
         if (app.secondaryLink) {
-            footerButtonsHTML += `<a href="${app.secondaryLink}" class="app-link app-link-secondary"><i class="fa-solid fa-circle-info"></i> ${app.secondaryLabel}</a>`;
+            let iconClass = 'fa-solid fa-circle-info';
+            if (app.secondaryLink.includes('play.google.com')) {
+                iconClass = 'fa-brands fa-google-play';
+            } else if (app.secondaryLink.includes('chromewebstore.google.com')) {
+                iconClass = 'fa-brands fa-chrome';
+            }
+            footerButtonsHTML += `<a href="${app.secondaryLink}" target="_blank" class="app-link app-link-secondary"><i class="${iconClass}"></i> ${app.secondaryLabel}</a>`;
         }
 
         // Get category label
