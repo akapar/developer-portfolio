@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Topicraft - AI-powered micro-learning platform. Turn any topic into customized, interactive, and gamified study quests in seconds.">
+    <title>Topicraft | AI-Powered Gamified Micro-learning Platform</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <style>
+        :root {
+            /* Cyberpunk purple-blue gradient inspired by the neon holographic logo */
+            --topicraft-glow: linear-gradient(135deg, #a855f7 0%, #06b6d4 100%);
+            --topicraft-accent: #a855f7;
+            --topicraft-accent-secondary: #06b6d4;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--topicraft-accent-secondary);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 2.5rem;
+            transition: var(--transition);
+        }
+        .back-link:hover {
+            color: var(--text-primary);
+            transform: translateX(-5px);
+        }
+        .app-detail-hero {
+            padding: 140px 0 50px;
+            position: relative;
+        }
+        .app-detail-grid {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .app-detail-logo {
+            width: 140px;
+            height: 140px;
+            border-radius: 24px;
+            background: #0f0d1a;
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            padding: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 15px 35px rgba(168, 85, 247, 0.15);
+            overflow: hidden;
+        }
+        .app-detail-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 18px;
+        }
+        .app-detail-title h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+        .app-detail-title h1 span {
+            font-style: italic;
+            background: var(--topicraft-glow);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .app-detail-title p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+        }
+        
+        .feature-showcase {
+            padding: 20px 0 120px;
+        }
+        .directory-badge {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--topicraft-accent-secondary);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .feature-block {
+            background: var(--card-bg);
+            border: 1px solid rgba(168, 85, 247, 0.08);
+            border-radius: 12px;
+            padding: 3.5rem;
+            margin-bottom: 3.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .feature-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--topicraft-glow);
+            opacity: 0.7;
+        }
+        .feature-block-split {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .feature-block h3 {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 300;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+        .feature-block h3 i {
+            color: var(--topicraft-accent);
+            margin-right: 0.5rem;
+        }
+        .feature-block p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Interactive learning preview styling */
+        .preview-pane {
+            background: #0d0c12;
+            border: 1px solid rgba(168, 85, 247, 0.15);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: inset 0 0 20px rgba(168, 85, 247, 0.05);
+        }
+        .preview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 0.75rem;
+            margin-bottom: 1rem;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+        }
+        .heart-container {
+            display: flex;
+            gap: 4px;
+            color: #ef4444;
+        }
+        .xp-badge {
+            color: #eab308;
+            font-weight: bold;
+        }
+        .quest-card {
+            background: #15131d;
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .quest-card.info-card {
+            border-left: 4px solid var(--topicraft-accent);
+        }
+        .quest-card.quiz-card {
+            border-left: 4px solid var(--topicraft-accent-secondary);
+        }
+        .quest-card h5 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+        .quest-card p {
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
+        }
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .quiz-option {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 6px;
+            padding: 0.6rem 1rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .quiz-option:hover {
+            background: rgba(168, 85, 247, 0.1);
+            border-color: rgba(168, 85, 247, 0.3);
+            color: var(--text-primary);
+        }
+        .quiz-option.correct {
+            background: rgba(16, 185, 129, 0.15);
+            border-color: #10b981;
+            color: #10b981;
+            font-weight: 500;
+        }
+        
+        .progress-bar-container {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+        .progress-bar {
+            height: 100%;
+            background: var(--topicraft-glow);
+            width: 60%;
+            border-radius: 3px;
+        }
+        
+        /* Features list */
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 1.5rem;
+        }
+        .feature-item h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.15rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .feature-item h4 i {
+            color: var(--topicraft-accent-secondary);
+        }
+        .feature-item p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Roadmap visualizer */
+        .roadmap-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: relative;
+            padding-left: 20px;
+            margin: 1.5rem 0;
+        }
+        .roadmap-container::before {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 10px;
+            bottom: 10px;
+            width: 2px;
+            background: rgba(168, 85, 247, 0.2);
+        }
+        .roadmap-node {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+        }
+        .roadmap-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #141311;
+            border: 2px solid rgba(168, 85, 247, 0.5);
+            z-index: 2;
+        }
+        .roadmap-node.active .roadmap-dot {
+            background: #a855f7;
+            border-color: #06b6d4;
+            box-shadow: 0 0 10px #a855f7;
+        }
+        .roadmap-label {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        .roadmap-node.active .roadmap-label {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* Download section */
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .download-card {
+            background: #0f0d15;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+        }
+        .download-card:hover {
+            border-color: rgba(168, 85, 247, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(168, 85, 247, 0.05);
+        }
+        .download-card i {
+            font-size: 2.5rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+            transition: var(--transition);
+        }
+        .download-card:hover i {
+            color: var(--topicraft-accent);
+        }
+        .download-card h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        .download-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+        .btn-secondary {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--text-secondary);
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        .btn-secondary:hover {
+            background: var(--topicraft-glow);
+            border-color: transparent;
+            color: #0c0c0b;
+        }
+        .btn-secondary.disabled {
+            pointer-events: none;
+            opacity: 0.4;
+        }
+
+        @media (max-width: 992px) {
+            .feature-block-split {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            .app-detail-grid {
+                grid-template-columns: 1fr;
+                justify-items: center;
+                text-align: center;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grain-overlay"></div>
+
+    <!-- Navigation -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">AKA Labs</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="app-detail-hero">
+        <div class="container">
+            <a href="index.html" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i> Back to Home
+            </a>
+            
+            <div class="app-detail-grid">
+                <div class="app-detail-logo">
+                    <img src="assets/topicraft_logo.png" alt="Topicraft Logo">
+                </div>
+                <div class="app-detail-title">
+                    <h1><span>Topicraft</span></h1>
+                    <p>AI-Powered Gamified Micro-learning Platform</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Details and Showcase -->
+    <section class="feature-showcase">
+        <div class="container">
+
+            <!-- 1. What is Topicraft -->
+            <div class="feature-block">
+                <span class="directory-badge">Section 01 // Vision</span>
+                <h3><i class="fa-solid fa-compass"></i> Purpose-Driven Micro-learning</h3>
+                <p>Topicraft is designed to solve the burden of long, overwhelming learning curves. It breaks down complex topics into bite-sized, gamified study roadmaps (Quests) that you can complete during a short break, making learning effortless, engaging, and highly structured.</p>
+                
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-hourglass-half"></i> Byte-Sized Units</h4>
+                        <p>Complete single lessons in 2 to 3 minutes, fitting education seamlessly into your busy daily schedule.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-trophy"></i> Quest-Based Design</h4>
+                        <p>Learning is structured as an interactive quest map, maintaining the excitement of a role-playing game.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-brain"></i> Spaced Retrieval</h4>
+                        <p>Leverages cognitive science concepts like Active Recall to optimize retention and build long-term memory.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. AI Roadmap Generation -->
+            <div class="feature-block">
+                <div class="feature-block-split">
+                    <div>
+                        <span class="directory-badge">Section 02 // Core Engine</span>
+                        <h3><i class="fa-solid fa-wand-magic-sparkles"></i> AI Instant Course Generation</h3>
+                        <p>Type in any topic you wish to learn—whether it is a specialized technical concept, historical event, or hobby. The generative AI engine parses the scope and maps out a customized roadmap containing 3 to 6 logical chapters tailored to your query.</p>
+                        <p>No more searching for tutorials or looking up curriculums. You get a personalized path built instantly for your learning depth.</p>
+                    </div>
+                    <div>
+                        <div class="preview-pane">
+                            <div class="preview-header">
+                                <span>AI GENERATOR</span>
+                                <span class="xp-badge"><i class="fa-solid fa-microchip"></i> READY</span>
+                            </div>
+                            <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem;">[ Prompt Input ]</p>
+                            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); padding: 0.75rem; border-radius: 6px; font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-primary); margin-bottom: 1.25rem;">
+                                "HTTP Protocol & REST APIs"
+                            </div>
+                            <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem;">[ Generated Roadmap ]</p>
+                            <div class="roadmap-container">
+                                <div class="roadmap-node active">
+                                    <div class="roadmap-dot"></div>
+                                    <div class="roadmap-label">1. Client-Server Architecture</div>
+                                </div>
+                                <div class="roadmap-node">
+                                    <div class="roadmap-dot"></div>
+                                    <div class="roadmap-label">2. HTTP Methods & Status Codes</div>
+                                </div>
+                                <div class="roadmap-node">
+                                    <div class="roadmap-dot"></div>
+                                    <div class="roadmap-label">3. REST Constraints & Design</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Scientific Spaced Retrieval & Card Types -->
+            <div class="feature-block">
+                <div class="feature-block-split">
+                    <div>
+                        <span class="directory-badge">Section 03 // Learning Loop</span>
+                        <h3><i class="fa-solid fa-shapes"></i> Interactive Active Recall Cards</h3>
+                        <p>Instead of static text documents, Topicraft relies on dynamic, interactive card formats that challenge your memory and force active recall. Lessons start with informative concept summaries, immediately followed by varied quiz tasks to consolidate your grasp of the topic.</p>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h4><i class="fa-solid fa-book-open"></i> Info Cards</h4>
+                                <p>Structured textual highlights detailing key theories and core facts.</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4><i class="fa-solid fa-circle-question"></i> Quiz Cards</h4>
+                                <p>Multiple choice questions testing comprehension with immediate feedback.</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4><i class="fa-solid fa-bolt"></i> True / False</h4>
+                                <p>Rapid verification questions to establish clear rule definitions.</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4><i class="fa-solid fa-puzzle-piece"></i> Match Cards</h4>
+                                <p>Pairing keywords and terms with definitions to build conceptual mappings.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="preview-pane">
+                            <div class="preview-header">
+                                <div class="heart-container">
+                                    <i class="fa-solid fa-heart"></i>
+                                    <i class="fa-solid fa-heart"></i>
+                                    <i class="fa-solid fa-heart"></i>
+                                </div>
+                                <span class="xp-badge">XP +120</span>
+                            </div>
+                            
+                            <div class="quest-card info-card">
+                                <h5>1. Learn Concept</h5>
+                                <p><strong>GET Request:</strong> Used to retrieve data from a server. It should be safe and idempotent, meaning it must not modify database records.</p>
+                            </div>
+                            
+                            <div class="quest-card quiz-card">
+                                <h5>2. Active Recall</h5>
+                                <p>Which HTTP method should be used to fetch a user profile without modifying server state?</p>
+                                <div class="quiz-options">
+                                    <div class="quiz-option">POST</div>
+                                    <div class="quiz-option correct">GET <i class="fa-solid fa-check"></i></div>
+                                    <div class="quiz-option">DELETE</div>
+                                </div>
+                            </div>
+                            
+                            <div class="progress-bar-container">
+                                <div class="progress-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Gamification -->
+            <div class="feature-block">
+                <span class="directory-badge">Section 04 // Engagement</span>
+                <h3><i class="fa-solid fa-gamepad"></i> Built-in Gamification Mechanics</h3>
+                <p>Learning works best when it is rewarding. Topicraft incorporates classic gamification designs to build a solid daily routine:</p>
+                
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-heart"></i> Hearts & Lives</h4>
+                        <p>Mistakes deplete hearts, encouraging you to read concepts carefully. Hearts regenerate over time or can be restored.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-fire"></i> Experience (XP) & Streaks</h4>
+                        <p>Earn XP points upon completing lessons. Build daily habits by maintaining your quest completion streaks.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fa-solid fa-award"></i> Level Complete Ceremomies</h4>
+                        <p>Reward screens summarize your accuracy, XP gains, and course progress to celebrate milestones.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Downloads / Call to Action -->
+            <div class="feature-block">
+                <h3><i class="fa-solid fa-download"></i> Get Topicraft</h3>
+                <p>Topicraft is currently under active development. Sideload builds and public beta packages will be released soon across desktop and mobile devices.</p>
+                
+                <div class="download-grid">
+                    <div class="download-card">
+                        <i class="fa-brands fa-windows"></i>
+                        <h4>Windows</h4>
+                        <p>Native Windows beta installation package.</p>
+                        <a href="#" class="btn-secondary disabled">Coming Soon</a>
+                    </div>
+                    <div class="download-card">
+                        <i class="fa-brands fa-android"></i>
+                        <h4>Android</h4>
+                        <p>Google Play Store beta track and direct APK.</p>
+                        <a href="#" class="btn-secondary disabled">Coming Soon</a>
+                    </div>
+                    <div class="download-card">
+                        <i class="fa-solid fa-mobile-screen"></i>
+                        <h4>iOS</h4>
+                        <p>TestFlight early access build links.</p>
+                        <a href="#" class="btn-secondary disabled">Coming Soon</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <p>&copy; 2026 AKA Labs. Topicraft is built by AKA Labs.</p>
+            <p><a href="topicraft-privacy-policy.html" style="color: var(--text-secondary); text-decoration: none; transition: var(--transition);" onmouseover="this.style.color='var(--topicraft-accent)'" onmouseout="this.style.color='var(--text-secondary)'"><i class="fa-solid fa-shield-halved"></i> Privacy Policy</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -68,6 +68,28 @@ const appsData = [
         privacyLink: "gazelist-privacy-policy.html"
     },
     {
+        id: "topicraft",
+        title: "Topicraft",
+        category: "productivity",
+        featured: true,
+        badge: "AI-Powered Micro-learning",
+        icon: "fa-solid fa-graduation-cap",
+        image: "assets/topicraft_logo.png",
+        description: "An AI-powered micro-learning platform that transforms any topic into interactive, gamified lesson maps in seconds. Learn through scientific spaced retrieval and active recall quests.",
+        specs: [
+            "AI-Powered Lesson Roadmap Generation (3-6 chapters)",
+            "Scientific Spaced Retrieval & Active Recall Quests",
+            "Multiple Card Types: Info, Multiple Choice, Match, & True/False",
+            "Gamification Engine with XP, Hearts, and Progression Bars"
+        ],
+        tags: ["Flutter", "Dart", "OpenAI API", "Micro-learning", "Gamification", "Cross-platform"],
+        primaryLink: "topicraft.html",
+        primaryLabel: "Details",
+        secondaryLink: null,
+        secondaryLabel: null,
+        privacyLink: "topicraft-privacy-policy.html"
+    },
+    {
         id: "uyap-cevirici",
         title: "UYAP Çevirici",
         category: "legal",
