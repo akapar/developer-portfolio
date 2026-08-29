@@ -19,7 +19,8 @@ const appsData = [
         primaryLink: "dava-belgelerim.html",
         primaryLabel: "Detaylar",
         secondaryLink: "https://play.google.com/store/apps/details?id=com.aka.uyap_okuyucu",
-        secondaryLabel: "Google Play"
+        secondaryLabel: "Google Play",
+        privacyLink: "dava-belgelerim-gizlilik-politikasi.html"
     },
     {
         id: "sozgec",

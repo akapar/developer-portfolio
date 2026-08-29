@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dava Belgelerim - Gizlilik Politikası. Kişisel verilerinizin ve dava dosyalarınızın nasıl korunduğunu öğrenin.">
+    <title>Gizlilik Politikası | Dava Belgelerim</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&family=Outfit:wght@800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <style>
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--color-accent);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 2.5rem;
+            transition: var(--transition);
+        }
+        .back-link:hover {
+            color: var(--text-primary);
+            transform: translateX(-5px);
+        }
+        .privacy-hero {
+            padding: 140px 0 40px;
+        }
+        .privacy-hero h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        .privacy-hero h1 span {
+            font-style: italic;
+            color: var(--color-accent);
+        }
+        .privacy-hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+        .privacy-content {
+            padding: 20px 0 100px;
+        }
+        .privacy-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 6px;
+            padding: 3.5rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+        .privacy-card h2 {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-top: 2.5rem;
+            margin-bottom: 1.25rem;
+            border-bottom: 1px dashed rgba(229, 169, 117, 0.15);
+            padding-bottom: 0.5rem;
+        }
+        .privacy-card h2:first-of-type {
+            margin-top: 0;
+        }
+        .privacy-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .privacy-card p {
+            margin-bottom: 1.5rem;
+        }
+        .privacy-card ul {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+        .privacy-card li {
+            margin-bottom: 0.5rem;
+        }
+        .privacy-card hr {
+            border: 0;
+            height: 1px;
+            background: var(--card-border);
+            margin: 2.5rem 0;
+        }
+        .privacy-card a {
+            color: var(--color-accent);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .privacy-card a:hover {
+            color: var(--text-primary);
+            text-decoration: underline;
+        }
+        .highlight-text {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+        .summary-box {
+            background: rgba(229, 169, 117, 0.05);
+            border: 1px solid rgba(229, 169, 117, 0.15);
+            border-left: 4px solid var(--color-accent);
+            padding: 1.25rem 1.5rem;
+            border-radius: 4px;
+            margin: 1.5rem 0 2rem;
+            color: var(--text-primary);
+            font-size: 1.05rem;
+        }
+        .table-responsive {
+            overflow-x: auto;
+            margin: 1.5rem 0 2rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            border: 1px solid var(--card-border);
+        }
+        th, td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--card-border);
+        }
+        th {
+            background: rgba(229, 169, 117, 0.06);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-weight: 600;
+        }
+        tr:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        code.highlight-text {
+            font-family: var(--font-mono);
+            font-size: 0.9em;
+            background: rgba(229, 169, 117, 0.05);
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            border: 1px solid rgba(229, 169, 117, 0.1);
+        }
+        @media (max-width: 768px) {
+            .privacy-card {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grain-overlay"></div>
+
+    <!-- Navigation -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">AKA Labs</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Ana Sayfa</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="privacy-hero">
+        <div class="container">
+            <a href="dava-belgelerim.html" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i> Dava Belgelerim Sayfasına Dön
+            </a>
+            <h1>Gizlilik Politikası — <span>Dava Belgelerim</span></h1>
+            <p>Son Güncelleme: 29 Ağustos 2026 | Geliştirici: AKA Labs</p>
+        </div>
+    </section>
+
+    <!-- Privacy Policy Document Section -->
+    <section class="privacy-content">
+        <div class="container">
+            <div class="privacy-card">
+                
+                <div class="summary-box">
+                    <strong>Özetle:</strong> Dava Belgelerim uygulaması, belgelerinizi yalnızca cihazınızda saklar ve üçüncü taraflarla paylaşmaz. Kişisel veriler yalnızca kimlik doğrulama amacıyla işlenir.
+                </div>
+
+                <hr>
+
+                <h2>1. Giriş</h2>
+                <p>Bu Gizlilik Politikası, AKA Labs tarafından geliştirilen <span class="highlight-text">Dava Belgelerim</span> mobil uygulamasının ("Uygulama") kullanıcılardan hangi kişisel verileri topladığını, bu verilerin nasıl kullanıldığını ve korunduğunu açıklamaktadır.</p>
+                <p>Uygulamayı kullanarak bu politikayı kabul etmiş sayılırsınız. Politikayı kabul etmiyorsanız uygulamayı kullanmayınız.</p>
+
+                <h2>2. Toplanan Veriler</h2>
+                
+                <h3>2.1 Kimlik doğrulama verileri</h3>
+                <p>Uygulamaya giriş yaparken aşağıdaki veriler kimlik doğrulama amacıyla işlenir:</p>
+                
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Giriş Yöntemi</th>
+                                <th>İşlenen Veri</th>
+                                <th>İşlem Amacı</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="highlight-text">Google ile Giriş</span></td>
+                                <td>E-posta adresi, ad-soyad, profil fotoğrafı</td>
+                                <td>Hesap tanımlama ve Premium üyelik doğrulama</td>
+                            </tr>
+                            <tr>
+                                <td><span class="highlight-text">Facebook ile Giriş</span></td>
+                                <td>E-posta adresi, ad-soyad, profil fotoğrafı</td>
+                                <td>Hesap tanımlama ve Premium üyelik doğrulama</td>
+                            </tr>
+                            <tr>
+                                <td><span class="highlight-text">E-posta / Şifre</span></td>
+                                <td>E-posta adresi (şifre şifreli saklanır)</td>
+                                <td>Hesap tanımlama ve Premium üyelik doğrulama</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>2.2 Cihazda saklanan veriler</h3>
+                <p>Aşağıdaki veriler yalnızca cihazınızda saklanır, sunucuya iletilmez:</p>
+                <ul>
+                    <li>Açılan belgeler (UDF, PDF, TIFF) ve belge geçmişi</li>
+                    <li>Uygulama içinde oluşturulan notlar</li>
+                    <li>Uygulama tercihleri (yazı boyutu, sesli okuma hızı)</li>
+                    <li>Premium üyelik durumu</li>
+                </ul>
+
+                <h3>2.3 Toplanmayan veriler</h3>
+                <p>Uygulama; konum verisi, reklam tanımlayıcısı, cihaz rehberi veya analitik davranış verisi toplamamaktadır.</p>
+
+                <h2>3. Uygulama İzinleri</h2>
+                
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>İzin</th>
+                                <th>Kullanım Amacı</th>
+                                <th>Zorunlu mu?</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="highlight-text">Depolama Okuma/Yazma</span></td>
+                                <td>Belge açma, PDF kaydetme</td>
+                                <td>Evet</td>
+                            </tr>
+                            <tr>
+                                <td><span class="highlight-text">Kamera</span></td>
+                                <td>Belge tarama (Premium özellik)</td>
+                                <td>Hayır</td>
+                            </tr>
+                            <tr>
+                                <td><span class="highlight-text">Mikrofon</span></td>
+                                <td>Sesli not alma (Premium özellik)</td>
+                                <td>Hayır</td>
+                            </tr>
+                            <tr>
+                                <td><span class="highlight-text">İnternet</span></td>
+                                <td>Firebase kimlik doğrulama, Google/Facebook girişi</td>
+                                <td>Evet</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>İsteğe bağlı izinleri reddetmeniz durumunda ilgili özellik devre dışı kalır; uygulamanın temel işlevleri etkilenmez.</p>
+
+                <h2>4. Üçüncü Taraf Hizmetler</h2>
+                
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Hizmet</th>
+                                <th>Sağlayıcı</th>
+                                <th>Amaç</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="highlight-text">Firebase Authentication</span></td>
+                                <td>Google LLC</td>
+                                <td>Kullanıcı kimlik doğrulama</td>
+                            </tr>
+                            <tr>
+                                <td><span class="highlight-text">Google Sign-In</span></td>
+                                <td>Google LLC</td>
+                                <td>Google hesabı ile giriş</td>
+                            </tr>
+                            <tr>
+                                <td><span class="highlight-text">Facebook Login</span></td>
+                                <td>Meta Platforms Inc.</td>
+                                <td>Facebook hesabı ile giriş</td>
+                            </tr>
+                            <tr>
+                                <td><span class="highlight-text">Google Gemini API</span></td>
+                                <td>Google LLC</td>
+                                <td>Not yeniden yazma (isteğe bağlı, kullanıcı anahtarı)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>Google Gemini API yalnızca kullanıcı kendi API anahtarını girmişse ve not yeniden yazma özelliğini aktif olarak kullandığında devreye girer. Not metni bu işlem sırasında Google'ın sunucularına iletilir.</p>
+
+                <h2>5. Veri Güvenliği</h2>
+                <ul>
+                    <li>Kimlik doğrulama verileri Firebase altyapısında, endüstri standardı şifreleme yöntemleriyle korunmaktadır.</li>
+                    <li>Belgeler ve notlar cihazınızın yerel depolama alanında saklanır; şifreleme işletim sisteminin güvenlik katmanına bırakılmıştır.</li>
+                    <li>Uygulama, belge içeriklerini kendi sunucularına iletmez veya depolamaz.</li>
+                    <li>Şifre ile giriş yapan kullanıcıların şifresi asla düz metin olarak saklanmaz; Firebase Authentication tarafından hashlenir.</li>
+                </ul>
+
+                <h2>6. Çocukların Gizliliği</h2>
+                <p>Dava Belgelerim, hukuki belge yönetimine yönelik profesyonel bir uygulamadır ve 18 yaşından küçük bireylere hitap etmemektedir. 18 yaş altı kullanıcılardan bilerek kişisel veri toplamıyoruz. Böyle bir durumdan haberdar olursak ilgili verileri derhal sileriz.</p>
+
+                <h2>7. Kullanıcı Hakları</h2>
+                <ul>
+                    <li><span class="highlight-text">Erişim:</span> Hakkınızda işlediğimiz verileri talep edebilirsiniz.</li>
+                    <li><span class="highlight-text">Düzeltme:</span> Yanlış veya eksik verilerin düzeltilmesini isteyebilirsiniz.</li>
+                    <li><span class="highlight-text">Silme:</span> Hesabınızın ve ilişkili kimlik verilerinin silinmesini talep edebilirsiniz.</li>
+                    <li><span class="highlight-text">Yerel veri silme:</span> Cihazınızdaki uygulama verilerini, uygulama ayarlarından veya uygulamayı kaldırarak silebilirsiniz.</li>
+                </ul>
+                <p>Bu haklarınızı kullanmak için aşağıdaki iletişim adresine başvurunuz.</p>
+
+                <h2>8. Politika Değişiklikleri</h2>
+                <p>Bu gizlilik politikası zaman zaman güncellenebilir. Önemli değişiklikler uygulama içi bildirim veya e-posta yoluyla duyurulur. Güncel politika her zaman bu sayfada yayımlanır. Değişiklik tarihini sayfanın üst kısmındaki "Son güncelleme" alanından takip edebilirsiniz.</p>
+
+                <h2>9. İletişim</h2>
+                <p>Gizlilik politikamıza ilişkin sorularınız için:</p>
+                <ul>
+                    <li><span class="highlight-text">Geliştirici:</span> AKA Labs</li>
+                    <li><span class="highlight-text">E-posta:</span> <a href="mailto:support@kapar.org">support@kapar.org</a></li>
+                    <li><span class="highlight-text">X (Twitter):</span> <a href="https://x.com/akalabs_dev" target="_blank">@akalabs_dev</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024–2026 AKA Labs. Tüm hakları saklıdır. Dava Belgelerim · com.aka.uyap_okuyucu · Sürüm 1.0.12</p>
+        </div>
+    </footer>
+
+</body>
+</html>
