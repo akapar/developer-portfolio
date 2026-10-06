@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Dava Belgelerim - Gizlilik Politikası. Kişisel verilerinizin ve dava dosyalarınızın nasıl korunduğunu öğrenin.">
-    <title>Gizlilik Politikası | Dava Belgelerim</title>
+    <meta name="description" content="Dava Belgelerim Android ve Windows uygulamaları için Gizlilik Politikası. Kişisel verilerinizin, belgelerinizin ve hesap bilgilerinizin nasıl işlendiğini öğrenin.">
+    <title>Gizlilik Politikası — Dava Belgelerim</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,9 +47,12 @@
             font-style: italic;
             color: var(--color-accent);
         }
-        .privacy-hero p {
-            font-size: 1.1rem;
+        .privacy-hero .meta-info {
+            font-size: 0.95rem;
             color: var(--text-secondary);
+            font-family: var(--font-mono);
+            margin-top: 0.5rem;
+            line-height: 1.6;
         }
         .privacy-content {
             padding: 20px 0 100px;
@@ -84,9 +87,9 @@
             margin-bottom: 0.75rem;
         }
         .privacy-card p {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
         }
-        .privacy-card ul {
+        .privacy-card ul, .privacy-card ol {
             margin-bottom: 1.5rem;
             padding-left: 1.5rem;
         }
@@ -120,7 +123,27 @@
             border-radius: 4px;
             margin: 1.5rem 0 2rem;
             color: var(--text-primary);
-            font-size: 1.05rem;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        .meta-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--card-border);
+            padding: 1.25rem 1.5rem;
+            border-radius: 4px;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+        .meta-box ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 0;
+        }
+        .meta-box li {
+            margin-bottom: 0.4rem;
+        }
+        .meta-box li:last-child {
+            margin-bottom: 0;
         }
         .table-responsive {
             overflow-x: auto;
@@ -137,6 +160,7 @@
             padding: 12px 16px;
             text-align: left;
             border-bottom: 1px solid var(--card-border);
+            vertical-align: top;
         }
         th {
             background: rgba(229, 169, 117, 0.06);
@@ -172,6 +196,8 @@
             <a href="index.html" class="logo">AKA Labs</a>
             <ul class="nav-links">
                 <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="dava-belgelerim.html">Dava Belgelerim</a></li>
+                <li><a href="support.html">Destek</a></li>
             </ul>
         </div>
     </header>
@@ -183,7 +209,9 @@
                 <i class="fa-solid fa-arrow-left"></i> Dava Belgelerim Sayfasına Dön
             </a>
             <h1>Gizlilik Politikası — <span>Dava Belgelerim</span></h1>
-            <p>Son Güncelleme: 29 Ağustos 2026 | Geliştirici: AKA Labs</p>
+            <div class="meta-info">
+                Son Güncelleme: 6 Ekim 2026 | Kapsam: Android & Windows Uygulamaları
+            </div>
         </div>
     </section>
 
@@ -192,165 +220,158 @@
         <div class="container">
             <div class="privacy-card">
                 
+                <div class="meta-box">
+                    <ul>
+                        <li><span class="highlight-text">Uygulama:</span> Dava Belgelerim (Android & Windows)</li>
+                        <li><span class="highlight-text">Son Güncelleme:</span> 6 Ekim 2026</li>
+                        <li><span class="highlight-text">Geliştirici:</span> AKA Labs</li>
+                        <li><span class="highlight-text">Veri Sorumlusu:</span> AKA Labs (Ahmet Kapar) — Ankara, Türkiye</li>
+                        <li><span class="highlight-text">İletişim & Destek:</span> <a href="mailto:support@kapar.org">support@kapar.org</a></li>
+                    </ul>
+                </div>
+
                 <div class="summary-box">
-                    <strong>Özetle:</strong> Dava Belgelerim uygulaması, belgelerinizi yalnızca cihazınızda saklar ve üçüncü taraflarla paylaşmaz. Kişisel veriler yalnızca kimlik doğrulama amacıyla işlenir.
+                    <strong>Özetle:</strong> Belge görüntüleme ve yerel not saklama ile hesap, abonelik, yapay zekâ ve ses tanıma özelliklerinin veri işleme biçimleri farklıdır. Bir belgenin uygulamada açılması, tek başına belgenin tamamının buluta yüklenmesi anlamına gelmez. Belgeleriniz temel olarak yerel cihazınızda kalır.
                 </div>
 
                 <hr>
 
-                <h2>1. Giriş</h2>
-                <p>Bu Gizlilik Politikası, AKA Labs tarafından geliştirilen <span class="highlight-text">Dava Belgelerim</span> mobil uygulamasının ("Uygulama") kullanıcılardan hangi kişisel verileri topladığını, bu verilerin nasıl kullanıldığını ve korunduğunu açıklamaktadır.</p>
-                <p>Uygulamayı kullanarak bu politikayı kabul etmiş sayılırsınız. Politikayı kabul etmiyorsanız uygulamayı kullanmayınız.</p>
+                <h2>1. Bu Politika Hakkında</h2>
+                <p>Bu politika, <span class="highlight-text">Dava Belgelerim</span> uygulamasında hangi verilerin işlendiğini, hangi amaçlarla kullanıldığını, hangi hizmet sağlayıcılarına iletilebildiğini ve kullanıcıların veri tercihlerini nasıl yönetebileceğini açıklar.</p>
+                <p>Belge görüntüleme ve yerel not saklama ile hesap, abonelik, yapay zekâ ve ses tanıma özelliklerinin veri işleme biçimleri farklıdır. Bir belgenin uygulamada açılması, tek başına belgenin tamamının buluta yüklenmesi anlamına gelmez.</p>
 
-                <h2>2. Toplanan Veriler</h2>
-                
-                <h3>2.1 Kimlik doğrulama verileri</h3>
-                <p>Uygulamaya giriş yaparken aşağıdaki veriler kimlik doğrulama amacıyla işlenir:</p>
-                
-                <div class="table-responsive">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Giriş Yöntemi</th>
-                                <th>İşlenen Veri</th>
-                                <th>İşlem Amacı</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><span class="highlight-text">Google ile Giriş</span></td>
-                                <td>E-posta adresi, ad-soyad, profil fotoğrafı</td>
-                                <td>Hesap tanımlama ve Premium üyelik doğrulama</td>
-                            </tr>
-                            <tr>
-                                <td><span class="highlight-text">Facebook ile Giriş</span></td>
-                                <td>E-posta adresi, ad-soyad, profil fotoğrafı</td>
-                                <td>Hesap tanımlama ve Premium üyelik doğrulama</td>
-                            </tr>
-                            <tr>
-                                <td><span class="highlight-text">E-posta / Şifre</span></td>
-                                <td>E-posta adresi (şifre şifreli saklanır)</td>
-                                <td>Hesap tanımlama ve Premium üyelik doğrulama</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <h3>2.2 Cihazda saklanan veriler</h3>
-                <p>Aşağıdaki veriler yalnızca cihazınızda saklanır, sunucuya iletilmez:</p>
+                <h2>2. Hesap ve Üyelik Bilgileri</h2>
+                <p>Hesap oluşturduğunuzda veya desteklenen bir yöntemle giriş yaptığınızda aşağıdaki bilgiler işlenebilir:</p>
                 <ul>
-                    <li>Açılan belgeler (UDF, PDF, TIFF) ve belge geçmişi</li>
-                    <li>Uygulama içinde oluşturulan notlar</li>
-                    <li>Uygulama tercihleri (yazı boyutu, sesli okuma hızı)</li>
-                    <li>Premium üyelik durumu</li>
+                    <li>E-posta adresi, ad ve kullanılan giriş yöntemine bağlı profil fotoğrafı.</li>
+                    <li>Firebase tarafından oluşturulan kullanıcı kimliği (UID).</li>
+                    <li>Hesap oturumunun yürütülmesi için gereken kimlik doğrulama bilgileri.</li>
+                    <li>Premium üyelik durumu ve varsa üyelik bitiş tarihi.</li>
+                    <li>E-posta duyurularına ilişkin izin tercihiniz.</li>
                 </ul>
+                <p>Bu bilgiler hesap yönetimi, kimlik doğrulama, Premium özelliklere erişim ve izin verilen iletişimlerin yürütülmesi amacıyla kullanılır. Hesap ve üyelik kayıtları <span class="highlight-text">Firebase Authentication</span> ve <span class="highlight-text">Cloud Firestore</span> hizmetlerinde işlenir.</p>
+                <p>E-posta ve şifreyle girişte şifre doğrulama Firebase Authentication tarafından yürütülür; uygulama şifrenizi kendi veritabanında düz metin olarak saklamaz.</p>
+                <p>Android’de Google Play üzerinden alınan Premium üyelik, aynı uygulama hesabıyla Windows’ta da kullanılabilir. Bu kontrol için üyelik durumu Firebase üzerinden okunur. Kart ve banka bilgilerinizi uygulama toplamaz; ödeme işlemleri ilgili ödeme sağlayıcısı (Google Play) tarafından yürütülür.</p>
 
-                <h3>2.3 Toplanmayan veriler</h3>
-                <p>Uygulama; konum verisi, reklam tanımlayıcısı, cihaz rehberi veya analitik davranış verisi toplamamaktadır.</p>
+                <h2>3. Belgeler, Notlar ve Yerel Kayıtlar</h2>
+                <p>Açtığınız belgeler, oluşturduğunuz notlar ve aşağıdaki uygulama kayıtları temel olarak cihazınızda saklanır:</p>
+                <ul>
+                    <li>Belge geçmişi, dosya adları ve dosya yolları.</li>
+                    <li>Belgelerde arama yapılmasını sağlayan yerel arama indeksi.</li>
+                    <li>Not metinleri ve kaydedilen yeniden yazma sonuçları.</li>
+                    <li>Belgelere eklenen yorumlar ve vurgular.</li>
+                    <li>Uygulama tercihleri ve üyelik durumunun yerel önbelleği.</li>
+                </ul>
+                <p>Bu kayıtlar cihazınızda kişisel veya hassas bilgiler içerebilir. Cihaz erişiminizi ve yedekleme tercihlerinizi yönetmek sizin kontrolünüzdedir.</p>
+                <p>Uygulamanın yapay zekâ, ses tanıma veya kullanıcı tarafından başlatılan paylaşım özelliklerini kullanmanız halinde, ilgili içerik aşağıda açıklanan hizmetlere iletilebilir.</p>
 
-                <h2>3. Uygulama İzinleri</h2>
+                <h2>4. Yapay Zekâyla Yeniden Yazma</h2>
+                <p>“Yeniden yaz” özelliğini kullandığınızda, yeniden yazılacak not metni ve seçtiğiniz yazı stili veya uzunluk gibi işlem tercihleri, yanıt oluşturulması amacıyla internet üzerinden gönderilir.</p>
+                <p>Bu işlemde <span class="highlight-text">Cloudflare Workers</span> aracılık hizmeti kullanılır. Metin, yapay zekâ yanıtı üreten hizmet sağlayıcısına iletilir.</p>
+                <p><span class="highlight-text">Kullanılan Yapay Zekâ Sağlayıcısı:</span> <strong>Google LLC (Google Gemini API).</strong> İstekler Cloudflare Workers altyapısı (<code>dava-ai.akapar.workers.dev</code>) üzerinden güvenli biçimde Google Gemini API'ye iletilir. İlgili veri işleme koşulları için <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Gizlilik Politikası</a> ve <a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener noreferrer">Google Gemini API Hizmet Şartları</a> geçerlidir.</p>
+                <p>Bu işlem için kendi API anahtarınızı girmeniz şart değildir. İlgili hizmet sağlayıcıları metni ve bağlantıya ilişkin teknik bilgileri kendi sözleşmeleri, günlükleme ve veri saklama koşulları çerçevesinde işleyebilir.</p>
+                <p>Notlarınız üçüncü kişilere ait kişisel veya hassas bilgiler içerebilir. Yapay zekâya göndermeden önce gereksiz ad, kimlik numarası, iletişim bilgisi ve benzeri bilgileri çıkarmanız önerilir. Paylaşma yetkiniz olmayan içerikleri bu özelliğe göndermeyin.</p>
+
+                <h2>5. Sesle Yazma, Sesle Arama ve Sesli Okuma</h2>
+                <p>Android’de sesle not alma ve sesle arama, cihazda kullanılabilen konuşma tanıma hizmetlerinden yararlanır. Sesin cihazda mı yoksa hizmet sağlayıcısının sunucularında mı işlendiği, kullanılan hizmete ve cihaz ayarlarına bağlıdır.</p>
+                <p>Windows’ta sesle not alma ve sesle arama, Microsoft’un Windows sesle yazma özelliğiyle — Win+H — yürütülür. Ses işleme, Microsoft’un hizmet koşulları ve Windows gizlilik ayarlarına tabidir. Tanınan metin uygulamadaki seçili metin alanına aktarılır.</p>
+                <p>Sesli okumada cihazdaki metinden sese hizmeti kullanılır. İşleme koşulları kullanılan ses motoruna bağlı olabilir.</p>
+                <p>Mikrofon yalnızca kullanıcının başlattığı sesli özellikler için kullanılır. Sesle arama ücretsizdir; sesli not alma için Premium üyelik gerekebilir.</p>
+
+                <h2>6. Kullanım Analitiği</h2>
+                <p>Uygulamada <span class="highlight-text">Firebase Analytics</span> entegrasyonu bulunur. Desteklenen platformlarda uygulama açılışı, giriş, kullanılan özellikler ve satın alma süreçleri gibi kullanım olayları gönderilebilir. Uygulama kullanıcı kimliği de analitik hizmetine iletilebilir.</p>
+                <p>Bu bilgiler kullanımın anlaşılması ve uygulamanın geliştirilmesi amacıyla işlenir. Analitik olaylarına belge veya not metinlerinin eklenmesi amaçlanmaz.</p>
+                <p><em>Analitik Yapılandırması ve Veri Kapsamı:</em> Uygulamada toplanan analitik olayları temel kullanım istatistikleriyle sınırlıdır (örneğin: <code>uygulama_acildi</code>, oturum açma yöntemi, <code>belge_acildi</code> dosya türü uzantısı, dönüştürülen format tipi, sesli okuma başlatılması, belge tarama veya Premium ekranı görüntüleme sayaçları). Açtığınız veya dönüştürdüğünüz belgelerin içeriği, not metinleriniz veya dosya adları kesinlikle analitik olaylarına eklenmez. Uygulama içinde harici bir analitik kapatma anahtarı bulunmamakta olup, kullanıcılar cihaz düzeyindeki işletim sistemi gizlilik ayarlarından (Android Reklam Kimliğini sıfırlama/silme veya kişiselleştirilmiş veri paylaşımını kapatma) izlemeyi sınırlandırabilirler.</p>
+
+                <h2>7. E-Posta Duyuruları</h2>
+                <p>İzin verirseniz uygulama güncellemeleri, eğitim içerikleri, kampanyalar veya Premium fırsatları hakkında e-posta gönderilebilir.</p>
+                <p>E-posta duyurusu izni, hesap oluşturma işleminden ayrıdır. Tercihinizi uygulama ayarlarından değiştirebilir veya iletişim adresimiz üzerinden izninizi geri çekebilirsiniz. İzin vermemeniz temel uygulama özelliklerini kullanmanızı engellemez.</p>
+
+                <h2>8. İzinler</h2>
+                <p>Uygulama, kullanılan platforma ve özelliğe göre şu erişimlerden yararlanabilir:</p>
                 
                 <div class="table-responsive">
                     <table>
                         <thead>
                             <tr>
-                                <th>İzin</th>
-                                <th>Kullanım Amacı</th>
+                                <th>Erişim / İzin</th>
+                                <th>Amaç</th>
                                 <th>Zorunlu mu?</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><span class="highlight-text">Depolama Okuma/Yazma</span></td>
-                                <td>Belge açma, PDF kaydetme</td>
-                                <td>Evet</td>
-                            </tr>
-                            <tr>
-                                <td><span class="highlight-text">Kamera</span></td>
-                                <td>Belge tarama (Premium özellik)</td>
-                                <td>Hayır</td>
+                                <td><span class="highlight-text">Dosya ve Depolama Erişimi</span></td>
+                                <td>Seçtiğiniz belgeleri (UDF, PDF, TIFF vb.) açmak, dönüştürmek ve kaydetmek</td>
+                                <td>Temel işlev için zorunlu</td>
                             </tr>
                             <tr>
                                 <td><span class="highlight-text">Mikrofon</span></td>
-                                <td>Sesli not alma (Premium özellik)</td>
-                                <td>Hayır</td>
+                                <td>Sesle not alma ve sesle arama özelliklerini yürütmek</td>
+                                <td>İsteğe bağlı (Özellik kullanıldığında)</td>
+                            </tr>
+                            <tr>
+                                <td><span class="highlight-text">Kamera</span></td>
+                                <td>Desteklenen platformlarda fiziksel belge taramak</td>
+                                <td>İsteğe bağlı (Özellik kullanıldığında)</td>
                             </tr>
                             <tr>
                                 <td><span class="highlight-text">İnternet</span></td>
-                                <td>Firebase kimlik doğrulama, Google/Facebook girişi</td>
-                                <td>Evet</td>
+                                <td>Hesap girişi, üyelik kontrolü, yapay zekâ ile yeniden yazma ve diğer çevrimiçi hizmetler</td>
+                                <td>Çevrimiçi özellikler için zorunlu</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <p>İsteğe bağlı izinleri reddetmeniz durumunda ilgili özellik devre dışı kalır; uygulamanın temel işlevleri etkilenmez.</p>
 
-                <h2>4. Üçüncü Taraf Hizmetler</h2>
-                
-                <div class="table-responsive">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Hizmet</th>
-                                <th>Sağlayıcı</th>
-                                <th>Amaç</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><span class="highlight-text">Firebase Authentication</span></td>
-                                <td>Google LLC</td>
-                                <td>Kullanıcı kimlik doğrulama</td>
-                            </tr>
-                            <tr>
-                                <td><span class="highlight-text">Google Sign-In</span></td>
-                                <td>Google LLC</td>
-                                <td>Google hesabı ile giriş</td>
-                            </tr>
-                            <tr>
-                                <td><span class="highlight-text">Facebook Login</span></td>
-                                <td>Meta Platforms Inc.</td>
-                                <td>Facebook hesabı ile giriş</td>
-                            </tr>
-                            <tr>
-                                <td><span class="highlight-text">Google Gemini API</span></td>
-                                <td>Google LLC</td>
-                                <td>Not yeniden yazma (isteğe bağlı, kullanıcı anahtarı)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <p>Google Gemini API yalnızca kullanıcı kendi API anahtarını girmişse ve not yeniden yazma özelliğini aktif olarak kullandığında devreye girer. Not metni bu işlem sırasında Google'ın sunucularına iletilir.</p>
+                <p>Konum bilgisi uygulamanın mevcut özellikleri için gerekli değildir ve uygulama tarafından talep edilmesi amaçlanmaz.</p>
+                <p>İsteğe bağlı erişimleri işletim sistemi ayarlarından yönetebilirsiniz. Bir erişimi kapatmanız, bu erişime ihtiyaç duyan özelliğin çalışmasını engelleyebilir.</p>
 
-                <h2>5. Veri Güvenliği</h2>
+                <h2>9. Hizmet Sağlayıcıları ve Veri Aktarımı</h2>
+                <p>Kullanılan özelliğe bağlı olarak veriler şu hizmet sağlayıcılarında işlenebilir:</p>
                 <ul>
-                    <li>Kimlik doğrulama verileri Firebase altyapısında, endüstri standardı şifreleme yöntemleriyle korunmaktadır.</li>
-                    <li>Belgeler ve notlar cihazınızın yerel depolama alanında saklanır; şifreleme işletim sisteminin güvenlik katmanına bırakılmıştır.</li>
-                    <li>Uygulama, belge içeriklerini kendi sunucularına iletmez veya depolamaz.</li>
-                    <li>Şifre ile giriş yapan kullanıcıların şifresi asla düz metin olarak saklanmaz; Firebase Authentication tarafından hashlenir.</li>
+                    <li><span class="highlight-text">Google / Firebase:</span> Kimlik doğrulama, hesap ve Premium kayıtları, kullanım analitiği (<a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Firebase Gizlilik ve Güvenlik</a>).</li>
+                    <li><span class="highlight-text">Google Play:</span> Android satın alma ve abonelik yönetimi (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Gizlilik Politikası</a>).</li>
+                    <li><span class="highlight-text">Cloudflare:</span> Yapay zekâ isteklerinin iletilmesine aracılık (<a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Cloudflare Gizlilik Politikası</a>).</li>
+                    <li><span class="highlight-text">Google LLC (Google Gemini):</span> Not metninin yapay zekâyla yeniden yazılması ve özetlenmesi (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Gizlilik Politikası</a>).</li>
+                    <li><span class="highlight-text">Microsoft:</span> Windows sesle yazma özelliği (<a href="https://privacy.microsoft.com/privacystatement" target="_blank" rel="noopener noreferrer">Microsoft Gizlilik Bildirimi</a>).</li>
+                    <li><span class="highlight-text">Desteklenen Diğer Giriş ve Konuşma Hizmetleri:</span> İlgili özellik seçildiğinde ilgili sağlayıcıların altyapıları.</li>
                 </ul>
+                <p>Bu sağlayıcılar verileri Türkiye dışındaki sunucularda işleyebilir. Aktarımların kapsamı ve sağlayıcı koşulları kullanılan hizmete bağlıdır. Veri aktarımları, ilgili küresel sağlayıcıların uluslararası standart sözleşme maddeleri (SCC) ve sıkı bulut veri güvenliği protokolleri çerçevesinde yürütülür.</p>
 
-                <h2>6. Çocukların Gizliliği</h2>
-                <p>Dava Belgelerim, hukuki belge yönetimine yönelik profesyonel bir uygulamadır ve 18 yaşından küçük bireylere hitap etmemektedir. 18 yaş altı kullanıcılardan bilerek kişisel veri toplamıyoruz. Böyle bir durumdan haberdar olursak ilgili verileri derhal sileriz.</p>
-
-                <h2>7. Kullanıcı Hakları</h2>
+                <h2>10. Saklama ve Güvenlik</h2>
+                <p>Yerel kayıtlar, kullanıcı tarafından kaldırılana veya ilgili uygulama verileri temizlenene kadar cihazda kalabilir. Uygulamadan bir belgeyi listeden kaldırmak, orijinal dosyanın cihazdan silinmesiyle aynı işlem değildir.</p>
+                <p>Bulut hesap ve üyelik kayıtları, hizmetin yürütülmesi için gereken süre boyunca saklanır. Hesap silme talepleri, hizmet sağlayıcılarının teknik süreçleri ve uygulanabilir saklama yükümlülükleri dikkate alınarak değerlendirilir.</p>
+                <p><em>Veri Saklama ve Silme Süreleri:</em></p>
                 <ul>
-                    <li><span class="highlight-text">Erişim:</span> Hakkınızda işlediğimiz verileri talep edebilirsiniz.</li>
-                    <li><span class="highlight-text">Düzeltme:</span> Yanlış veya eksik verilerin düzeltilmesini isteyebilirsiniz.</li>
-                    <li><span class="highlight-text">Silme:</span> Hesabınızın ve ilişkili kimlik verilerinin silinmesini talep edebilirsiniz.</li>
-                    <li><span class="highlight-text">Yerel veri silme:</span> Cihazınızdaki uygulama verilerini, uygulama ayarlarından veya uygulamayı kaldırarak silebilirsiniz.</li>
+                    <li><span class="highlight-text">Bulut Hesap ve Kimlik Verileri:</span> Firebase Authentication ve Firestore üzerindeki hesap kayıtları, hesabınız aktif olduğu müddetçe saklanır. Hesap silme talepleri en geç <strong>30 gün içinde</strong> kalıcı olarak yerine getirilir.</li>
+                    <li><span class="highlight-text">Teknik Günlükler (Loglar):</span> Güvenlik, hata ayıklama ve kötüye kullanımı önleme amacıyla altyapı sağlayıcıları (Firebase, Cloudflare) tarafından tutulan teknik sistem ve erişim günlükleri genellikle <strong>30 ila 90 gün</strong> arasında saklanır ve periyodik olarak silinir ya da anonimleştirilir.</li>
+                    <li><span class="highlight-text">Yedekler:</span> Olağanüstü durum kurtarma yedekleme döngülerinde yer alan veriler, silme işleminden sonra en geç <strong>30-60 gün içinde</strong> tüm yedek döngülerinden temizlenir.</li>
+                    <li><span class="highlight-text">Yerel Veriler:</span> Cihazınızda saklanan belgeler, önbellek ve yerel notlar, uygulamayı sildiğinizde veya cihaz ayarlarından uygulama verilerini temizlediğinizde anında silinir.</li>
                 </ul>
-                <p>Bu haklarınızı kullanmak ve adım adım hesap silme yönergelerini incelemek için <a href="dava-belgelerim-veri-silme.html" class="highlight-text" style="text-decoration: underline;">Veri Silme Talimatları</a> sayfamızı ziyaret edebilir veya doğrudan aşağıdaki iletişim adresine başvurabilirsiniz.</p>
+                <p>Veri iletiminde endüstri standardı TLS/HTTPS şifreli bağlantılar kullanılır. Yerel verilerin korunması cihazın güvenlik, kullanıcı hesabı ve disk şifreleme ayarlarına da bağlıdır.</p>
 
-                <h2>8. Politika Değişiklikleri</h2>
-                <p>Bu gizlilik politikası zaman zaman güncellenebilir. Önemli değişiklikler uygulama içi bildirim veya e-posta yoluyla duyurulur. Güncel politika her zaman bu sayfada yayımlanır. Değişiklik tarihini sayfanın üst kısmındaki "Son güncelleme" alanından takip edebilirsiniz.</p>
+                <h2>11. Kullanıcı Tercihleri ve Silme Talepleri</h2>
+                <p>Hakkınızda işlenen verilere ilişkin bilgi, erişim, düzeltme ve silme taleplerinizi iletişim adresimize gönderebilirsiniz.</p>
+                <ul>
+                    <li>E-posta duyuru izninizi uygulama ayarlarından yönetebilirsiniz.</li>
+                    <li>Mikrofon ve diğer erişimleri işletim sistemi ayarlarından değiştirebilirsiniz.</li>
+                    <li>Yerel belgeleri ve uygulama kayıtlarını ilgili uygulama seçenekleriyle yönetebilirsiniz.</li>
+                    <li>Hesap silme adımları için <a href="dava-belgelerim-veri-silme.html" class="highlight-text" style="text-decoration: underline;">Veri Silme Talimatları</a> sayfasını inceleyebilirsiniz.</li>
+                </ul>
+                <p>Uygulamayı kaldırmak, bulut hesabınızı veya Google Play aboneliğinizi otomatik olarak silmez ya da iptal etmez. Google Play aboneliği ayrıca Google Play üzerinden yönetilmelidir.</p>
 
-                <h2>9. İletişim</h2>
-                <p>Gizlilik politikamıza ilişkin sorularınız için:</p>
+                <h2>12. Çocukların Gizliliği</h2>
+                <p>Dava Belgelerim, hukuki belge ve not işlemleri için tasarlanmıştır; çocuklara yönelik bir hizmet değildir. Çocuklara ait verilerin uygunsuz şekilde işlendiğini düşünüyorsanız iletişim adresimize başvurabilirsiniz.</p>
+
+                <h2>13. Değişiklikler ve İletişim</h2>
+                <p>Yeni özellikler veya veri işleme değişiklikleri olduğunda bu politika güncellenir. Güncelleme tarihi sayfanın başında belirtilir. Önemli değişiklikler uygun iletişim yöntemleriyle duyurulur.</p>
+                <p>Sorularınız ve veri talepleriniz için:</p>
                 <ul>
                     <li><span class="highlight-text">Geliştirici:</span> AKA Labs</li>
+                    <li><span class="highlight-text">Veri Sorumlusu:</span> AKA Labs (Ahmet Kapar)</li>
                     <li><span class="highlight-text">E-posta:</span> <a href="mailto:support@kapar.org">support@kapar.org</a></li>
-                    <li><span class="highlight-text">X (Twitter):</span> <a href="https://x.com/akalabs_dev" target="_blank">@akalabs_dev</a></li>
+                    <li><span class="highlight-text">Destek Sayfası:</span> <a href="support.html">kapar.org/support.html</a></li>
                 </ul>
 
             </div>
@@ -360,7 +381,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2024–2026 AKA Labs. Tüm hakları saklıdır. Dava Belgelerim · com.aka.uyap_okuyucu · Sürüm 1.0.12</p>
+            <p>&copy; 2024–2026 AKA Labs. Tüm hakları saklıdır. Dava Belgelerim (Android & Windows)</p>
         </div>
     </footer>
 
