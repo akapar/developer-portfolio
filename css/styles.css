@@ -638,7 +638,8 @@ header {
 /* Card footer buttons */
 .app-footer {
     display: flex;
-    gap: 1rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     padding-top: 1.5rem;
     margin-top: 1.5rem;
@@ -646,7 +647,8 @@ header {
 
 .app-link {
     flex: 1;
-    padding: 8px 16px;
+    min-width: 110px;
+    padding: 8px 14px;
     border-radius: 4px;
     text-decoration: none;
     font-size: 0.8rem;

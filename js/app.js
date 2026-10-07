@@ -18,8 +18,10 @@ const appsData = [
         tags: ["Flutter", "Dart", "UDF Parser", "TIFF to PDF", "Toplu Dönüştürücü", "Windows & Linux & Android & iOS"],
         primaryLink: "dava-belgelerim.html",
         primaryLabel: "Detaylar",
-        secondaryLink: "https://play.google.com/store/apps/details?id=com.aka.uyap_okuyucu",
-        secondaryLabel: "Google Play",
+        secondaryLink: "https://apps.microsoft.com/store/detail/9NJT932H8V1C?cid=DevShareMCLPCB",
+        secondaryLabel: "Microsoft Store",
+        tertiaryLink: "https://play.google.com/store/apps/details?id=com.aka.uyap_okuyucu",
+        tertiaryLabel: "Google Play",
         privacyLink: "dava-belgelerim-gizlilik-politikasi.html"
     },
     {
@@ -180,16 +182,30 @@ function renderApps(filterCategory = 'all') {
         // Footer Buttons HTML
         let footerButtonsHTML = '';
         if (app.primaryLink) {
-            footerButtonsHTML += `<a href="${app.primaryLink}" class="app-link app-link-primary"><i class="fa-solid fa-download"></i> ${app.primaryLabel}</a>`;
+            const icon = (app.primaryLabel && (app.primaryLabel.toLowerCase().includes('detay') || app.primaryLabel.toLowerCase().includes('detail')))
+                ? 'fa-solid fa-circle-info'
+                : 'fa-solid fa-download';
+            footerButtonsHTML += `<a href="${app.primaryLink}" class="app-link app-link-primary"><i class="${icon}"></i> ${app.primaryLabel}</a>`;
         }
-        if (app.secondaryLink) {
+
+        const createSecondaryBtn = (link, label) => {
+            if (!link) return '';
             let iconClass = 'fa-solid fa-circle-info';
-            if (app.secondaryLink.includes('play.google.com')) {
+            if (link.includes('play.google.com')) {
                 iconClass = 'fa-brands fa-google-play';
-            } else if (app.secondaryLink.includes('chromewebstore.google.com')) {
+            } else if (link.includes('chromewebstore.google.com')) {
                 iconClass = 'fa-brands fa-chrome';
+            } else if (link.includes('apps.microsoft.com')) {
+                iconClass = 'fa-brands fa-windows';
             }
-            footerButtonsHTML += `<a href="${app.secondaryLink}" target="_blank" class="app-link app-link-secondary"><i class="${iconClass}"></i> ${app.secondaryLabel}</a>`;
+            return `<a href="${link}" target="_blank" class="app-link app-link-secondary"><i class="${iconClass}"></i> ${label}</a>`;
+        };
+
+        if (app.secondaryLink) {
+            footerButtonsHTML += createSecondaryBtn(app.secondaryLink, app.secondaryLabel);
+        }
+        if (app.tertiaryLink) {
+            footerButtonsHTML += createSecondaryBtn(app.tertiaryLink, app.tertiaryLabel);
         }
 
         // Get category label
