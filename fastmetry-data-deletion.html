@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Data Deletion Instructions for Fastmetry (com.fasting.assistant) - Step-by-step guide on how to request partial or complete data deletion.">
+    <title>Data Deletion Instructions | Fastmetry</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <style>
+        :root {
+            --fastmetry-primary: #10b981;
+            --fastmetry-accent: #8ca68c;
+            --fastmetry-border: rgba(16, 185, 129, 0.2);
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--fastmetry-primary);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 2.5rem;
+            transition: var(--transition);
+        }
+        .back-link:hover {
+            color: var(--text-primary);
+            transform: translateX(-5px);
+        }
+        .privacy-hero {
+            padding: 140px 0 40px;
+        }
+        .privacy-hero h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        .privacy-hero h1 span {
+            font-style: italic;
+            color: var(--fastmetry-primary);
+        }
+        .privacy-hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+        .privacy-content {
+            padding: 20px 0 100px;
+        }
+        .privacy-card {
+            background: var(--card-bg);
+            border: 1px solid var(--fastmetry-border);
+            border-radius: 12px;
+            padding: 3.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+        .privacy-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #10b981, #8ca68c);
+        }
+        .meta-box {
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px solid var(--fastmetry-border);
+            border-radius: 8px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 2rem;
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+        }
+        .meta-box ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 0.75rem;
+            margin-left: 0;
+            padding-left: 0;
+        }
+        .meta-box li span {
+            color: var(--fastmetry-primary);
+            font-weight: 600;
+        }
+        .summary-badge {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 4px;
+            padding: 3px 8px;
+            font-size: 0.75rem;
+            font-family: var(--font-mono);
+            margin-bottom: 0.75rem;
+        }
+        .privacy-card h2 {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .privacy-card h2 i {
+            color: var(--fastmetry-primary);
+            font-size: 1.2rem;
+        }
+        .privacy-card h3 {
+            font-family: var(--font-sans);
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 1.5rem;
+            margin-bottom: 0.6rem;
+        }
+        .privacy-card p {
+            color: var(--text-secondary);
+            font-size: 0.98rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        .privacy-card ol, .privacy-card ul {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .privacy-card li {
+            margin-bottom: 0.5rem;
+        }
+        .privacy-card code {
+            font-family: var(--font-mono);
+            font-size: 0.88em;
+            background: rgba(16, 185, 129, 0.08);
+            color: #34d399;
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+        .privacy-card a {
+            color: var(--fastmetry-primary);
+            text-decoration: underline;
+            transition: var(--transition);
+        }
+        .privacy-card a:hover {
+            color: #34d399;
+        }
+        .step-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 8px;
+            padding: 1.25rem 1.5rem;
+            margin: 1rem 0 1.5rem;
+        }
+        .step-box h4 {
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .step-box h4 i {
+            color: var(--fastmetry-primary);
+        }
+        .callout-box {
+            background: rgba(255, 255, 255, 0.02);
+            border-left: 3px solid var(--fastmetry-primary);
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .callout-box p {
+            margin-bottom: 0;
+            font-size: 0.92rem;
+            color: var(--text-primary);
+        }
+        @media (max-width: 768px) {
+            .privacy-card {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grain-overlay"></div>
+
+    <!-- Navigation -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">AKA <span>Labs</span></a>
+            <ul class="nav-links">
+                <li><a href="fastmetry.html">01 // Fastmetry Details</a></li>
+                <li><a href="fastmetry-privacy-policy.html">02 // Privacy Policy</a></li>
+                <li><a href="support.html">03 // Support</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="privacy-hero">
+        <div class="container">
+            <a href="fastmetry.html" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i> Back to Fastmetry
+            </a>
+            <h1>Data Deletion Instructions — <span>Fastmetry</span></h1>
+            <p>Fastmetry (Fasting Assistant) — Package: <code>com.fasting.assistant</code></p>
+        </div>
+    </section>
+
+    <!-- Main Content Section -->
+    <section class="privacy-content">
+        <div class="container">
+            <div class="privacy-card">
+                
+                <span class="summary-badge"><i class="fa-solid fa-user-shield"></i> Google Play Compliant Data Deletion Request Page</span>
+                
+                <div class="meta-box">
+                    <ul>
+                        <li><span>Application Name:</span> Fastmetry (Fasting Assistant)</li>
+                        <li><span>Package Name:</span> <code>com.fasting.assistant</code></li>
+                        <li><span>Developer:</span> AKA Labs</li>
+                        <li><span>Effective Date:</span> October 28, 2026</li>
+                        <li><span>Contact Email:</span> <a href="mailto:support@kapar.org">support@kapar.org</a></li>
+                        <li><span>Website:</span> <a href="https://kapar.org/" target="_blank">kapar.org</a></li>
+                    </ul>
+                </div>
+
+                <div class="callout-box">
+                    <p><strong>Summary:</strong> AKA Labs empowers Fastmetry users with complete control over their personal health and wellness data. This page clearly describes the steps you can take to delete <strong>specific parts of your data</strong> (such as fasting sessions, meal photos, water logs, or weight entries) or delete your entire account and associated cloud records.</p>
+                </div>
+
+                <h2><i class="fa-solid fa-sliders"></i> 1. Deleting Specific Data Without Deleting Your Account</h2>
+                <p>You do not need to delete your user account to remove specific records. Fastmetry offers built-in tools to selectively delete any data category:</p>
+
+                <div class="step-box">
+                    <h4><i class="fa-solid fa-clock-rotate-left"></i> A. Deleting Specific Fasting Sessions</h4>
+                    <ol>
+                        <li>Open <strong>Fastmetry</strong> and navigate to the <strong>Progress</strong> tab.</li>
+                        <li>Select the fasting session you wish to remove from your history.</li>
+                        <li>Tap the <strong>Delete (Trash)</strong> icon and confirm. The record is instantly deleted from both your local device and cloud backup.</li>
+                    </ol>
+                </div>
+
+                <div class="step-box">
+                    <h4><i class="fa-solid fa-book-journal-whills"></i> B. Deleting Meal Photos & Journal Notes</h4>
+                    <ol>
+                        <li>Go to the <strong>Journal</strong> tab.</li>
+                        <li>Tap on the entry containing the meal photo, voice memo, or text note you want to erase.</li>
+                        <li>Tap <strong>Edit → Delete Entry</strong> (or delete the photo attachment individually).</li>
+                    </ol>
+                </div>
+
+                <div class="step-box">
+                    <h4><i class="fa-solid fa-glass-water"></i> C. Clearing Hydration & Weight Logs</h4>
+                    <ol>
+                        <li>In the <strong>Journal</strong> or <strong>Progress</strong> tab, tap on the specific hydration or weight log entry.</li>
+                        <li>Select <strong>Delete</strong> to clear the entry from your metrics and trend calculations.</li>
+                    </ol>
+                </div>
+
+                <div class="step-box">
+                    <h4><i class="fa-solid fa-cloud-arrow-down"></i> D. Purging Cloud Backups (Reset Cloud Data)</h4>
+                    <ol>
+                        <li>Navigate to <strong>Profile → Backup & Sync</strong>.</li>
+                        <li>Tap <strong>Clear Cloud Data</strong>. This permanently removes all synced fasting, weight, water, and journal documents from Google Cloud Firestore, while preserving your login credentials.</li>
+                    </ol>
+                </div>
+
+                <h2><i class="fa-solid fa-envelope"></i> 2. Requesting Data Deletion via Email (Web / Support Request)</h2>
+                <p>If you have uninstalled the app or prefer to request data deletion via our engineering team, you can submit a manual deletion request:</p>
+                <ul>
+                    <li><strong>Send an email to:</strong> <a href="mailto:support@kapar.org">support@kapar.org</a></li>
+                    <li><strong>Subject line:</strong> <code>Fastmetry Data Deletion Request</code></li>
+                    <li><strong>Required Information:</strong>
+                        <ul>
+                            <li>The email address associated with your Fastmetry / Google account.</li>
+                            <li>A brief statement specifying what you would like deleted:
+                                <ul>
+                                    <li><em>"Delete specific data"</em> (specify which data, e.g. all fasting logs, meal photos, or hydration history), OR</li>
+                                    <li><em>"Delete all data and account permanently"</em>.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h2><i class="fa-solid fa-list-check"></i> 3. Types of Data Deleted vs. Retained</h2>
+                
+                <h3>A. Data That Is Permanently Deleted</h3>
+                <p>Upon receiving your deletion request or when deleting items within the app, the following data is permanently purged:</p>
+                <ul>
+                    <li>Fasting session start/end timestamps and target goal history.</li>
+                    <li>Hydration intake records and container preferences.</li>
+                    <li>Weight measurements and calculated trend line curves.</li>
+                    <li>Journal entries, meal photos, and voice note recordings.</li>
+                    <li>Associated cloud Firestore documents and backup snapshots.</li>
+                </ul>
+
+                <h3>B. Data That Is Retained (If Account Remains Active)</h3>
+                <p>If you choose to delete specific records while keeping your account active, we retain only the bare minimum technical identifier (Firebase Authentication User ID and email address) necessary to allow you to log in in the future.</p>
+                <p>If you request complete account deletion, <strong>no personal data is retained.</strong></p>
+
+                <h2><i class="fa-solid fa-hourglass-half"></i> 4. Retention and Deletion Timelines</h2>
+                <ul>
+                    <li><strong>In-App Deletions:</strong> Instantaneous on your local device and synchronized immediately with the cloud database.</li>
+                    <li><strong>Email Requests:</strong> Verified and permanently purged from all production databases within <strong>30 calendar days</strong>. You will receive an email confirmation once completed.</li>
+                    <li><strong>No Marketing Retention:</strong> AKA Labs does not retain personal health data for marketing, profiling, or analytical reselling.</li>
+                </ul>
+
+                <h2><i class="fa-solid fa-user-xmark"></i> 5. Complete Account Deletion (Alternative)</h2>
+                <p>If you wish to terminate your entire account along with all records:</p>
+                <ol>
+                    <li>Open Fastmetry and navigate to <strong>Profile → Account</strong>.</li>
+                    <li>Tap <strong>Delete Account</strong> and confirm.</li>
+                    <li>Your authentication record, cloud database, and local sandboxed storage will be instantly and irrevocably erased.</li>
+                </ol>
+
+                <h2><i class="fa-solid fa-circle-question"></i> 6. Inquiries and Contact Information</h2>
+                <p>For any questions or assistance with your data deletion requests, contact our developer team:</p>
+                <ul>
+                    <li><strong>Developer:</strong> AKA Labs</li>
+                    <li><strong>Website:</strong> <a href="https://kapar.org/" target="_blank">kapar.org</a></li>
+                    <li><strong>Email:</strong> <a href="mailto:support@kapar.org">support@kapar.org</a></li>
+                    <li><strong>Privacy Policy:</strong> <a href="fastmetry-privacy-policy.html">Fastmetry Privacy Policy</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <p>&copy; 2026 AKA Labs. All Rights Reserved. Fastmetry is built by AKA Labs.</p>
+            <p style="display: flex; gap: 15px; flex-wrap: wrap;">
+                <a href="fastmetry-privacy-policy.html" style="color: var(--text-secondary); text-decoration: none; transition: var(--transition);" onmouseover="this.style.color='var(--fastmetry-primary)'" onmouseout="this.style.color='var(--text-secondary)'"><i class="fa-solid fa-shield-halved"></i> Privacy Policy</a>
+                <a href="support.html" style="color: var(--text-secondary); text-decoration: none; transition: var(--transition);" onmouseover="this.style.color='var(--fastmetry-primary)'" onmouseout="this.style.color='var(--text-secondary)'"><i class="fa-solid fa-envelope"></i> Support & Contact</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
