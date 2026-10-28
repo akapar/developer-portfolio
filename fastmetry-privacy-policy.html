@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Privacy Policy for Fastmetry (com.fasting.assistant) - Learn how AKA Labs protects your personal privacy, health records, and data rights with an offline-first architecture.">
+    <title>Privacy Policy | Fastmetry</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <style>
+        :root {
+            --fastmetry-primary: #10b981;
+            --fastmetry-accent: #8ca68c;
+            --fastmetry-border: rgba(16, 185, 129, 0.2);
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--fastmetry-primary);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 2.5rem;
+            transition: var(--transition);
+        }
+        .back-link:hover {
+            color: var(--text-primary);
+            transform: translateX(-5px);
+        }
+        .privacy-hero {
+            padding: 140px 0 40px;
+        }
+        .privacy-hero h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        .privacy-hero h1 span {
+            font-style: italic;
+            color: var(--fastmetry-primary);
+        }
+        .privacy-hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+        .privacy-content {
+            padding: 20px 0 100px;
+        }
+        .privacy-card {
+            background: var(--card-bg);
+            border: 1px solid var(--fastmetry-border);
+            border-radius: 12px;
+            padding: 3.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+        .privacy-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #10b981, #8ca68c);
+        }
+        .meta-box {
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px solid var(--fastmetry-border);
+            border-radius: 8px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 2rem;
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+        }
+        .meta-box ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 0.75rem;
+            margin-left: 0;
+            padding-left: 0;
+        }
+        .meta-box li span {
+            color: var(--fastmetry-primary);
+            font-weight: 600;
+        }
+        .summary-badge {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 4px;
+            padding: 3px 8px;
+            font-size: 0.75rem;
+            font-family: var(--font-mono);
+            margin-bottom: 0.75rem;
+        }
+        .privacy-card h2 {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .privacy-card h2 i {
+            color: var(--fastmetry-primary);
+            font-size: 1.2rem;
+        }
+        .privacy-card h3 {
+            font-family: var(--font-sans);
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 1.5rem;
+            margin-bottom: 0.6rem;
+        }
+        .privacy-card p {
+            color: var(--text-secondary);
+            font-size: 0.98rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        .privacy-card ul {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .privacy-card li {
+            margin-bottom: 0.5rem;
+        }
+        .privacy-card code {
+            font-family: var(--font-mono);
+            font-size: 0.88em;
+            background: rgba(16, 185, 129, 0.08);
+            color: #34d399;
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+        .privacy-card a {
+            color: var(--fastmetry-primary);
+            text-decoration: underline;
+            transition: var(--transition);
+        }
+        .privacy-card a:hover {
+            color: #34d399;
+        }
+        .callout-box {
+            background: rgba(255, 255, 255, 0.02);
+            border-left: 3px solid var(--fastmetry-primary);
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .callout-box p {
+            margin-bottom: 0;
+            font-size: 0.92rem;
+            color: var(--text-primary);
+        }
+        @media (max-width: 768px) {
+            .privacy-card {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grain-overlay"></div>
+
+    <!-- Navigation -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">AKA <span>Labs</span></a>
+            <ul class="nav-links">
+                <li><a href="fastmetry.html">01 // Fastmetry Details</a></li>
+                <li><a href="index.html#apps">02 // Portfolio</a></li>
+                <li><a href="support.html">03 // Support</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="privacy-hero">
+        <div class="container">
+            <a href="fastmetry.html" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i> Back to Fastmetry Details
+            </a>
+            <h1>Privacy Policy for <span>Fastmetry</span></h1>
+            <p>Fastmetry (Fasting Assistant) — Package: <code>com.fasting.assistant</code></p>
+        </div>
+    </section>
+
+    <!-- Privacy Content Section -->
+    <section class="privacy-content">
+        <div class="container">
+            <div class="privacy-card">
+                
+                <span class="summary-badge"><i class="fa-solid fa-shield-halved"></i> 100% Offline-First & Zero Ad-Trackers</span>
+                
+                <div class="meta-box">
+                    <ul>
+                        <li><span>Effective Date:</span> October 28, 2026</li>
+                        <li><span>Application Name:</span> Fastmetry (Fasting Assistant)</li>
+                        <li><span>Package Name:</span> <code>com.fasting.assistant</code></li>
+                        <li><span>Developer:</span> AKA Labs</li>
+                        <li><span>Contact Email:</span> <a href="mailto:support@kapar.org">support@kapar.org</a></li>
+                        <li><span>Website:</span> <a href="https://kapar.org/" target="_blank">kapar.org</a></li>
+                    </ul>
+                </div>
+
+                <p>Fastmetry ("App", "we", "us", or "our"), developed by <strong>AKA Labs</strong>, is committed to protecting and respecting your personal privacy. This Privacy Policy outlines our practices regarding the collection, use, storage, and protection of your personal and sensitive information when you use our mobile application and associated services.</p>
+
+                <div class="callout-box">
+                    <p>We operate under an <strong>offline-first</strong> and <strong>data minimization</strong> philosophy. Your personal wellness and intermittent fasting tracking records are stored locally on your device by default. <strong>We do not sell your personal data, we do not share your information with advertisers or data brokers, and we do not integrate third-party advertising SDKs.</strong></p>
+                </div>
+
+                <h2><i class="fa-solid fa-database"></i> 1. Information We Collect and How We Use It</h2>
+                <p>Fastmetry processes only the information necessary to provide you with core intermittent fasting, wellness tracking, and habit management features:</p>
+
+                <h3>A. Health, Lifestyle, and Wellness Data</h3>
+                <ul>
+                    <li><strong>Fasting Session Data:</strong> Start and end timestamps, target fasting durations, completed goals, fasting history, and consistency statistics.</li>
+                    <li><strong>Weight and Body Measurements:</strong> Weight entries, target weights, measurement timestamps, and progress trend calculations (entered voluntarily by you).</li>
+                    <li><strong>Hydration (Water) Logs:</strong> Daily water intake amounts, customized container/unit sizes, and hydration goals.</li>
+                    <li><strong>Journal and Wellbeing Signals:</strong> Self-reported ratings for hunger, fullness, energy, and stress levels (on a 1–5 scale), textual reflections, optional audio voice notes, and optional meal photos.</li>
+                    <li><em>Purpose of Processing:</em> Strictly to calculate and visualize your personal progress charts, live fasting timers, body insight phases, and local timeline history within the app.</li>
+                </ul>
+
+                <h3>B. Account and Identification Information (Optional Cloud Sync)</h3>
+                <ul>
+                    <li><strong>Authenticated Users:</strong> If you choose to sign in using Google Sign-In or your Email address, we collect your email address and a unique system user identifier (Firebase UID).</li>
+                    <li><strong>Guest Mode:</strong> If you use Fastmetry without creating an account (as a Guest), no account credentials or personally identifiable information are collected or transmitted; all data remains solely on your physical device.</li>
+                    <li><em>Purpose of Processing:</em> To provide secure multi-device synchronization, data restoration during reinstallation or device replacement, and account authentication management.</li>
+                </ul>
+
+                <h3>C. Technical and Device Information</h3>
+                <ul>
+                    <li><strong>Time Zone Data:</strong> Your device's time zone is processed so that fasting timers, schedules, and reminders automatically reconcile when traveling across time zones.</li>
+                    <li><strong>Diagnostic & Crash Logs:</strong> Anonymized technical logs may be processed to diagnose unexpected application crashes and maintain stability.</li>
+                </ul>
+
+                <h2><i class="fa-solid fa-key"></i> 2. Device Permissions We Request and Why</h2>
+                <p>To perform its intended features, Fastmetry may request the following device permissions:</p>
+                <ul>
+                    <li><strong>Notifications (<code>POST_NOTIFICATIONS</code>):</strong> Used to deliver fasting start/end alerts, goal completion notices, and optional hydration reminders.</li>
+                    <li><strong>Exact Alarms (<code>SCHEDULE_EXACT_ALARM</code> / <code>RECEIVE_BOOT_COMPLETED</code>):</strong> Required to trigger precise alarms for fasting targets and scheduled start times, even when your device is in low-power or Doze mode.</li>
+                    <li><strong>Microphone (<code>RECORD_AUDIO</code>):</strong> Used solely when you choose to record an audio reflection in the Journal. Voice notes are stored locally in your device's private storage; audio recordings are <strong>never</strong> uploaded to external servers or processed by third-party speech engines.</li>
+                    <li><strong>Camera & Photo Storage (<code>CAMERA</code> / File Provider):</strong> Used solely when you take or attach a photo of your meals in the Journal. Photos remain stored locally in the app's sandboxed storage.</li>
+                    <li><strong>Internet Access (<code>INTERNET</code> & <code>ACCESS_NETWORK_STATE</code>):</strong> Required only for optional user authentication, cloud backup, and cloud restore operations.</li>
+                </ul>
+
+                <h2><i class="fa-solid fa-server"></i> 3. Third-Party Service Providers</h2>
+                <p>We do not sell, rent, monetize, or disclose your personal data to third parties for marketing purposes. The app contains <strong>no third-party advertising networks (e.g., AdMob, Unity, Meta).</strong></p>
+                <p>We use only the following reputable infrastructure service providers to deliver cloud functionality:</p>
+                <ul>
+                    <li><strong>Google Firebase Authentication:</strong> For secure user sign-in and account session management.</li>
+                    <li><strong>Google Cloud Firestore:</strong> For optional, encrypted cloud backup storage and multi-device synchronization (hosted on Google Cloud's enterprise infrastructure).</li>
+                    <li><strong>Google Play Services:</strong> For core Android application libraries and licensing verification.</li>
+                </ul>
+                <p>These providers process data solely on our behalf and in strict accordance with their respective security and privacy standards.</p>
+
+                <h2><i class="fa-solid fa-lock"></i> 4. Data Security</h2>
+                <p>We implement rigorous technical and organizational security measures to protect your personal information:</p>
+                <ul>
+                    <li><strong>Local Storage Encryption:</strong> Data stored on your device utilizes secure, sandboxed application storage and database-level encryption technologies (SQLCipher).</li>
+                    <li><strong>Encryption in Transit:</strong> All communications with cloud backend services are strictly encrypted using HTTPS/TLS protocols.</li>
+                    <li><strong>Sandboxed Media Storage:</strong> Your meal photos and audio recordings are stored exclusively within the private internal application sandbox, inaccessible to other apps installed on your device.</li>
+                </ul>
+
+                <h2><i class="fa-solid fa-user-gear"></i> 5. Data Retention, Portability, and Deletion Rights (Google Play Compliant)</h2>
+                <p>You retain absolute ownership and control over your personal data:</p>
+
+                <h3>A. Data Portability (Export)</h3>
+                <p>You can export a full copy of your personal fasting, weight, water, and journal records at any time directly within the app (<em>Profile → Backup & Sync → Export</em>) in standard <strong>JSON</strong> or <strong>CSV/ZIP</strong> formats.</p>
+
+                <h3>B. Account and Data Deletion Rights</h3>
+                <p>You have the right to permanently delete your account and all associated data at any time:</p>
+                <ul>
+                    <li><strong>1. In-App Deletion:</strong> Navigate to <em>Profile → Account → Delete Account</em>. Confirming this action will immediately and permanently delete your cloud account, cloud backups, Firestore documents, and local database records.</li>
+                    <li><strong>2. Web / Email Request:</strong> If you have uninstalled the app or cannot access your device, you can submit a deletion request by emailing us from your registered account email at <a href="mailto:support@kapar.org"><strong>support@kapar.org</strong></a> with the subject <em>"Data Deletion Request"</em>. All cloud records associated with your account will be permanently deleted within 30 days of verification.</li>
+                </ul>
+
+                <h2><i class="fa-solid fa-child-reaching"></i> 6. Children's Privacy (COPPA / GDPR Compliance)</h2>
+                <p>Fastmetry is not intended for or directed to individuals under the age of 13 (or under 16 in certain jurisdictions within the European Economic Area). We do not knowingly collect or solicit personal information from children. If we discover that a child has provided us with personal information without parental consent, we will promptly delete that information from our records.</p>
+
+                <h2><i class="fa-solid fa-notes-medical"></i> 7. Health and Medical Disclaimer</h2>
+                <p>Fastmetry is a lifestyle and habit-tracking wellness tool. It is <strong>not</strong> a medical device, nor is it designed to diagnose, treat, cure, or prevent any medical condition or metabolic disease. The educational materials, body insight stages, and physiological summaries provided within the app are for general wellness awareness only. Always consult a qualified physician or healthcare provider before initiating intermittent fasting or making significant changes to your dietary routine.</p>
+
+                <h2><i class="fa-solid fa-globe"></i> 8. International Data Transfers (GDPR / Cross-Border Transfers)</h2>
+                <p>If you use our optional cloud synchronization services, your data may be processed on servers located outside of your country of residence (e.g., Google Cloud servers). Google complies with applicable international data transfer frameworks ensuring an adequate level of data protection.</p>
+
+                <h2><i class="fa-solid fa-clock-rotate-left"></i> 9. Changes to This Privacy Policy</h2>
+                <p>We may update this Privacy Policy from time to time to reflect improvements in our app or changes in legal regulations. When updates occur, the "Effective Date" at the top of this policy will be revised. We encourage you to review this policy periodically.</p>
+
+                <h2><i class="fa-solid fa-envelope"></i> 10. Contact Us</h2>
+                <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your personal information, please contact us at:</p>
+                <ul>
+                    <li><strong>Developer:</strong> AKA Labs</li>
+                    <li><strong>Website:</strong> <a href="https://kapar.org/" target="_blank">AKA Labs | Creative Engineering & Smart Solutions (kapar.org)</a></li>
+                    <li><strong>Email:</strong> <a href="mailto:support@kapar.org">support@kapar.org</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <p>&copy; 2026 AKA Labs. All Rights Reserved.</p>
+            <p><a href="fastmetry.html" style="color: var(--text-secondary); text-decoration: none; transition: var(--transition);" onmouseover="this.style.color='var(--fastmetry-primary)'" onmouseout="this.style.color='var(--text-secondary)'"><i class="fa-solid fa-arrow-left"></i> Back to Fastmetry</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>

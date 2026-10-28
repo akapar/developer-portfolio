@@ -371,6 +371,14 @@ header {
     display: flex;
     justify-content: flex-start;
     margin-bottom: 3.5rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    max-width: 100%;
+}
+
+.filter-wrapper::-webkit-scrollbar {
+    display: none;
 }
 
 .filter-controls {
@@ -381,6 +389,7 @@ header {
     padding: 4px;
     border-radius: 30px;
     z-index: 1;
+    flex-shrink: 0;
 }
 
 .filter-btn {

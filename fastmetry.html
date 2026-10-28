@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fastmetry - Mindful and Science-Backed Intermittent Fasting Assistant. Discover your biological rhythm, track metabolic stages, and cultivate sustainable habits with an offline-first companion.">
+    <title>Fastmetry | Mindful & Science-Backed Intermittent Fasting Assistant</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <style>
+        :root {
+            --fastmetry-primary: #10b981;
+            --fastmetry-primary-rgb: 16, 185, 129;
+            --fastmetry-accent: #8ca68c;
+            --fastmetry-glow: linear-gradient(135deg, #10b981 0%, #8ca68c 50%, #34d399 100%);
+            --fastmetry-bg-soft: rgba(16, 185, 129, 0.05);
+            --fastmetry-border: rgba(16, 185, 129, 0.15);
+            --fastmetry-border-hover: rgba(16, 185, 129, 0.4);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--fastmetry-primary);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 2.5rem;
+            transition: var(--transition);
+        }
+        .back-link:hover {
+            color: var(--text-primary);
+            transform: translateX(-5px);
+        }
+        
+        .app-detail-hero {
+            padding: 140px 0 50px;
+            position: relative;
+        }
+        .app-detail-grid {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .app-detail-logo {
+            width: 150px;
+            height: 150px;
+            border-radius: 28px;
+            background: radial-gradient(circle at center, rgba(16, 185, 129, 0.18), rgba(20, 19, 17, 0.95));
+            border: 1px solid var(--fastmetry-border-hover);
+            padding: 0.85rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 35px rgba(16, 185, 129, 0.2);
+            transition: var(--transition);
+            overflow: hidden;
+        }
+        .app-detail-logo:hover {
+            transform: translateY(-5px) scale(1.03);
+            border-color: var(--fastmetry-primary);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.7), 0 0 45px rgba(16, 185, 129, 0.35);
+        }
+        .app-detail-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 20px;
+        }
+        
+        .app-detail-title h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+        .app-detail-title h1 span {
+            font-style: italic;
+            background: var(--fastmetry-glow);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .app-detail-title p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 750px;
+            line-height: 1.6;
+        }
+        
+        .badge-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 1.25rem;
+        }
+        .meta-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(16, 185, 129, 0.08);
+            border: 1px solid var(--fastmetry-border);
+            color: #34d399;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            letter-spacing: 0.02em;
+        }
+        
+        .hero-action-btns {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.75rem;
+            flex-wrap: wrap;
+        }
+        .btn-fastmetry-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--fastmetry-primary);
+            color: #0c0c0b;
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 10px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: var(--transition);
+            border: 1px solid var(--fastmetry-primary);
+        }
+        .btn-fastmetry-primary:hover {
+            background: transparent;
+            color: var(--fastmetry-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.25);
+        }
+        .btn-fastmetry-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--fastmetry-border);
+            color: var(--text-primary);
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: 10px 22px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .btn-fastmetry-secondary:hover {
+            border-color: var(--fastmetry-primary);
+            color: var(--fastmetry-primary);
+            transform: translateY(-2px);
+        }
+
+        .feature-showcase {
+            padding: 20px 0 120px;
+        }
+        .directory-badge {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--fastmetry-primary);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .feature-block {
+            background: var(--card-bg);
+            border: 1px solid var(--fastmetry-border);
+            border-radius: 12px;
+            padding: 3.5rem;
+            margin-bottom: 3.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        .feature-block:hover {
+            border-color: var(--fastmetry-border-hover);
+        }
+        .feature-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--fastmetry-glow);
+            opacity: 0.7;
+        }
+        .feature-block-split {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .feature-block h3 {
+            font-family: var(--font-serif);
+            font-size: 2.1rem;
+            font-weight: 300;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        .feature-block h3 i {
+            color: var(--fastmetry-primary);
+            margin-right: 0.5rem;
+        }
+        .feature-block p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        /* 3-4 Grid Features */
+        .feature-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.75rem;
+            margin-top: 2rem;
+        }
+        .feature-item-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 8px;
+            padding: 1.75rem;
+            transition: var(--transition);
+            position: relative;
+        }
+        .feature-item-card:hover {
+            background: rgba(16, 185, 129, 0.03);
+            border-color: var(--fastmetry-border-hover);
+            transform: translateY(-4px);
+        }
+        .feature-item-card .card-icon {
+            font-size: 1.6rem;
+            color: var(--fastmetry-primary);
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        .feature-item-card h4 {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+        }
+        .feature-item-card p {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        /* Interactive / Visual Mockup Panels */
+        .preview-pane {
+            background: #0e0f0e;
+            border: 1px solid var(--fastmetry-border);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+        .preview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+        
+        /* Fasting Clock Ring Visualizer */
+        .fasting-dial-wrapper {
+            text-align: center;
+            padding: 1rem 0;
+        }
+        .fasting-ring-container {
+            position: relative;
+            width: 220px;
+            height: 220px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .fasting-svg {
+            transform: rotate(-90deg);
+            width: 100%;
+            height: 100%;
+        }
+        .ring-bg {
+            fill: none;
+            stroke: rgba(255, 255, 255, 0.06);
+            stroke-width: 12;
+        }
+        .ring-progress {
+            fill: none;
+            stroke: url(#fastingGradient);
+            stroke-width: 12;
+            stroke-dasharray: 628;
+            stroke-dashoffset: 140; /* 78% completed */
+            stroke-linecap: round;
+            transition: stroke-dashoffset 1s ease;
+        }
+        .fasting-inner-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .fasting-time {
+            font-family: var(--font-mono);
+            font-size: 1.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+        .fasting-sub {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: #34d399;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .fasting-stage-badge {
+            margin-top: 6px;
+            background: rgba(16, 185, 129, 0.15);
+            color: #10b981;
+            border-radius: 12px;
+            padding: 2px 10px;
+            font-size: 0.7rem;
+            font-family: var(--font-mono);
+        }
+        .protocol-pills {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 1rem;
+        }
+        .proto-chip {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--text-secondary);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+        .proto-chip.active {
+            background: rgba(16, 185, 129, 0.2);
+            border-color: var(--fastmetry-primary);
+            color: #34d399;
+            font-weight: 600;
+        }
+
+        /* Body Insights Timeline */
+        .stage-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            position: relative;
+            padding-left: 1.75rem;
+        }
+        .stage-timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: rgba(16, 185, 129, 0.2);
+        }
+        .stage-node {
+            position: relative;
+        }
+        .stage-dot {
+            position: absolute;
+            left: -1.75rem;
+            top: 4px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #0c0c0b;
+            border: 2px solid var(--fastmetry-border);
+            transition: var(--transition);
+        }
+        .stage-node.active .stage-dot {
+            background: var(--fastmetry-primary);
+            border-color: #34d399;
+            box-shadow: 0 0 12px rgba(16, 185, 129, 0.7);
+        }
+        .stage-time-tag {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--fastmetry-primary);
+            margin-bottom: 2px;
+            display: block;
+        }
+        .stage-title {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+        .stage-desc {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 0 !important;
+        }
+        
+        /* Daily Boost Card */
+        .daily-boost-card {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(20, 19, 17, 0.9));
+            border: 1px solid var(--fastmetry-border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1.25rem;
+            align-items: flex-start;
+        }
+        .daily-boost-card i {
+            font-size: 1.8rem;
+            color: var(--fastmetry-primary);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .daily-boost-card h5 {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.35rem;
+        }
+        .daily-boost-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 0 !important;
+        }
+
+        /* Smart Journal Widget Preview */
+        .journal-widget-box {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+        .water-track-bar {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--fastmetry-border);
+            border-radius: 8px;
+            padding: 1.25rem;
+        }
+        .water-header {
+            display: flex;
+            justify-content: space-between;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+        }
+        .water-header span:last-child {
+            color: #38bdf8;
+            font-weight: 600;
+        }
+        .water-progress-rail {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        .water-fill {
+            width: 82%;
+            height: 100%;
+            background: linear-gradient(90deg, #0284c7, #38bdf8);
+            border-radius: 4px;
+        }
+        .water-buttons {
+            display: flex;
+            gap: 8px;
+        }
+        .btn-water {
+            flex: 1;
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            color: #bae6fd;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            padding: 6px;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .checkin-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+        }
+        .checkin-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+            padding: 0.75rem;
+            text-align: center;
+        }
+        .checkin-label {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-family: var(--font-mono);
+            margin-bottom: 4px;
+            display: block;
+        }
+        .checkin-val {
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            color: var(--fastmetry-primary);
+            font-weight: 600;
+        }
+
+        .journal-post-mini {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 1rem;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        .journal-thumb {
+            width: 48px;
+            height: 48px;
+            border-radius: 6px;
+            background: rgba(16, 185, 129, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--fastmetry-primary);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        .journal-meta h6 {
+            font-size: 0.88rem;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+            font-weight: 500;
+        }
+        .journal-meta p {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-bottom: 0 !important;
+        }
+
+        /* Stats & Analytics Grid */
+        .stats-kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .kpi-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--fastmetry-border);
+            border-radius: 8px;
+            padding: 1.25rem 1rem;
+            text-align: center;
+        }
+        .kpi-num {
+            font-family: var(--font-mono);
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+            line-height: 1;
+        }
+        .kpi-num span {
+            color: var(--fastmetry-primary);
+            font-size: 1rem;
+        }
+        .kpi-title {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+        }
+
+        /* Mock Chart Bars */
+        .chart-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+        }
+        .bar-chart-track {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            height: 110px;
+            gap: 10px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+        .chart-target-line {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 65px; /* 16h target line */
+            border-top: 1px dashed #34d399;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        .chart-bar-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+        .bar-pillar {
+            width: 100%;
+            max-width: 22px;
+            background: rgba(16, 185, 129, 0.2);
+            border-radius: 4px 4px 0 0;
+            transition: var(--transition);
+        }
+        .bar-pillar.reached {
+            background: linear-gradient(180deg, #34d399, #10b981);
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+        }
+        .bar-day {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        /* Download Section */
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.75rem;
+            margin-top: 2rem;
+        }
+        .download-card {
+            background: #0f110f;
+            border: 1px solid var(--fastmetry-border);
+            border-radius: 8px;
+            padding: 2.25rem 1.75rem;
+            text-align: center;
+            transition: var(--transition);
+        }
+        .download-card:hover {
+            border-color: var(--fastmetry-primary);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(16, 185, 129, 0.1);
+        }
+        .download-card i {
+            font-size: 2.6rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+            transition: var(--transition);
+        }
+        .download-card:hover i {
+            color: var(--fastmetry-primary);
+        }
+        .download-card h4 {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        .download-card p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+        .btn-download-action {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--fastmetry-border);
+            color: #34d399;
+            padding: 0.65rem 1.4rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        .btn-download-action:hover {
+            background: var(--fastmetry-primary);
+            color: #0c0c0b;
+        }
+        .btn-download-action.disabled {
+            pointer-events: none;
+            opacity: 0.5;
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(255, 255, 255, 0.08);
+            color: var(--text-muted);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 992px) {
+            .feature-block-split {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            .app-detail-grid {
+                grid-template-columns: 1fr;
+                justify-items: center;
+                text-align: center;
+                gap: 1.5rem;
+            }
+            .badge-row {
+                justify-content: center;
+            }
+            .hero-action-btns {
+                justify-content: center;
+            }
+            .feature-block {
+                padding: 2.25rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grain-overlay"></div>
+
+    <!-- Navigation -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">AKA <span>Labs</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html#apps">01 // My Apps</a></li>
+                <li><a href="fastmetry-privacy-policy.html">02 // Privacy</a></li>
+                <li><a href="support.html">03 // Support</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- App Detail Hero Section -->
+    <section class="app-detail-hero">
+        <div class="container">
+            <a href="index.html#apps" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i> Back to Portfolio
+            </a>
+            
+            <div class="app-detail-grid">
+                <div class="app-detail-logo">
+                    <img src="assets/fastmetry_logo.png" alt="Fastmetry Logo - Day Night Fasting Clock">
+                </div>
+                <div class="app-detail-title">
+                    <h1>Fastmetry — <span>Mindful & Science-Backed</span></h1>
+                    <p>Transform your intermittent fasting journey from a mere countdown timer into an intuitive understanding of your biological rhythm, metabolic transitions, and daily vitality with an offline-first companion.</p>
+                    
+                    <div class="badge-row">
+                        <span class="meta-pill"><i class="fa-solid fa-clock-rotate-left"></i> Adaptive Protocols</span>
+                        <span class="meta-pill"><i class="fa-solid fa-dna"></i> Metabolic Stages</span>
+                        <span class="meta-pill"><i class="fa-solid fa-book-journal-whills"></i> Smart Journal</span>
+                        <span class="meta-pill"><i class="fa-solid fa-shield-halved"></i> 100% Offline-First</span>
+                        <span class="meta-pill"><i class="fa-solid fa-leaf"></i> Botanical Pastel Design</span>
+                    </div>
+
+                    <div class="hero-action-btns">
+                        <a href="#features" class="btn-fastmetry-primary"><i class="fa-solid fa-compass"></i> Explore Features</a>
+                        <a href="#downloads" class="btn-fastmetry-secondary"><i class="fa-solid fa-download"></i> Get Fastmetry</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Details and Showcase -->
+    <section class="feature-showcase" id="features">
+        <div class="container">
+
+            <!-- 1. What is Fastmetry & Core Vision -->
+            <div class="feature-block">
+                <span class="directory-badge">Section 01 // Vision & Approach</span>
+                <h3><i class="fa-solid fa-seedling"></i> Far More Than Just a Fasting Timer</h3>
+                <p>Intermittent fasting is more than just watching the clock tick down until your next meal. Fastmetry goes beyond basic counters by harmonizing your eating windows, hydration logs, energy fluctuations, hunger cues, and weight trends into a unified, privacy-first sanctuary. It turns intermittent fasting into an intuitive, lifelong routine rather than an exhausting diet.</p>
+                
+                <div class="feature-grid-3">
+                    <div class="feature-item-card">
+                        <i class="fa-solid fa-bullseye card-icon"></i>
+                        <h4>Sustainable Motivation</h4>
+                        <p>Gentle milestone notifications, celebratory achievements, and elegant visual charts help you stay anchored to your goals.</p>
+                    </div>
+                    <div class="feature-item-card">
+                        <i class="fa-solid fa-heart-pulse card-icon"></i>
+                        <h4>Body Attunement</h4>
+                        <p>Track hunger, stress, and vitality fluctuations to discover how fasting positively influences your daily mental clarity and well-being.</p>
+                    </div>
+                    <div class="feature-item-card">
+                        <i class="fa-solid fa-microscope card-icon"></i>
+                        <h4>Evidence-Based Guidance</h4>
+                        <p>Replace generic wellness myths with human physiology. Enjoy daily bite-sized "Daily Boost" tips grounded in nutritional science.</p>
+                    </div>
+                    <div class="feature-item-card">
+                        <i class="fa-solid fa-bolt card-icon"></i>
+                        <h4>Effortless Tracking</h4>
+                        <p>Rapid one-tap daily entry buttons and interactive home-screen widgets keep check-ins down to just seconds a day.</p>
+                    </div>
+                    <div class="feature-item-card">
+                        <i class="fa-solid fa-plane-departure card-icon"></i>
+                        <h4>Seamless Global Travel</h4>
+                        <p>Crossing time zones? Fastmetry dynamically synchronizes with local time without disrupting your ongoing biological fasting rhythm.</p>
+                    </div>
+                    <div class="feature-item-card">
+                        <i class="fa-solid fa-user-shield card-icon"></i>
+                        <h4>Uncompromising Privacy</h4>
+                        <p>Your biometric health data is never shared with ad brokers. Fastmetry operates fully offline and allows complete data export at any time.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Target Personas -->
+            <div class="feature-block">
+                <span class="directory-badge">Section 02 // Tailored Experience</span>
+                <h3><i class="fa-solid fa-users"></i> Thoughtfully Crafted for Every Lifestyle</h3>
+                <p>Whether you are embarking on your very first 14-hour fast or managing advanced daily OMAD cycles, Fastmetry adapts effortlessly to your experience level:</p>
+                
+                <div class="feature-grid-3">
+                    <div class="feature-item-card">
+                        <i class="fa-solid fa-shoe-prints card-icon"></i>
+                        <h4>Fasting Beginners</h4>
+                        <p>Ease into intermittent fasting with gentle, beginner-friendly protocols like 14:10 or 16:8 without feeling restricted.</p>
+                    </div>
+                    <div class="feature-item-card">
+                        <i class="fa-solid fa-medal card-icon"></i>
+                        <h4>Experienced Practitioners</h4>
+                        <p>Challenge yourself with advanced routines such as 18:6, 20:4, OMAD (One Meal a Day), or fully customized flexible targets.</p>
+                    </div>
+                    <div class="feature-item-card">
+                        <i class="fa-solid fa-flask-vial card-icon"></i>
+                        <h4>Science & Biology Enthusiasts</h4>
+                        <p>Understand the metabolic biochemistry occurring within your body—from glycogen depletion to ketosis and cellular autophagy.</p>
+                    </div>
+                    <div class="feature-item-card">
+                        <i class="fa-solid fa-chart-line card-icon"></i>
+                        <h4>Weight & Habit Trackers</h4>
+                        <p>Correlate scale fluctuations, water intake, and emotional check-ins directly with your fasting consistency over months.</p>
+                    </div>
+                    <div class="feature-item-card">
+                        <i class="fa-solid fa-lock card-icon"></i>
+                        <h4>Privacy-Conscious Individuals</h4>
+                        <p>Keep sensitive health logs securely encrypted on your local device sandbox, entirely free from third-party advertising trackers.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Timer & Fasting Protocols -->
+            <div class="feature-block">
+                <div class="feature-block-split">
+                    <div>
+                        <span class="directory-badge">Section 03 // Adaptive Timer</span>
+                        <h3><i class="fa-solid fa-stopwatch-20"></i> Smart Fasting Clock & Live Widget</h3>
+                        <p>Fastmetry is powered by a resilient, battery-efficient timer engine designed around real-world unpredictability. Select from time-tested intermittent protocols or configure custom schedules with defined weekly rest days.</p>
+                        
+                        <div class="feature-list" style="display: grid; gap: 1rem; margin-top: 1.5rem;">
+                            <div style="display: flex; gap: 12px; align-items: flex-start;">
+                                <i class="fa-solid fa-circle-check" style="color: var(--fastmetry-primary); margin-top: 4px;"></i>
+                                <div>
+                                    <h5 style="color: var(--text-primary); margin-bottom: 2px;">Comprehensive Protocol Support</h5>
+                                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0;">14:10, 16:8, 18:6, 20:4, OMAD, or completely custom open-ended fasting goals.</p>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 12px; align-items: flex-start;">
+                                <i class="fa-solid fa-circle-check" style="color: var(--fastmetry-primary); margin-top: 4px;"></i>
+                                <div>
+                                    <h5 style="color: var(--text-primary); margin-bottom: 2px;">Weekly Rest & Recovery Days</h5>
+                                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0;">Mark specific days of the week as recovery days to maintain a realistic, guilt-free sustainable routine.</p>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 12px; align-items: flex-start;">
+                                <i class="fa-solid fa-circle-check" style="color: var(--fastmetry-primary); margin-top: 4px;"></i>
+                                <div>
+                                    <h5 style="color: var(--text-primary); margin-bottom: 2px;">Live Home Screen Widget</h5>
+                                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0;">Monitor your remaining time and active metabolic stage right from your phone's home screen without opening the app.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fasting Dial Mockup -->
+                    <div>
+                        <div class="preview-pane">
+                            <div class="preview-header">
+                                <span>LIVE FASTING TIMER</span>
+                                <span style="color: var(--fastmetry-primary);"><i class="fa-solid fa-circle" style="font-size: 0.5rem;"></i> ACTIVE (16:8)</span>
+                            </div>
+                            
+                            <div class="fasting-dial-wrapper">
+                                <div class="fasting-ring-container">
+                                    <svg class="fasting-svg" viewBox="0 0 220 220">
+                                        <defs>
+                                            <linearGradient id="fastingGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" stop-color="#10b981" />
+                                                <stop offset="50%" stop-color="#8ca68c" />
+                                                <stop offset="100%" stop-color="#34d399" />
+                                            </linearGradient>
+                                        </defs>
+                                        <circle class="ring-bg" cx="110" cy="110" r="95"></circle>
+                                        <circle class="ring-progress" cx="110" cy="110" r="95"></circle>
+                                    </svg>
+                                    
+                                    <div class="fasting-inner-content">
+                                        <span class="fasting-time">14h 22m</span>
+                                        <span class="fasting-sub">89% COMPLETED</span>
+                                        <span class="fasting-stage-badge"><i class="fa-solid fa-fire-flame-curved"></i> Ketosis Stage</span>
+                                    </div>
+                                </div>
+
+                                <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); margin-bottom: 1rem; padding: 0 10px;">
+                                    <span>Started: 8:00 PM</span>
+                                    <span style="color: #34d399;">Remaining: 1h 38m</span>
+                                    <span>Target: 12:00 PM</span>
+                                </div>
+
+                                <div class="protocol-pills">
+                                    <span class="proto-chip">14:10</span>
+                                    <span class="proto-chip active">16:8</span>
+                                    <span class="proto-chip">18:6</span>
+                                    <span class="proto-chip">20:4</span>
+                                    <span class="proto-chip">OMAD</span>
+                                    <span class="proto-chip">Custom</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Body Insights & Scientific Guidance -->
+            <div class="feature-block">
+                <div class="feature-block-split">
+                    <div>
+                        <span class="directory-badge">Section 04 // Metabolic Physiology</span>
+                        <h3><i class="fa-solid fa-dna"></i> Body Insights & Science-Backed Stages</h3>
+                        <p>During a fast, your body undergoes profound metabolic shifts. Fastmetry illustrates what is happening inside your cells hour by hour, grounded in peer-reviewed biological research.</p>
+                        
+                        <p>These physiological insights are tailored to match your specific dietary preferences (Ketogenic, Low-Carb, Mediterranean, or Balanced).</p>
+
+                        <div class="daily-boost-card">
+                            <i class="fa-solid fa-lightbulb"></i>
+                            <div>
+                                <h5>Daily Scientific Boost</h5>
+                                <p>"Beyond the 12th hour of fasting, depleted glycogen reserves signal the liver to accelerate lipolysis, converting stored fatty acids into ketone bodies that provide a remarkably clean fuel source for the brain."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Metabolic Stage Interactive Timeline -->
+                    <div>
+                        <div class="preview-pane">
+                            <div class="preview-header">
+                                <span>BODY INSIGHTS</span>
+                                <span style="color: #34d399;">PHYSIOLOGICAL FLOW</span>
+                            </div>
+
+                            <div class="stage-timeline">
+                                <div class="stage-node">
+                                    <div class="stage-dot"></div>
+                                    <span class="stage-time-tag">HOURS 0 - 4</span>
+                                    <div class="stage-title">Digestion & Glycogen Utilization</div>
+                                    <p class="stage-desc">Nutrients from your last meal are assimilated; blood glucose peaks and begins normalizing as insulin resets.</p>
+                                </div>
+
+                                <div class="stage-node">
+                                    <div class="stage-dot"></div>
+                                    <span class="stage-time-tag">HOURS 4 - 8</span>
+                                    <div class="stage-title">Blood Sugar Stabilization</div>
+                                    <p class="stage-desc">Insulin drops to baseline levels. The gastrointestinal tract enters restorative downtime.</p>
+                                </div>
+
+                                <div class="stage-node">
+                                    <div class="stage-dot"></div>
+                                    <span class="stage-time-tag">HOURS 8 - 12</span>
+                                    <div class="stage-title">Fat Mobilization Transition</div>
+                                    <p class="stage-desc">Hepatic glycogen reserves decline. The body begins mobilizing fatty acids to meet energy demands.</p>
+                                </div>
+
+                                <div class="stage-node active">
+                                    <div class="stage-dot"></div>
+                                    <span class="stage-time-tag">HOURS 12+ (CURRENTLY ACTIVE)</span>
+                                    <div class="stage-title">Ketosis & Cellular Autophagy</div>
+                                    <p class="stage-desc">Circulating ketones rise, mental clarity sharpens, and cellular housekeeping (autophagy awareness) begins.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Smart Journal -->
+            <div class="feature-block">
+                <div class="feature-block-split">
+                    <div>
+                        <span class="directory-badge">Section 05 // Mindful Journaling</span>
+                        <h3><i class="fa-solid fa-book-journal-whills"></i> Smart Journal & Body Signal Logs</h3>
+                        <p>True health is not only about when you abstain from food, but how you nourish your body when you eat and how you feel throughout the day. Fastmetry's smart journal makes documenting your day effortless:</p>
+
+                        <div class="feature-grid-3" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+                            <div class="feature-item-card" style="padding: 1.25rem;">
+                                <h5 style="color: var(--text-primary); font-size: 1rem; margin-bottom: 0.25rem;"><i class="fa-solid fa-camera" style="color: var(--fastmetry-primary);"></i> Photo Meals</h5>
+                                <p style="font-size: 0.85rem;">Snap, store, and tag meal photos directly in your timeline.</p>
+                            </div>
+                            <div class="feature-item-card" style="padding: 1.25rem;">
+                                <h5 style="color: var(--text-primary); font-size: 1rem; margin-bottom: 0.25rem;"><i class="fa-solid fa-microphone" style="color: var(--fastmetry-primary);"></i> Voice & Text Notes</h5>
+                                <p style="font-size: 0.85rem;">Dictate voice memos or write quick thoughts on your mood.</p>
+                            </div>
+                            <div class="feature-item-card" style="padding: 1.25rem;">
+                                <h5 style="color: var(--text-primary); font-size: 1rem; margin-bottom: 0.25rem;"><i class="fa-solid fa-glass-water" style="color: #38bdf8;"></i> Hydration Tracking</h5>
+                                <p style="font-size: 0.85rem;">Log water intake with single taps in glasses, ml, or oz.</p>
+                            </div>
+                            <div class="feature-item-card" style="padding: 1.25rem;">
+                                <h5 style="color: var(--text-primary); font-size: 1rem; margin-bottom: 0.25rem;"><i class="fa-solid fa-chart-simple" style="color: var(--fastmetry-primary);"></i> Body Check-Ins</h5>
+                                <p style="font-size: 0.85rem;">Rate hunger, energy, satiety, and stress from 1 to 5.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Journal Visual Mockup -->
+                    <div>
+                        <div class="preview-pane">
+                            <div class="preview-header">
+                                <span>SMART JOURNAL</span>
+                                <span>TODAY // OCT 28</span>
+                            </div>
+
+                            <div class="journal-widget-box">
+                                <!-- Water Tracker -->
+                                <div class="water-track-bar">
+                                    <div class="water-header">
+                                        <span><i class="fa-solid fa-droplet" style="color: #38bdf8;"></i> DAILY HYDRATION</span>
+                                        <span>2,250 / 2,500 ml</span>
+                                    </div>
+                                    <div class="water-progress-rail">
+                                        <div class="water-fill"></div>
+                                    </div>
+                                    <div class="water-buttons">
+                                        <span class="btn-water">+250 ml (Glass)</span>
+                                        <span class="btn-water">+500 ml (Bottle)</span>
+                                    </div>
+                                </div>
+
+                                <!-- Body Signals Check-in -->
+                                <div>
+                                    <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); margin-bottom: 6px; display: block;">BODY SIGNALS (CHECK-IN)</span>
+                                    <div class="checkin-row">
+                                        <div class="checkin-item">
+                                            <span class="checkin-label">Hunger</span>
+                                            <span class="checkin-val">2 / 5</span>
+                                        </div>
+                                        <div class="checkin-item">
+                                            <span class="checkin-label">Energy</span>
+                                            <span class="checkin-val">5 / 5</span>
+                                        </div>
+                                        <div class="checkin-item">
+                                            <span class="checkin-label">Stress</span>
+                                            <span class="checkin-val">1 / 5</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Meal Card Preview -->
+                                <div class="journal-post-mini">
+                                    <div class="journal-thumb">
+                                        <i class="fa-solid fa-utensils"></i>
+                                    </div>
+                                    <div class="journal-meta">
+                                        <h6>Fasting Break Meal • 12:15 PM</h6>
+                                        <p>Wild grilled salmon with avocado, quinoa, and cold-pressed olive oil salad. (#Balanced)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. Progress & Analytics -->
+            <div class="feature-block">
+                <span class="directory-badge">Section 06 // Analytics & Long-Term Trends</span>
+                <h3><i class="fa-solid fa-chart-column"></i> In-Depth Statistics & Weight Trend Line</h3>
+                <p>Consistent results require steady visibility. Fastmetry presents your fasting journey through dynamic weekly, monthly, and yearly bar charts. Our scientifically smoothed weight trend curve filters out transient daily water fluctuations so you can see your genuine physical progress.</p>
+
+                <!-- KPI Metric Grid -->
+                <div class="stats-kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-num">48</div>
+                        <div class="kpi-title">Total Fasts</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-num">20.4<span>h</span></div>
+                        <div class="kpi-title">Longest Fast</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-num">762<span>h</span></div>
+                        <div class="kpi-title">Hours Fasted</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-num">16.8<span>h</span></div>
+                        <div class="kpi-title">Average Fast</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-num">96<span>%</span></div>
+                        <div class="kpi-title">Target Adherence</div>
+                    </div>
+                </div>
+
+                <!-- Chart Preview Box -->
+                <div class="chart-box">
+                    <div class="chart-header">
+                        <span>WEEKLY FASTING ADHERENCE</span>
+                        <span style="color: #34d399;">TARGET: 16 HOURS</span>
+                    </div>
+
+                    <div class="bar-chart-track">
+                        <div class="chart-target-line"></div>
+                        
+                        <div class="chart-bar-group">
+                            <div class="bar-pillar reached" style="height: 72px;"></div>
+                            <span class="bar-day">Mon</span>
+                        </div>
+                        <div class="chart-bar-group">
+                            <div class="bar-pillar reached" style="height: 75px;"></div>
+                            <span class="bar-day">Tue</span>
+                        </div>
+                        <div class="chart-bar-group">
+                            <div class="bar-pillar reached" style="height: 80px;"></div>
+                            <span class="bar-day">Wed</span>
+                        </div>
+                        <div class="chart-bar-group">
+                            <div class="bar-pillar reached" style="height: 70px;"></div>
+                            <span class="bar-day">Thu</span>
+                        </div>
+                        <div class="chart-bar-group">
+                            <div class="bar-pillar reached" style="height: 85px;"></div>
+                            <span class="bar-day">Fri</span>
+                        </div>
+                        <div class="chart-bar-group">
+                            <div class="bar-pillar" style="height: 55px;"></div>
+                            <span class="bar-day">Sat</span>
+                        </div>
+                        <div class="chart-bar-group">
+                            <div class="bar-pillar reached" style="height: 78px;"></div>
+                            <span class="bar-day">Sun</span>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); flex-wrap: wrap; gap: 8px;">
+                        <span><i class="fa-solid fa-circle-check" style="color: #10b981;"></i> Reached goal on 6 of 7 days</span>
+                        <span><i class="fa-solid fa-arrow-trend-down" style="color: #38bdf8;"></i> Weight Trend: -1.8 kg (Last 30 Days)</span>
+                        <span><i class="fa-solid fa-share-nodes" style="color: var(--fastmetry-primary);"></i> Beautiful Social Achievement Cards</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. Security, Privacy & Design Philosophy -->
+            <div class="feature-block">
+                <span class="directory-badge">Section 07 // Architecture & Philosophy</span>
+                <h3><i class="fa-solid fa-shield-cat"></i> Offline-First Security & Botanical Aesthetics</h3>
+                <p>Your health journey is deeply private. Fastmetry stores your data strictly on your local device in an encrypted database, guaranteeing that your personal routines remain under your sole ownership.</p>
+                
+                <div class="feature-grid-3">
+                    <div class="feature-item-card">
+                        <i class="fa-solid fa-hard-drive card-icon"></i>
+                        <h4>100% Offline-First</h4>
+                        <p>No internet connection needed. Timer controls, smart notifications, hydration logs, and journals function uninterrupted anywhere in the world.</p>
+                    </div>
+                    <div class="feature-item-card">
+                        <i class="fa-solid fa-cloud card-icon"></i>
+                        <h4>Optional Cloud Backup</h4>
+                        <p>Switching phones? Optionally sync an encrypted backup via your Google account or email with seamless multi-step restore validation.</p>
+                    </div>
+                    <div class="feature-item-card">
+                        <i class="fa-solid fa-file-export card-icon"></i>
+                        <h4>Complete Data Portability</h4>
+                        <p>Never get locked into a proprietary platform. Export your full fasting, hydration, and weight history anytime as standard JSON or CSV/ZIP files.</p>
+                    </div>
+                    <div class="feature-item-card">
+                        <i class="fa-solid fa-bell card-icon"></i>
+                        <h4>Respectful Notifications</h4>
+                        <p>Engineered to be gentle and unobtrusive. Smart algorithms alert you only when you approach fasting milestones, never spamming your feed.</p>
+                    </div>
+                    <div class="feature-item-card">
+                        <i class="fa-solid fa-palette card-icon"></i>
+                        <h4>Botanical Pastel Palette</h4>
+                        <p>A soothing, organic interface inspired by nature. Warm muted sage tones and fluid dark/light modes foster calmness and clarity.</p>
+                    </div>
+                    <div class="feature-item-card">
+                        <i class="fa-solid fa-ban card-icon"></i>
+                        <h4>Zero Advertising</h4>
+                        <p>Free from commercial ad brokers, behavioral analytics trackers, or sponsor banners. Your wellness sanctuary stays clean.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. Downloads / Call to Action -->
+            <div class="feature-block" id="downloads">
+                <h3><i class="fa-solid fa-download"></i> Get Fastmetry</h3>
+                <p>Fastmetry is currently under active development. Beta tracks and public store releases will roll out shortly across iOS and Android.</p>
+                
+                <div class="download-grid">
+                    <div class="download-card">
+                        <i class="fa-brands fa-android"></i>
+                        <h4>Android</h4>
+                        <p>Google Play Store public release and standalone signed APK packages.</p>
+                        <a href="#" class="btn-download-action disabled"><i class="fa-solid fa-clock"></i> Coming Soon</a>
+                    </div>
+                    <div class="download-card">
+                        <i class="fa-brands fa-apple"></i>
+                        <h4>iOS Mobile</h4>
+                        <p>Apple App Store release and TestFlight early access builds for iPhone and iPad.</p>
+                        <a href="#" class="btn-download-action disabled"><i class="fa-solid fa-clock"></i> Coming Soon</a>
+                    </div>
+                    <div class="download-card">
+                        <i class="fa-solid fa-globe"></i>
+                        <h4>Web & Support</h4>
+                        <p>Reach out to our engineering team with feature inquiries, early feedback, or support requests.</p>
+                        <a href="support.html" class="btn-download-action"><i class="fa-solid fa-headset"></i> Support Center</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <p>&copy; 2026 AKA Labs. All Rights Reserved. Fastmetry is built by AKA Labs.</p>
+            <p style="display: flex; gap: 15px; flex-wrap: wrap;">
+                <a href="fastmetry-privacy-policy.html" style="color: var(--text-secondary); text-decoration: none; transition: var(--transition);" onmouseover="this.style.color='var(--fastmetry-primary)'" onmouseout="this.style.color='var(--text-secondary)'"><i class="fa-solid fa-shield-halved"></i> Privacy Policy</a>
+                <a href="support.html" style="color: var(--text-secondary); text-decoration: none; transition: var(--transition);" onmouseover="this.style.color='var(--fastmetry-primary)'" onmouseout="this.style.color='var(--text-secondary)'"><i class="fa-solid fa-envelope"></i> Support & Contact</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>

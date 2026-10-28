@@ -93,6 +93,29 @@ const appsData = [
         privacyLink: "topicraft-privacy-policy.html"
     },
     {
+        id: "fastmetry",
+        title: "Fastmetry",
+        category: "health",
+        featured: true, // Double column display
+        badge: "Mindful Intermittent Fasting Assistant",
+        icon: "fa-solid fa-clock-rotate-left",
+        image: "assets/fastmetry_logo.png",
+        description: "A next-generation, offline-first intermittent fasting companion that connects your fasting routine with your biological rhythm. Features physiological body stages (ketosis & autophagy), smart meal and water journaling, mood and hunger check-ins, and evidence-based Daily Boost insights.",
+        specs: [
+            "Flexible Protocols: 14:10, 16:8, 18:6, 20:4, OMAD & Custom Schedules",
+            "Physiological Body Stages & Science-Backed Guidance (Body Insights)",
+            "Smart Journal: Photo Meals, Hydration Log & Body Signals Check-in",
+            "Weight Trend Analysis & Interactive Fasting Performance Analytics",
+            "Zero-Compromise Privacy: On-Device Encrypted Database & JSON/CSV Export"
+        ],
+        tags: ["Flutter", "Dart", "Intermittent Fasting", "Health & Wellness", "Offline-First", "Local Database", "Android & iOS"],
+        primaryLink: "fastmetry.html",
+        primaryLabel: "Details",
+        secondaryLink: null,
+        secondaryLabel: null,
+        privacyLink: "fastmetry-privacy-policy.html"
+    },
+    {
         id: "uyap-cevirici",
         title: "UYAP Çevirici",
         category: "legal",
@@ -356,7 +379,10 @@ const terminalLogs = [
     { type: 'success', text: '[TAMAM] Yazar troll skoru: %82. Rahatsız edici içerik gizlendi.' },
     { type: 'command', text: 'sozgec-report --author="troll_yazar_99"' },
     { type: 'status', text: 'Yazar girdileri analiz ediliyor & Yapay Zekaya iletiliyor...' },
-    { type: 'success', text: '[TAMAM] Yapay Zeka analiz puanı hesaplandı. Liste güncellendi.' }
+    { type: 'success', text: '[TAMAM] Yapay Zeka analiz puanı hesaplandı. Liste güncellendi.' },
+    { type: 'command', text: 'fastmetry-tracker --protocol="16:8" --autophagy=active' },
+    { type: 'status', text: 'Tracking metabolic stage: Ketosis & autophagy awareness...' },
+    { type: 'success', text: '[OK] 100% Offline-First encrypted health database verified.' }
 ];
 
 let logIndex = 0;
