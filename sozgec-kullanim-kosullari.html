@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sözgeç Mobil (Android) Uygulaması ve Chrome Eklentisi Kullanım Koşulları (Terms of Service). Hizmet şartları, sorumluluk reddi ve kullanım kuralları.">
+    <title>Kullanım Koşulları — Sözgeç</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&family=Outfit:wght@800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <style>
+        :root {
+            --color-accent: #8ca68c;
+            --color-accent-rgb: 140, 166, 140;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--color-accent);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 2.5rem;
+            transition: var(--transition);
+        }
+        .back-link:hover {
+            color: var(--text-primary);
+            transform: translateX(-5px);
+        }
+        .terms-hero {
+            padding: 140px 0 40px;
+        }
+        .terms-hero h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        .terms-hero h1 span {
+            font-style: italic;
+            color: var(--color-accent);
+        }
+        .terms-hero .meta-info {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-family: var(--font-mono);
+            margin-top: 0.5rem;
+            line-height: 1.6;
+        }
+        .terms-content {
+            padding: 20px 0 100px;
+        }
+        .terms-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 3.5rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            position: relative;
+        }
+        .terms-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #8ca68c, #e5a975);
+            opacity: 0.8;
+        }
+        .terms-card h2 {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-top: 2.5rem;
+            margin-bottom: 1.25rem;
+            border-bottom: 1px dashed rgba(140, 166, 140, 0.2);
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .terms-card h2 i {
+            color: var(--color-accent);
+            font-size: 1.2rem;
+        }
+        .terms-card h2:first-of-type {
+            margin-top: 0;
+        }
+        .terms-card h3 {
+            font-family: var(--font-sans);
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .terms-card p {
+            margin-bottom: 1.25rem;
+        }
+        .terms-card ul, .terms-card ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+        .terms-card li {
+            margin-bottom: 0.5rem;
+        }
+        .terms-card hr {
+            border: 0;
+            height: 1px;
+            background: var(--card-border);
+            margin: 2.5rem 0;
+        }
+        .terms-card a {
+            color: var(--color-accent);
+            text-decoration: underline;
+            transition: var(--transition);
+        }
+        .terms-card a:hover {
+            color: var(--text-primary);
+        }
+        .highlight-text {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+        .summary-box {
+            background: rgba(140, 166, 140, 0.06);
+            border: 1px solid rgba(140, 166, 140, 0.2);
+            border-left: 4px solid var(--color-accent);
+            padding: 1.25rem 1.5rem;
+            border-radius: 4px;
+            margin: 1.5rem 0 2rem;
+            color: var(--text-primary);
+            font-size: 0.98rem;
+            line-height: 1.7;
+        }
+        .meta-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--card-border);
+            padding: 1.25rem 1.5rem;
+            border-radius: 4px;
+            margin-bottom: 2rem;
+            font-size: 0.92rem;
+            font-family: var(--font-mono);
+        }
+        .meta-box ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 0;
+        }
+        .meta-box li {
+            margin-bottom: 0.5rem;
+        }
+        .meta-box li:last-child {
+            margin-bottom: 0;
+        }
+        .meta-box li span {
+            color: var(--color-accent);
+            font-weight: 600;
+        }
+        .disclaimer-box {
+            background: rgba(239, 68, 68, 0.05);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            border-left: 4px solid #ef4444;
+            padding: 1.25rem 1.5rem;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            line-height: 1.65;
+        }
+        .disclaimer-box h4 {
+            color: #ef4444;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            font-family: var(--font-sans);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        code.highlight-text {
+            font-family: var(--font-mono);
+            font-size: 0.9em;
+            background: rgba(140, 166, 140, 0.1);
+            color: #a3c2a3;
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            border: 1px solid rgba(140, 166, 140, 0.2);
+        }
+        @media (max-width: 768px) {
+            .terms-card {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grain-overlay"></div>
+
+    <!-- Navigation -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">AKA <span>Labs</span></a>
+            <ul class="nav-links">
+                <li><a href="sozgec.html">01 // Sözgeç Sayfası</a></li>
+                <li><a href="sozgec-gizlilik-politikasi.html">02 // Gizlilik</a></li>
+                <li><a href="support.html">03 // Destek</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="terms-hero">
+        <div class="container">
+            <a href="sozgec.html" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i> Sözgeç Sayfasına Dön
+            </a>
+            <h1>Kullanım Koşulları — <span>Sözgeç</span></h1>
+            <div class="meta-info">
+                Son Güncelleme: 5 Kasım 2026 | Kapsam: Sözgeç Mobil (Android) Uygulaması & Chrome Eklentisi
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Section -->
+    <section class="terms-content">
+        <div class="container">
+            <div class="terms-card">
+
+                <div class="meta-box">
+                    <ul>
+                        <li><span>Uygulama Adı:</span> Sözgeç (Ekşi Sözlük Akıllı Troll Süzgeci & Moderasyon Asistanı)</li>
+                        <li><span>Paket Adı (Package Name):</span> <code>com.akalabs.sozgec</code></li>
+                        <li><span>Geliştirici / Sağlayıcı:</span> AKA Labs (Ahmet Kapar)</li>
+                        <li><span>E-posta / Destek:</span> <a href="mailto:support@kapar.org">support@kapar.org</a></li>
+                        <li><span>Web Sitesi:</span> <a href="https://kapar.org/sozgec.html">https://kapar.org/sozgec.html</a></li>
+                    </ul>
+                </div>
+
+                <div class="summary-box">
+                    <strong>Özet Bilgilendirme:</strong> Sözgeç, Ekşi Sözlük kullanıcılarının okuma deneyimini kişiselleştirmeleri ve rahatsız edici içerikleri yerel olarak filtrelemeleri amacıyla geliştirilmiş bağımsız bir üçüncü taraf araçtır. Bu belge, Sözgeç Android mobil uygulamasını ve Chrome tarayıcı eklentisini indirerek veya kullanarak kabul etmiş olduğunuz kullanım şartlarını, tarafların hak ve yükümlülüklerini ve yasal sorumluluk sınırlarını düzenler.
+                </div>
+
+                <hr>
+
+                <h2><i class="fa-solid fa-handshake"></i> 1. Taraflar ve Şartların Kabulü</h2>
+                <p>İşbu Kullanım Koşulları ("Koşullar"), <span class="highlight-text">AKA Labs</span> ("Geliştirici", "biz", "bize") ile <span class="highlight-text">Sözgeç</span> mobil uygulamasını veya tarayıcı eklentisini ("Hizmet", "Uygulama", "Eklenti") yükleyen, erişen veya kullanan kişi ("Kullanıcı", "siz") arasında akdedilmiştir.</p>
+                <p>Uygulamayı cihazınıza indirerek, kurarak veya kullanarak bu Koşulların tamamını okuduğunuzu, anladığınızı ve bunlarla bağlı olduğunuzu kabul etmiş sayılırsınız. Bu Koşulları kabul etmiyorsanız, Sözgeç uygulamasını ve eklentisini kullanmamalı ve cihazınızdan kaldırmalısınız.</p>
+
+                <h2><i class="fa-solid fa-shield-halved"></i> 2. Hizmetin Niteliği ve Bağımsızlık Beyanı (Disclaimer)</h2>
+                
+                <div class="disclaimer-box">
+                    <h4><i class="fa-solid fa-triangle-exclamation"></i> Bağımsız Üçüncü Taraf Yazılım Beyanı</h4>
+                    <p><strong>Sözgeç, Ekşi Sözlük (eksisozluk.com veya Eksi Teknoloji ve Bilişim A.Ş.) ile doğrudan veya dolaylı hiçbir kurumsal, ticari, resmi veya sponsorluk bağı bulunmayan, tamamen bağımsız bir üçüncü taraf açık ve özgür geliştirici projesidir.</strong></p>
+                    <p style="margin-bottom: 0;">"Ekşi Sözlük" markası ve ilgili tüm telif/ticari marka hakları Eksi Teknoloji ve Bilişim A.Ş.'ye aittir. Sözgeç adlandırması ve arayüzü yalnızca uyumluluğu ve işlevsel amacı belirtmek üzere referans niteliğinde kullanılmaktadır.</p>
+                </div>
+
+                <p>Sözgeç'in temel işlevleri şunlardır:</p>
+                <ul>
+                    <li>Kullanıcının kendi cihazında (yerel olarak) Ekşi Sözlük içeriklerini okurken görsel filtreleme yapmasını sağlamak.</li>
+                    <li>Topluluk tarafından bildirilen ve yapay zekâ algoritmalarıyla analiz edilen nesnel troll puanı listelerini (<code>trolls.json</code>) cihazınıza indirerek eşleştirmek.</li>
+                    <li>Kullanıcının belirlediği hassasiyet barajına (örneğin %50 veya %80) göre rahatsız edici içerikleri gizlemek veya kullanıcı isteğiyle görünür kılmak.</li>
+                </ul>
+
+                <h2><i class="fa-solid fa-user-check"></i> 3. Kabul Edilebilir Kullanım Kuralları</h2>
+                <p>Sözgeç uygulamasını kullanırken aşağıdaki kurallara uymayı taahhüt edersiniz:</p>
+                <ul>
+                    <li><strong>Yasalara Uygunluk:</strong> Uygulamayı yalnızca Türkiye Cumhuriyeti yasalarına, ikamet ettiğiniz ülkenin mevzuatına ve genel ahlak kurallarına uygun amaçlarla kullanabilirsiniz.</li>
+                    <li><strong>Sistemin Kötüye Kullanılmaması:</strong> Sözgeç'in sunucularına (<code class="highlight-text">sozgec-api.vercel.app</code>) veya veri altyapısına tersine mühendislik (reverse engineering) uygulamak, otomatik botlar/scriptlerle aşırı istek göndermek, Hizmeti Engelleme (DoS/DDoS) saldırıları düzenlemek kesinlikle yasaktır.</li>
+                    <li><strong>Zararlı Kod Bulaştırmama:</strong> Uygulamaya veya sunucu altyapısına virüs, truva atı, solucan veya benzeri zararlı kodlar bulaştırmaya yönelik herhangi bir girişimde bulunulamaz.</li>
+                </ul>
+
+                <h2><i class="fa-solid fa-bullhorn"></i> 4. Topluluk Raporlama Sistemi ve Moderasyon İlkeleri</h2>
+                <p>Sözgeç, kullanıcıların rahatsız edici yazarları işaretleyebildiği bir <strong>"Topluluk Raporlama" (🚫)</strong> mekanizması içerir. Bu özelliği kullanırken:</p>
+                <ul>
+                    <li><strong>Dürüst Raporlama:</strong> Raporlama özelliği yalnızca trolleme, provokasyon, sistematik nefret söylemi, spam ve manipülasyon amaçlı yazar hareketlerini sisteme bildirmek içindir.</li>
+                    <li><strong>Kişisel Husumet ve Linç Yasağı:</strong> Raporlama özelliği; sırf bir yazarla fikir uyuşmazlığı yaşandığı için, kişisel husumet, organize linç faaliyeti veya siyasi/toplumsal kutuplaşma amacıyla kasıtlı ve kötü niyetli olarak kullanılamaz.</li>
+                    <li><strong>Yapay Zekâ Denetimi:</strong> Bildirilen yazarların kamuya açık entry'leri yapay zekâ modelleri tarafından nesnel kriterlere göre analiz edilir. Kötü niyetli veya asılsız yapılan bildirimler sistem tarafından filtrelenir ve dikkate alınmaz.</li>
+                    <li><strong>İtiraz ve Düzeltme:</strong> Herhangi bir yazar profilinin veya skorunun sehven hatalı değerlendirildiğini düşünüyorsanız, gerekçenizle birlikte <a href="mailto:support@kapar.org">support@kapar.org</a> adresine itiraz başvurusunda bulunabilirsiniz. Talepler titizlikle incelenip gerekli güncellemeler yapılmaktadır.</li>
+                </ul>
+
+                <h2><i class="fa-solid fa-scale-balanced"></i> 5. Üçüncü Taraf İçeriklerden Sorumluluk Reddi (Disclaimer of Content)</h2>
+                <p>Sözgeç, bir içerik üreticisi veya içerik sağlayıcı değildir. Uygulamada veya eklentide görüntülenen başlıklar, entry'ler, yazar profilleri ve tüm üçüncü taraf veriler doğrudan Ekşi Sözlük platformundan çekilmektedir:</p>
+                <ul>
+                    <li>Ekşi Sözlük'te yayınlanan entry'lerin ve içeriklerin hukuki ve cezai sorumluluğu <strong>tamamen içeriği yazan Ekşi Sözlük yazarlarına ve/veya ilgili platform işleticisine aittir.</strong></li>
+                    <li>Sözgeç ve AKA Labs; platformdaki içeriklerin doğruluğunu, yasallığını, gerçekliğini, güvenliğini veya telif hakkı uyumluluğunu denetlemez, garanti etmez ve bu içeriklerden ötürü hiçbir şekilde hukuki veya cezai sorumluluk kabul etmez.</li>
+                    <li>Sözgeç'in görevi yalnızca, kullanıcının cihaz düzeyinde istemediği içerikleri gizlemesine yardımcı olmaktır. İçeriğin gizlenmiş veya gösterilmiş olması, o içeriğin Sözgeç tarafından onaylandığı veya sansürlendiği anlamına gelmez.</li>
+                </ul>
+
+                <h2><i class="fa-solid fa-robot"></i> 6. Algoritmik Değerlendirme ve Yapay Zekâ Beyanı</h2>
+                <p>Uygulamada yer alan "Troll Skoru" ve kategori analizleri, otomatik yapay zekâ metin modelleri ve algoritmalar tarafından hesaplanan <strong>istatistiki bir olasılık ve filtreleme tahminidir:</strong></p>
+                <ul>
+                    <li>Skorlar, ilgili yazar hakkında kesin ve bağlayıcı bir yargı, hüküm veya resmi itham niteliğinde değildir; yalnızca kullanıcıya kendi okuma deneyiminde rehberlik etmeyi amaçlar.</li>
+                    <li>Filtreleme mekanizmasının %100 kusursuz çalışacağı veya her istenmeyen içeriği tespit edeceği taahhüt edilmez. Hizmet <span class="highlight-text">"olduğu gibi" (As-Is)</span> ve <span class="highlight-text">"mevcut olduğu şekilde" (As-Available)</span> sunulmaktadır.</li>
+                </ul>
+
+                <h2><i class="fa-solid fa-copyright"></i> 7. Fikri Mülkiyet Hakları</h2>
+                <p>Sözgeç'in adı, logosu, kullanıcı arayüzü tasarımları, yazılım kaynak kodları, veri tabanı yapıları, görsel ve teknik varlıkları üzerindeki tüm fikri mülkiyet hakları <span class="highlight-text">AKA Labs</span>'a (Ahmet Kapar) aittir.</p>
+                <p>Kullanıcılara yalnızca uygulamayı kişisel, ticari olmayan amaçlarla kullanabilmeleri için münhasır olmayan, devredilemez ve geri alınabilir bir kullanım lisansı verilmektedir. Açık yazılı izin olmaksızın uygulamanın kopyalanması, değiştirilmesi, dağıtılması veya ticari amaçla satılması yasaktır.</p>
+
+                <h2><i class="fa-solid fa-triangle-exclamation"></i> 8. Sorumluluğun Sınırlandırılması (Limitation of Liability)</h2>
+                <p>Yürürlükteki mevzuatın izin verdiği azami ölçüde, AKA Labs ve iştirakleri; Sözgeç'in kullanımından, kullanılamamasından, Ekşi Sözlük platformunun yapısında meydana gelen teknik değişikliklerden kaynaklanan kesintilerden, veri kayıplarından veya üçüncü taraf içeriklerinden doğabilecek doğrudan, dolaylı, arızi veya cezai hiçbir zarardan sorumlu tutulamaz.</p>
+
+                <h2><i class="fa-solid fa-wrench"></i> 9. Değişiklikler ve Hizmetin Sonlandırılması</h2>
+                <p>AKA Labs; Sözgeç uygulamasının veya eklentisinin özelliklerini dilediği zaman güncelleme, geçici olarak durdurma veya kalıcı olarak sonlandırma hakkını saklı tutar.</p>
+                <p>Bu Kullanım Koşulları zaman zaman güncellenebilir. Değişiklikler web sitemizde yayınlandığı tarihte yürürlüğe girer. Güncellemelerden sonra uygulamayı kullanmaya devam etmeniz, yeni koşulları kabul ettiğiniz anlamına gelir.</p>
+
+                <h2><i class="fa-solid fa-gavel"></i> 10. Uygulanacak Hukuk ve Yetkili Yargı</h2>
+                <p>İşbu Kullanım Koşulları, Türkiye Cumhuriyeti kanunlarına tabidir ve bu kanunlara göre yorumlanacaktır. Bu Koşullardan doğabilecek her türlü uyuşmazlığın çözümünde <strong>Ankara Mahkemeleri ve İcra Daireleri</strong> münhasıran yetkilidir.</p>
+
+                <h2><i class="fa-solid fa-envelope"></i> 11. İletişim Bilgileri</h2>
+                <p>İşbu Kullanım Koşulları ile ilgili her türlü soru, öneri, itiraz veya yasal bildirimleriniz için bizimle iletişime geçebilirsiniz:</p>
+                <ul>
+                    <li><span class="highlight-text">Geliştirici / Kuruluş:</span> AKA Labs (Ahmet Kapar)</li>
+                    <li><span class="highlight-text">E-posta:</span> <a href="mailto:support@kapar.org">support@kapar.org</a></li>
+                    <li><span class="highlight-text">Web Sitesi:</span> <a href="https://kapar.org/sozgec.html" target="_blank">https://kapar.org/sozgec.html</a></li>
+                    <li><span class="highlight-text">Gizlilik Politikası:</span> <a href="sozgec-gizlilik-politikasi.html">Sözgeç Gizlilik Politikası</a></li>
+                    <li><span class="highlight-text">Çocuk Güvenliği Politikası:</span> <a href="sozgec-cocuk-guvenligi-politikasi.html">Çocuk Güvenliği Politikası (CSAE)</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <p style="margin: 0;">&copy; 2026 AKA Labs. Tüm Hakları Saklıdır. Sözgeç, bir AKA Yazılım topluluk projesidir.</p>
+            <p style="margin: 0; font-family: var(--font-mono); font-size: 0.75rem;">
+                <a href="sozgec-gizlilik-politikasi.html" style="color: var(--color-accent); text-decoration: none; border-bottom: 1px dashed var(--color-accent); padding-bottom: 2px; margin-right: 15px;">Gizlilik Politikası</a>
+                <a href="sozgec-cocuk-guvenligi-politikasi.html" style="color: var(--color-accent); text-decoration: none; border-bottom: 1px dashed var(--color-accent); padding-bottom: 2px; margin-right: 15px;">Çocuk Güvenliği</a>
+                <a href="index.html" style="color: var(--color-accent); text-decoration: none; border-bottom: 1px dashed var(--color-accent); padding-bottom: 2px;">AKA Labs Ana Sayfa</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
