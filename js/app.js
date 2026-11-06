@@ -5,23 +5,24 @@ const appsData = [
         title: "Fastmetry",
         category: "health",
         featured: true, // Double column display
-        badge: "Upcoming Release • Mindful Fasting Assistant",
+        badge: "Version 0.7.6 (Build 16) • Release Ready",
         icon: "fa-solid fa-clock-rotate-left",
         image: "assets/fastmetry_logo.png",
-        description: "A next-generation, offline-first intermittent fasting companion that connects your fasting routine with your biological rhythm. Features physiological body stages (ketosis & autophagy), smart meal and water journaling, mood and hunger check-ins, and evidence-based Daily Boost insights.",
+        description: "A next-generation, offline-first intermittent fasting companion built 100% with Jetpack Compose and Material 3. Features live circular countdown timers, physiological stages (ketosis & autophagy), 3 customizable home screen widgets, automated data migration from Zero, and Google Health Connect step tracking.",
         specs: [
-            "Flexible Protocols: 14:10, 16:8, 18:6, 20:4, OMAD & Custom Schedules",
-            "Physiological Body Stages & Science-Backed Guidance (Body Insights)",
-            "Smart Journal: Photo Meals, Hydration Log & Body Signals Check-in",
-            "Weight Trend Analysis & Interactive Fasting Performance Analytics",
-            "Zero-Compromise Privacy: On-Device Encrypted Database & JSON/CSV Export"
+            "Flexible Protocols: 16:8, 18:6, 20:4, OMAD & Custom Schedules with Rest Days",
+            "3 Home Screen Widgets: Compact, 4-Column Daily Overview & Detailed Timer",
+            "Smart Journal: Photo Meals, Hydration Log, Wellness Ratings & Voice/Text Notes",
+            "Zero App Migration: Instant Import of Zero Export Archives (CSV, JSON, ZIP)",
+            "100% Offline-First: Room Database, Full JSON Backup & Excel/Sheets Export (💎)"
         ],
-        tags: ["Upcoming", "Flutter", "Dart", "Intermittent Fasting", "Health & Wellness", "Offline-First", "Local Database", "Android & iOS"],
+        tags: ["Android", "Jetpack Compose", "Material 3", "Room Database", "Health Connect", "Intermittent Fasting", "Zero Migration", "Offline-First", "v0.7.6"],
         primaryLink: "fastmetry.html",
         primaryLabel: "Details",
-        secondaryLink: null,
-        secondaryLabel: null,
-        privacyLink: "fastmetry-privacy-policy.html"
+        secondaryLink: "https://play.google.com/store/apps/details?id=com.fasting.assistant",
+        secondaryLabel: "Google Play",
+        privacyLink: "fastmetry-privacy-policy.html",
+        termsLink: "fastmetry-terms.html"
     },
     {
         id: "dava-belgelerim",

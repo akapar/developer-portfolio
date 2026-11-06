@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Terms of Service for Fastmetry (com.fasting.assistant) - Medical disclaimers, user rights, billing terms, and usage conditions for the Fastmetry Android application.">
+    <title>Terms of Service | Fastmetry</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <style>
+        :root {
+            --fastmetry-primary: #10b981;
+            --fastmetry-accent: #8ca68c;
+            --fastmetry-border: rgba(16, 185, 129, 0.2);
+            --fastmetry-border-hover: rgba(16, 185, 129, 0.4);
+            --fastmetry-danger: #ef4444;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--fastmetry-primary);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 2.5rem;
+            transition: var(--transition);
+        }
+        .back-link:hover {
+            color: var(--text-primary);
+            transform: translateX(-5px);
+        }
+        .terms-hero {
+            padding: 140px 0 40px;
+        }
+        .terms-hero h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        .terms-hero h1 span {
+            font-style: italic;
+            color: var(--fastmetry-primary);
+        }
+        .terms-hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+        .terms-content {
+            padding: 20px 0 100px;
+        }
+        .terms-card {
+            background: var(--card-bg);
+            border: 1px solid var(--fastmetry-border);
+            border-radius: 12px;
+            padding: 3.5rem;
+            max-width: 920px;
+            margin: 0 auto;
+            position: relative;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+        .terms-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #10b981, #8ca68c);
+        }
+        .meta-box {
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px solid var(--fastmetry-border);
+            border-radius: 8px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 2rem;
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+        }
+        .meta-box ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 0.75rem;
+            margin-left: 0;
+            padding-left: 0;
+        }
+        .meta-box li span {
+            color: var(--fastmetry-primary);
+            font-weight: 600;
+        }
+        .disclaimer-box {
+            background: rgba(239, 68, 68, 0.06);
+            border: 1px solid rgba(239, 68, 68, 0.25);
+            border-left: 4px solid var(--fastmetry-danger);
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin: 1.75rem 0 2rem;
+            color: var(--text-primary);
+        }
+        .disclaimer-box h4 {
+            color: #f87171;
+            font-family: var(--font-sans);
+            font-size: 1.05rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .disclaimer-box p {
+            color: #fca5a5;
+            font-size: 0.92rem;
+            line-height: 1.65;
+            margin-bottom: 0.75rem;
+        }
+        .disclaimer-box p:last-child {
+            margin-bottom: 0;
+        }
+        .highlight-box {
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-left: 4px solid var(--fastmetry-primary);
+            border-radius: 6px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            line-height: 1.65;
+        }
+        .terms-card h2 {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .terms-card h2 i {
+            color: var(--fastmetry-primary);
+            font-size: 1.2rem;
+        }
+        .terms-card h3 {
+            font-family: var(--font-sans);
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 1.5rem;
+            margin-bottom: 0.6rem;
+        }
+        .terms-card p {
+            color: var(--text-secondary);
+            font-size: 0.98rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        .terms-card ul, .terms-card ol {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .terms-card li {
+            margin-bottom: 0.5rem;
+        }
+        .terms-card code {
+            font-family: var(--font-mono);
+            font-size: 0.88em;
+            background: rgba(16, 185, 129, 0.08);
+            color: #34d399;
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+        .terms-card a {
+            color: var(--fastmetry-primary);
+            text-decoration: underline;
+            transition: var(--transition);
+        }
+        .terms-card a:hover {
+            color: #34d399;
+        }
+        .highlight-text {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+        @media (max-width: 768px) {
+            .terms-card {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grain-overlay"></div>
+
+    <!-- Navigation -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">AKA <span>Labs</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Portfolio</a></li>
+                <li><a href="fastmetry.html">Fastmetry</a></li>
+                <li><a href="fastmetry-privacy-policy.html">Privacy</a></li>
+                <li><a href="support.html">Support</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="terms-hero">
+        <div class="container">
+            <a href="fastmetry.html" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i> Back to Fastmetry
+            </a>
+            <h1>Terms of <span>Service</span></h1>
+            <p>Fastmetry — Mindful & Science-Backed Intermittent Fasting Assistant</p>
+        </div>
+    </section>
+
+    <!-- Terms Document Section -->
+    <section class="terms-content">
+        <div class="container">
+            <div class="terms-card">
+
+                <div class="meta-box">
+                    <ul>
+                        <li><span>Application:</span> Fastmetry (Android & Web)</li>
+                        <li><span>Package:</span> <code>com.fasting.assistant</code></li>
+                        <li><span>Developer:</span> AKA Labs (Ahmet Kapar)</li>
+                        <li><span>Effective Date:</span> November 7, 2026</li>
+                        <li><span>Latest Build:</span> v16 (0.7.6)</li>
+                        <li><span>Contact:</span> <a href="mailto:support@kapar.org">support@kapar.org</a></li>
+                    </ul>
+                </div>
+
+                <!-- CRITICAL MEDICAL DISCLAIMER -->
+                <div class="disclaimer-box">
+                    <h4><i class="fa-solid fa-triangle-exclamation"></i> IMPORTANT MEDICAL & HEALTH DISCLAIMER</h4>
+                    <p><strong>FASTMETRY IS NOT A MEDICAL DEVICE AND DOES NOT PROVIDE MEDICAL ADVICE, DIAGNOSIS, TREATMENT, OR CLINICAL SUPERVISION.</strong></p>
+                    <p>The Fastmetry application is designed strictly as a personal lifestyle tracking tool, timer, and educational journal to assist healthy adults in monitoring intermittent fasting protocols, hydration, and general wellness habits. All information, metabolic stage descriptions, Daily Boost cards, and physiological charts provided within the application are for general informational purposes only.</p>
+                    <p><strong>Consult a Physician:</strong> You must consult a qualified physician or healthcare professional before adopting intermittent fasting or making significant dietary changes, especially if you have pre-existing health conditions, take medications, or belong to a restricted group (see Section 2).</p>
+                    <p><strong>Immediate Discontinuation:</strong> If you experience severe dizziness, fainting, hypoglycemia, extreme nausea, confusion, or any adverse physical symptoms while fasting, <em>break your fast immediately</em>, consume water and nourishment, and seek immediate medical attention.</p>
+                </div>
+
+                <h2><i class="fa-solid fa-handshake"></i> 1. Acceptance of Terms</h2>
+                <p>Welcome to Fastmetry. These Terms of Service ("Terms") constitute a legally binding agreement between you ("User", "you", or "your") and AKA Labs ("we", "us", or "our"), governing your access to and use of the Fastmetry mobile application (package identifier <code>com.fasting.assistant</code>), our website at <a href="https://kapar.org/fastmetry.html">kapar.org/fastmetry.html</a>, and any associated services, widgets, or synchronization endpoints (collectively, the "Service").</p>
+                <p>By downloading, installing, accessing, or using Fastmetry, you acknowledge that you have read, understood, and agreed to be bound by these Terms and our <a href="fastmetry-privacy-policy.html">Privacy Policy</a>. If you do not agree to these Terms, you must not download, install, or use the Service.</p>
+
+                <h2><i class="fa-solid fa-notes-medical"></i> 2. Health Eligibility & Safety Restrictions</h2>
+                <p>Intermittent fasting can be physically demanding and is not appropriate for everyone. By using Fastmetry, you expressly represent, warrant, and certify that you are in good general health and do not fall into any of the following contraindicative categories:</p>
+                <ul>
+                    <li>Individuals under 18 years of age;</li>
+                    <li>Individuals who are pregnant, planning to become pregnant, or actively breastfeeding;</li>
+                    <li>Individuals with a current diagnosis, history, or symptoms of eating disorders (including anorexia nervosa, bulimia nervosa, or orthorexia);</li>
+                    <li>Individuals with Type 1 Diabetes or insulin-dependent diabetes;</li>
+                    <li>Individuals with Type 2 Diabetes taking blood-glucose-lowering medications without direct medical supervision;</li>
+                    <li>Individuals with severe renal (kidney) disease, liver dysfunction, cardiac arrhythmias, or chronic gastrointestinal disorders;</li>
+                    <li>Individuals categorized as underweight (Body Mass Index below 18.5 kg/m²).</li>
+                </ul>
+                <p>You acknowledge that you assume full responsibility for your own physical health, well-being, dietary choices, and fasting schedules. AKA Labs expressly disclaims any liability for injuries, health complications, or adverse consequences resulting from your use of the Service.</p>
+
+                <h2><i class="fa-solid fa-user-check"></i> 3. User Eligibility & Accounts</h2>
+                <h3>3.1 Age Requirement</h3>
+                <p>You must be at least 18 years of age to download, register, or use Fastmetry. The Service is not intended for or marketed to minors.</p>
+
+                <h3>3.2 Offline Guest Mode vs. Cloud Accounts</h3>
+                <p>Fastmetry is built on an offline-first architecture. You may use the core timer, local Room database, journal, and widgets without creating an online account (Guest Mode). If you choose to enable cloud backup or multi-device synchronization, you may authenticate via Google Sign-In or email/password. You agree to provide accurate information and keep your credentials confidential.</p>
+
+                <h3>3.3 Account Security & Migration</h3>
+                <p>You are solely responsible for all activities occurring under your account. When migrating from Guest Mode, Fastmetry provides a <code>Copy guest records</code> feature to seamlessly port your historical entries to your authenticated profile without data loss.</p>
+
+                <h2><i class="fa-solid fa-credit-card"></i> 4. In-App Purchases, Subscriptions & Billing</h2>
+                <h3>4.1 Free & Premium Tiers</h3>
+                <p>Fastmetry offers free core functionality (including live timer, metabolic stage explanations, standard daily journaling, and home screen widgets). Advanced features—such as Quarter and All-Time analytical views, Excel/Google Sheets CSV reporting, advanced widget customization, and priority data tools—may require a one-time purchase or recurring Premium subscription.</p>
+
+                <h3>4.2 Google Play Billing</h3>
+                <p>All financial transactions, in-app purchases, and recurring subscriptions are processed securely through <strong>Google Play Billing</strong>. AKA Labs does not store, process, or have access to your credit card, banking, or billing details.</p>
+
+                <h3>4.3 Renewal & Cancellation</h3>
+                <p>Subscriptions renew automatically unless canceled at least 24 hours before the end of the current billing cycle. You may manage, modify, or cancel your subscription at any time directly through your <a href="https://play.google.com/store/account/subscriptions" target="_blank" rel="noopener noreferrer">Google Play Subscriptions Center</a>. Cancellation stops subsequent billing; you retain access to Premium features through the end of your paid period.</p>
+
+                <h3>4.4 Refunds</h3>
+                <p>Refund requests are subject to the policies of the Google Play Store. To request a refund, please follow Google Play's standard refund procedure within the applicable return window.</p>
+
+                <h2><i class="fa-solid fa-database"></i> 5. Data Ownership, Portability & Backups</h2>
+                <h3>5.1 Your Data Ownership</h3>
+                <p>You retain 100% ownership, title, and intellectual property rights over all personal information, meal photos, voice memos, weights, water intake, and wellness reflections entered into Fastmetry.</p>
+
+                <h3>5.2 Data Portability & Zero Migration</h3>
+                <p>We believe in total user sovereignty over health data:</p>
+                <ul>
+                    <li><strong>Fastmetry JSON Backup:</strong> You may export a complete, unencrypted <code>.json</code> snapshot of your database (sessions, weights, notes, settings) anytime via <code>Save backup</code> and restore it via <code>Restore backup</code> with conflict verification.</li>
+                    <li><strong>Excel / CSV Export:</strong> Premium users may export tabular fasting and weight records compatible with Microsoft Excel and Google Sheets.</li>
+                    <li><strong>Zero App Migration:</strong> Fastmetry provides an automated import utility for users transitioning from the Zero fasting app (supporting Zero CSV, JSON, or ZIP exports). <em>Disclaimer: Fastmetry and AKA Labs are independent entities and are neither affiliated with, sponsored by, nor endorsed by Zero Longevity, Inc.</em></li>
+                    <li><strong>Danger Zone:</strong> A double-confirmation local reset option allows you to wipe on-device records without deleting your remote Firebase account.</li>
+                </ul>
+
+                <h2><i class="fa-solid fa-heart-pulse"></i> 6. Health Connect & Device Integrations</h2>
+                <p>Fastmetry integrates with <strong>Google Health Connect</strong> to read your daily step count and present a unified 4-column daily overview on supported widgets and progress dashboards. Fastmetry's use of information received from Health Connect adheres strictly to the <a href="https://support.google.com/googleplay/android-developer/answer/9888170" target="_blank" rel="noopener noreferrer">Google Health Connect Permissions policy</a>, including Limited Use requirements: we only read step records upon your explicit grant, we never sell this data, and we do not use it for advertising or credit scoring.</p>
+
+                <h2><i class="fa-solid fa-mobile-screen"></i> 7. Home Screen Widgets & Background Services</h2>
+                <p>Fastmetry provides Compact Timer, Daily Overview, and Detailed Timer widgets. These widgets update periodically using Android system alarms and background workers. While we optimize background processing for minimum battery consumption, exact refresh intervals are subject to device manufacturer power management, battery-saver modes, and Android OS optimizations.</p>
+
+                <h2><i class="fa-solid fa-ban"></i> 8. Acceptable Use & Prohibited Conduct</h2>
+                <p>When using the Service, you agree that you will not:</p>
+                <ul>
+                    <li>Reverse engineer, decompile, disassemble, or attempt to derive the source code of the Fastmetry application;</li>
+                    <li>Interfere with, tamper with, or disrupt the integrity or security of our synchronization servers or network endpoints;</li>
+                    <li>Use the Service for any unlawful, predatory, or commercial redistribution purpose;</li>
+                    <li>Circumvent or manipulate Google Play Billing verification systems;</li>
+                    <li>Automate access to the Service using unauthorized bots, scrapers, or scripts.</li>
+                </ul>
+
+                <h2><i class="fa-solid fa-copyright"></i> 9. Intellectual Property Rights</h2>
+                <p>All rights, title, and interest in and to Fastmetry—including software code, user interface designs, visual layouts, botanical color palettes, logos, graphics, metabolic illustrations, algorithms, and text content—are and remain the exclusive property of AKA Labs (Ahmet Kapar). You are granted a limited, personal, non-exclusive, non-transferable, and revocable license to use the application on your personal devices solely in accordance with these Terms.</p>
+
+                <h2><i class="fa-solid fa-shield-halved"></i> 10. Disclaimer of Warranties</h2>
+                <p>TO THE MAXIMUM EXTENT PERMITTED UNDER APPLICABLE LAW, THE SERVICE IS PROVIDED ON AN <strong>"AS IS"</strong> AND <strong>"AS AVAILABLE"</strong> BASIS, WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE. AKA LABS EXPRESSLY DISCLAIMS ALL IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, ACCURACY, AND NON-INFRINGEMENT.</p>
+                <p>WE DO NOT WARRANT THAT THE SERVICE WILL BE UNINTERRUPTED, TIMELY, SECURE, BUG-FREE, OR ERROR-FREE, NOR DO WE WARRANT THAT ANY FASTING REGIMEN TRACKED THROUGH THE SERVICE WILL RESULT IN WEIGHT LOSS, METABOLIC IMPROVEMENT, OR HEALTH BENEFITS.</p>
+
+                <h2><i class="fa-solid fa-scale-balanced"></i> 11. Limitation of Liability</h2>
+                <p>TO THE FULLEST EXTENT PERMITTED BY LAW, IN NO EVENT SHALL AKA LABS, ITS FOUNDERS, DEVELOPERS, OR AFFILIATES BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES—INCLUDING BUT NOT LIMITED TO PERSONAL INJURY, HEALTH COMPLICATIONS, LOSS OF DATA, LOSS OF GOODWILL, OR DEVICE MALFUNCTION—ARISING OUT OF OR IN CONNECTION WITH YOUR ACCESS TO OR USE OF (OR INABILITY TO USE) THE SERVICE.</p>
+                <p>IN NO EVENT SHALL OUR TOTAL CUMULATIVE LIABILITY EXCEED THE GREATER OF: (A) THE TOTAL AMOUNT PAID BY YOU TO AKA LABS FOR THE SERVICE DURING THE TWELVE (12) MONTHS PRECEDING THE CLAIM, OR (B) FIFTY UNITED STATES DOLLARS (USD $50.00).</p>
+
+                <h2><i class="fa-solid fa-user-xmark"></i> 12. Account Deletion & Termination</h2>
+                <p>You may stop using Fastmetry at any time by uninstalling the application. If you have registered a cloud account, you may request permanent deletion of your profile, email, and synchronized records at any time directly through the app settings or by following our step-by-step <a href="fastmetry-data-deletion.html">Account & Data Deletion Instructions</a>.</p>
+                <p>AKA Labs reserves the right to suspend or terminate accounts that breach these Terms, abuse network resources, or engage in fraudulent billing activities.</p>
+
+                <h2><i class="fa-solid fa-gavel"></i> 13. Governing Law & Jurisdiction</h2>
+                <p>These Terms shall be governed by and construed in accordance with the laws of the Republic of Turkey, without regard to its conflict of law provisions. Any dispute, claim, or controversy arising out of or relating to these Terms shall be submitted to the exclusive jurisdiction of the competent courts and execution offices of Ankara, Turkey.</p>
+
+                <h2><i class="fa-solid fa-arrows-rotate"></i> 14. Modifications to Terms</h2>
+                <p>We reserve the right to revise or update these Terms periodically to reflect new features, architectural updates, or regulatory requirements. Any modifications will be posted to this page with an updated "Effective Date". Your continued use of the Service following the posting of revised Terms constitutes your acceptance of the changes.</p>
+
+                <h2><i class="fa-solid fa-envelope"></i> 15. Contact Information</h2>
+                <p>If you have any questions, concerns, medical policy inquiries, or support requests regarding these Terms of Service, please contact us:</p>
+                <ul>
+                    <li><span class="highlight-text">Developer:</span> AKA Labs (Ahmet Kapar)</li>
+                    <li><span class="highlight-text">Email:</span> <a href="mailto:support@kapar.org">support@kapar.org</a></li>
+                    <li><span class="highlight-text">Support Center:</span> <a href="support.html">https://kapar.org/support.html</a></li>
+                    <li><span class="highlight-text">Privacy Policy:</span> <a href="fastmetry-privacy-policy.html">fastmetry-privacy-policy.html</a></li>
+                    <li><span class="highlight-text">Data Deletion:</span> <a href="fastmetry-data-deletion.html">fastmetry-data-deletion.html</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <p>&copy; 2026 AKA Labs. All Rights Reserved. Fastmetry is built by AKA Labs.</p>
+            <p style="display: flex; gap: 15px; flex-wrap: wrap;">
+                <a href="fastmetry-privacy-policy.html" style="color: var(--text-secondary); text-decoration: none; transition: var(--transition);" onmouseover="this.style.color='var(--fastmetry-primary)'" onmouseout="this.style.color='var(--text-secondary)'"><i class="fa-solid fa-shield-halved"></i> Privacy Policy</a>
+                <a href="fastmetry-terms.html" style="color: var(--fastmetry-primary); text-decoration: none; transition: var(--transition);"><i class="fa-solid fa-file-contract"></i> Terms of Service</a>
+                <a href="fastmetry-data-deletion.html" style="color: var(--text-secondary); text-decoration: none; transition: var(--transition);" onmouseover="this.style.color='var(--fastmetry-primary)'" onmouseout="this.style.color='var(--text-secondary)'"><i class="fa-solid fa-user-xmark"></i> Data Deletion</a>
+                <a href="support.html" style="color: var(--text-secondary); text-decoration: none; transition: var(--transition);" onmouseover="this.style.color='var(--fastmetry-primary)'" onmouseout="this.style.color='var(--text-secondary)'"><i class="fa-solid fa-envelope"></i> Support & Contact</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
