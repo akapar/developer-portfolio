@@ -81,19 +81,20 @@ const appsData = [
         badge: "All Platforms (Mobile & Desktop)",
         icon: "fa-solid fa-list-check",
         image: "assets/gazelist_logo.png",
-        description: "A secure, hierarchical task manager and Pomodoro timer. Nest subtasks to any depth, track focus time, sync automatically with Google Drive, and analyze your productivity history with absolute privacy.",
+        description: "A secure, hierarchical task manager and Pomodoro timer. Nest subtasks to any depth, track focus time, sync automatically across devices, and analyze your productivity history with absolute privacy.",
         specs: [
             "Unlimited Nested Task Hierarchy & Drag-and-Drop",
             "Task-Bound Focus Timer with Ambient Notification Chimes",
             "Dynamic Tagging (#tag/@person) with Autocomplete Overlays",
-            "Preserved Activity History & Google Drive Automatic Sync"
+            "Preserved Activity History & Cross-Device Cloud Sync"
         ],
-        tags: ["Flutter", "Dart", "Pomodoro Timer", "Google Drive Sync", "Local Database", "Windows & macOS & Android & iOS"],
+        tags: ["Flutter", "Dart", "Pomodoro Timer", "Cloud Sync", "Local Database", "Windows & macOS & Android & iOS"],
         primaryLink: "gazelist.html",
         primaryLabel: "Details",
         secondaryLink: null,
         secondaryLabel: null,
-        privacyLink: "gazelist-privacy-policy.html"
+        privacyLink: "gazelist-privacy-policy.html",
+        termsLink: "gazelist-terms.html"
     },
     {
         id: "topicraft",
@@ -374,7 +375,7 @@ const terminalLogs = [
     { type: 'status', text: 'Authenticating with Google Workspace API...' },
     { type: 'success', text: '[OK] Retrieved 8 events. Synchronized with spreadsheet.' },
     { type: 'command', text: 'gazelist-sync --account="aka@kapar.org"' },
-    { type: 'status', text: 'Verifying database checksums & syncing with Drive...' },
+    { type: 'status', text: 'Verifying database checksums & syncing with Cloud...' },
     { type: 'success', text: '[OK] Merged 42 local and 12 remote tasks. 0 conflicts.' },
     { type: 'command', text: 'sozgec-scan --target="eksi_yazarlar"' },
     { type: 'status', text: 'Yazar troll skorları yerel veritabanından taranıyor...' },

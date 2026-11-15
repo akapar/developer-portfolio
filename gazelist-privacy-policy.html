@@ -168,35 +168,35 @@
                 <h3>A. Local Storage (On-Device Data)</h3>
                 <p>All the data you create within the App—including your tasks, categories, Pomodoro session logs, lists, and local settings—is stored locally on your device's internal storage. We have no access to this data.</p>
                 
-                <h3>B. Google Drive Synchronization (Optional Feature)</h3>
-                <p>If you choose to use the cloud synchronization feature to sync your tasks between your devices (e.g., Windows and Android), the App will request authorization to connect to your Google Drive account.</p>
+                <h3>B. Cross-Device Cloud Synchronization (Optional Feature)</h3>
+                <p>If you choose to use the cloud synchronization feature to sync your tasks and focus logs between your devices (e.g., Windows and Android), your data is securely synchronized across your devices.</p>
                 <p>During this process:</p>
                 <ul>
-                    <li><span class="highlight-text">Google Account Email:</span> The App accesses your Google email address to verify your identity and display the currently connected account in the settings panel.</li>
-                    <li><span class="highlight-text">App Data Folder Access:</span> The App requests access to the restricted <code class="highlight-text">appDataFolder</code> scope of your Google Drive. This is a secure, hidden folder dedicated solely to Gazelist. The App uploads and downloads your sync files (<code class="highlight-text">tasks_data.json</code>, <code class="highlight-text">settings_data.json</code>, and <code class="highlight-text">sessions_data.json</code>) to/from this folder.</li>
-                    <li><span class="highlight-text">No Access to Personal Files:</span> The App <span class="highlight-text">cannot</span> see, access, modify, or delete any of your other personal files or folders in your Google Drive.</li>
-                    <li><span class="highlight-text">Direct Transmission:</span> All communication occurs directly and securely between your device and Google's official servers via HTTPS. Your credentials and sync files are never sent to Gazelist developers or any third-party servers.</li>
+                    <li><span class="highlight-text">Account Authentication:</span> The App authenticates using your account to verify your identity and ensure your synced data is accessible only by you.</li>
+                    <li><span class="highlight-text">Encrypted Data Sync:</span> Your task databases, timer session logs, and application preferences are synchronized securely over encrypted HTTPS connections.</li>
+                    <li><span class="highlight-text">Zero Unrelated Access:</span> The App cannot and does not access any personal files, contacts, or documents outside of Gazelist's own application data.</li>
+                    <li><span class="highlight-text">Data Privacy:</span> Your synced productivity data is strictly yours. We do not sell, track, analyze, or mine your personal task content or focus records.</li>
                 </ul>
 
                 <h2>2. Windows and Android Platform Permissions</h2>
                 <p>To function correctly, the App may request certain permissions:</p>
                 <ul>
-                    <li><span class="highlight-text">Internet Access:</span> Required to sync your data with Google Drive (if enabled) and check for application updates.</li>
+                    <li><span class="highlight-text">Internet Access:</span> Required for cross-device cloud synchronization (if enabled) and checking for application updates.</li>
                     <li><span class="highlight-text">Local Storage Read/Write:</span> Required to save your tasks, settings, and Pomodoro logs to your device.</li>
                     <li><span class="highlight-text">Notifications (Android):</span> Required to send alerts when your Pomodoro or break timers finish.</li>
                 </ul>
 
                 <h2>3. Third-Party Services</h2>
-                <p>The App integrates with Google APIs to provide cloud backup and sync services. These third-party services have their own privacy policies governing how they handle your data:</p>
+                <p>The App integrates with third-party authentication and secure cloud infrastructure services to provide cross-device synchronization. These third-party services maintain their own privacy policies governing how they handle data:</p>
                 <ul>
                     <li><span class="highlight-text">Google Play Services / Google Sign-In:</span> <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a></li>
                 </ul>
 
                 <h2>4. Data Security</h2>
-                <p>We value your trust in using our App. Since all data is stored either locally on your device or in your personal Google Drive account, the security of your data depends on:</p>
+                <p>We value your trust in using our App. Since all data is stored either locally on your device or securely synced in the cloud, the security of your data depends on:</p>
                 <ul>
-                    <li>The security settings of your local device.</li>
-                    <li>The security of your Google account (we strongly recommend enabling Two-Factor Authentication on your Google Account).</li>
+                    <li>The security settings and access controls of your local device.</li>
+                    <li>The security of your connected account (we strongly recommend enabling Two-Factor Authentication on your account).</li>
                 </ul>
 
                 <h2>5. Children's Privacy</h2>
@@ -218,8 +218,13 @@
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <p>&copy; 2026 AKA Labs. All Rights Reserved.</p>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <p>&copy; 2026 AKA Labs. GAZELIST is a registered trademark of AKA Labs.</p>
+            <p>
+                <a href="gazelist-privacy-policy.html" style="color: var(--text-secondary); text-decoration: none; transition: var(--transition);" onmouseover="this.style.color='var(--color-accent)'" onmouseout="this.style.color='var(--text-secondary)'"><i class="fa-solid fa-shield-halved"></i> Privacy Policy</a>
+                &bull;
+                <a href="gazelist-terms.html" style="color: var(--text-secondary); text-decoration: none; transition: var(--transition);" onmouseover="this.style.color='var(--color-accent)'" onmouseout="this.style.color='var(--text-secondary)'"><i class="fa-solid fa-file-contract"></i> Terms of Service</a>
+            </p>
         </div>
     </footer>
 
