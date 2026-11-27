@@ -46,7 +46,8 @@ const appsData = [
         secondaryLabel: "Microsoft Store",
         tertiaryLink: "https://play.google.com/store/apps/details?id=com.aka.uyap_okuyucu",
         tertiaryLabel: "Google Play",
-        privacyLink: "dava-belgelerim-gizlilik-politikasi.html"
+        privacyLink: "dava-belgelerim-gizlilik-politikasi.html",
+        termsLink: "dava-belgelerim-kullanim-kosullari.html"
     },
     {
         id: "sozgec",
